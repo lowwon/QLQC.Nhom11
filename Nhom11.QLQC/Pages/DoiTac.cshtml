@@ -1,0 +1,54 @@
+﻿@page
+@model Nhom11.QLQC.Pages.DoiTacModel
+<form method="post">
+<div class="row">
+    <div class="col-3 form-group">
+        <label>    Mã đối tác :    </label>
+        <input type="text"  id="mn" name="mn" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+        <label style="margin-left: 50px">Tên đối tác : </label>
+        <input style="margin-left: 50px" type="text"  id="tn" name="tn" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+        <label style="margin-left: 105px">Email : </label>
+        <input style="margin-left: 105px" type="text"  id="mtn" name="mtn" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+            <br />
+            <input  style="margin-top: 5px; margin-left: 165px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+    </div>
+</div>
+</form>
+<br />
+<div class="text-center">
+    <h2><b>Danh sách đối tác</b></h2>
+</div>
+    
+@if (Request.Method.ToUpper() == "GET")
+{
+<table class="table table-success table-condensed">
+    <tr>
+        <th>Mã đối tác</th>
+        <th>Tên đối tá</th>
+        <th>Email</th>
+        <th>Tác vụ</th>
+            
+    </tr>
+    <tr>
+        <td>Mã Sản phẩm</td>
+        <td>Tên sản phẩm</td>
+        <td>Đơn vị tính</td>
+    </tr>
+</table>
+}
+else if(Request.Method.ToUpper() == "POST") {
+    <table class="table table-success table-condensed">
+    <tr>
+        <th>Mã đối tác</th>
+        <th>Tên đối tá</th>
+        <th>Email</th>
+        <th>Tác vụ</th>
+    </tr>        
+</table>
+}

@@ -1,0 +1,12 @@
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.deps.json
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.AssemblyReference.cache
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfoInputs.cache
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfo.cs
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CoreCompileInputs.cache
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb

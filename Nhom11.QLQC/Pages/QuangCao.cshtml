@@ -1,0 +1,133 @@
+﻿@page
+@model Nhom11.QLQC.Pages.QuangCaoModel
+@{
+}
+<form method="post">
+<div class="row">
+    <div class="col-3 form-group">
+        <label>Mã quảng cáo :</label>
+        <input type="text"  id="mqc" name="mqc" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+        <label>Ngày bắt đầu : </label>
+        <select  id="nbd" name="nbd" class="form-control">
+            <option value =""></option>
+            <option value ="2018">Trước năm 2019</option>            
+            <option value ="2019">2019</option> 
+            <option value ="2020">2020</option> 
+            <option value ="2021">Từ năm 2021</option> 
+        </select>          
+    </div>
+    <div class="col-3 form-group">
+        <label>Ngày kết thúc : </label>
+        <select  id="nkt" name="nkt" class="form-control">
+            <option value =""></option>
+            <option value ="2018">Trước năm 2019</option>            
+            <option value ="2019">2019</option> 
+            <option value ="2020">2020</option> 
+            <option value ="2021">Từ năm 2021</option> 
+            </select>
+    </div>
+    <div class="col-3 form-group">
+        <label>Tổng tiền : </label>
+        <input type="text"  id="tt" name="tt" class="form-control" /> 
+    </div>
+    <div class="col-2 form-group">
+        <label>Mã nhóm thực hiện : </label>
+        <select  id="mn" name="mn" class="form-control">
+            <option value =""></option>
+            <option value ="2018">Trước năm 2019</option>            
+            <option value ="2019">2019</option> 
+            <option value ="2020">2020</option> 
+            <option value ="2021">Từ năm 2021</option> 
+        </select>          
+    </div>
+    <div class="col-2 form-group">
+        <label>Mã đối tác : </label>
+        <select  id="mdt" name="mdt" class="form-control">
+            <option value =""></option>
+            <option value ="2018">Trước năm 2019</option>            
+            <option value ="2019">2019</option> 
+            <option value ="2020">2020</option> 
+            <option value ="2021">Từ năm 2021</option> 
+        </select>          
+    </div>
+    <div class="col-3 form-group">
+        <label>Theo ngày bắt đầu</label>
+        <select  id="sx" name="sx" class="form-control">
+            <option value =""> </option>            
+            <option value ="tangdan">Tăng dần ↑ </option>
+            <option value ="giamdan">Giảm dần ↓ </option>
+        </select>
+    </div>
+    <div class="col-3 form-group">
+        <label>Theo ngày kết thúc</label>
+        <select  id="sx" name="sx" class="form-control">
+            <option value =""> </option>            
+            <option value ="tangdan">Tăng dần ↑ </option>
+            <option value ="giamdan">Giảm dần ↓ </option>
+        </select>
+    </div>
+    <div class="col-2 form-group">
+            <br />
+            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+    </div>
+</div>
+</form>
+<br />
+<div class="text-center">
+    <h2><b>Danh sách các quảng cáo</b></h2>
+</div>
+
+@if (Request.Method.ToUpper() == "GET")
+{
+<table class="table table-success table-condensed">
+    <tr>
+        <th>Mã quảng cáo</th>
+        <th>Ngày thành lập</th>
+        <th>Ngày kết thúc</th>
+        <th>Tổng tiền</th>
+        <th>Nhóm thực hiện</th>
+        <th>Đối tác</th>
+        <th>Mô tả</th>
+        <th>Loại quảng cáo</th>
+        <th>Tác vụ</th>
+    </tr>
+    <tr>
+        <td>Mã Sản phẩm</td>
+        <td>Tên sản phẩm</td>
+        <td>Đơn vị tính</td>
+        <td>Đơn giá</td>
+        <td>Đơn giá</td>
+        <td>Đơn vị tính</td>
+        <td>Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá </td>
+        <td>Đơn giá</td>
+    </tr>
+    
+</table>
+}
+else if(Request.Method.ToUpper() == "POST") {
+    <table class="table table-success table-condensed">
+    <tr>
+        <th>Mã quảng cáo</th>
+        <th>Ngày thành lập</th>
+        <th>Ngày kết thúc</th>
+        <th>Tiền quảng cáo</th>
+        <th>Nhóm thực hiện</th>
+        <th>Đối tác</th>
+        <th>Mô tả</th>
+        <th>Loại quảng cáo</th>
+        <th>Tác vụ</th>
+    </tr>        
+    <tr>
+        <td>Mã Sản phẩm</td>
+        <td>Tên sản phẩm</td>
+        <td>Đơn vị tính</td>
+        <td>Đơn giá</td>
+        <td>Đơn giá</td>
+        <td>Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá Đơn giá</td>
+        <td>Đơn giá</td>
+        <td>Đơn giá</td>
+    </tr>
+</table>
+}

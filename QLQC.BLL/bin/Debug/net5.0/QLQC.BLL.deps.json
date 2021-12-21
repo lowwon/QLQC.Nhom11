@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "QLQC.BLL/1.0.0": {
+        "runtime": {
+          "QLQC.BLL.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "QLQC.BLL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
