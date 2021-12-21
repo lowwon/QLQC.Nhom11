@@ -1,0 +1,90 @@
+﻿@page
+@using global::QLQC.DTO
+@model Nhom11.QLQC.Pages.QuangCaoVaLoaiQuangCaoModel
+@{
+}
+<form method="post">
+<div class="row">
+    <div class="col-3 form-group">
+        <label>Mã quảng cáo :</label>
+        <input  type="text"  id="mqc" name="mqc" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+        <label style="margin-left: 50px"  >Mã loại quảng cáo :</label>
+        <input style="margin-left: 50px"  type="text"  id="mlqc" name="mlqc" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+        <label style="margin-left: 100px" >Hình thức :</label>
+        <input style="margin-left: 100px" type="text"  id="ht" name="ht" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+            <br />
+            <input style="margin-top: 5px; margin-left: 150px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+    </div>
+</div>
+</form>
+<br />
+<div class="text-center">
+    <h2><b>Các quảng cáo và loại quảng cáo có liên hệ</b></h2>
+</div>
+@if (Request.Method.ToUpper() == "GET")
+{
+<table class="table table-success table-condensed">
+    <tr style="text-align:center">
+        <th>Mã quảng cáo</th>
+        <th>Mã loại quảng cáo</th>
+        <th>Hình thức</th>
+        <th colspan="2">Tác vụ</th>
+    </tr>
+    @foreach(QC_LQCDTO qc in Model.lst )
+    {
+        <tr style="text-align:center">
+            <td>@qc.MaQc</td>
+            <td>@qc.MaLoai</td>
+            <td>
+               @foreach (var q in Model.lst1)
+               {
+                    @if(String.Compare(@q.MaLoai,@qc.MaLoai) == 0)
+                    {
+                        @q.HinhThuc
+                    }            
+               }
+            </td>
+            <td>
+                <button  type="button" class="btn btn-outline-primary" >Sửa</button>                   
+                    <button type="button" class="btn btn-outline-danger" >Xoá</button>
+            </td>
+        </tr> 
+    }
+</table>
+}
+else if(Request.Method.ToUpper() == "POST") {
+    <table class="table table-success table-condensed">
+    <tr style="text-align:center">
+        <th>Mã quảng cáo</th>
+        <th>Mã loại quảng cáo</th>
+        <th>Hình thức</th>
+        <th colspan="2">Tác vụ</th>
+    </tr>        
+    @foreach(QC_LQCDTO qc in Model.lst )
+    {
+        <tr style="text-align:center">
+            <td>@qc.MaQc</td>
+            <td>@qc.MaLoai</td>
+            <td>
+               @foreach (var q in Model.lst1)
+               {
+                    @if(String.Compare(@q.MaLoai,@qc.MaLoai) == 0)
+                    {
+                        @q.HinhThuc
+                    }            
+               }
+            </td>
+            <td>
+                <button  type="button" class="btn btn-outline-primary" >Sửa</button>                   
+                <button type="button" class="btn btn-outline-danger" >Xoá</button>
+            </td>
+        </tr> 
+    }
+</table>
+}

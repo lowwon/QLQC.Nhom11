@@ -1519,6 +1519,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "QLQC.DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/QLQC.DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/QLQC.DTO.dll": {}
+        }
       }
     }
   },
@@ -5787,6 +5797,11 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "QLQC.DTO/1.0.0": {
+      "type": "project",
+      "path": "../QLQC.DTO/QLQC.DTO.csproj",
+      "msbuildProject": "../QLQC.DTO/QLQC.DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5794,7 +5809,8 @@
       "Microsoft.EntityFrameworkCore >= 5.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.0",
-      "Microsoft.EntityFrameworkCore.Tools >= 5.0.0"
+      "Microsoft.EntityFrameworkCore.Tools >= 5.0.0",
+      "QLQC.DTO >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5803,11 +5819,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\quoch\\source\\repos\\Nhom11.QLQC\\QLQC.DAL\\QLQC.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
       "projectName": "QLQC.DAL",
-      "projectPath": "C:\\Users\\quoch\\source\\repos\\Nhom11.QLQC\\QLQC.DAL\\QLQC.DAL.csproj",
+      "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
       "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\quoch\\source\\repos\\Nhom11.QLQC\\QLQC.DAL\\obj\\",
+      "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5823,7 +5839,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+              "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
