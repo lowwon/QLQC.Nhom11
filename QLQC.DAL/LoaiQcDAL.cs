@@ -35,5 +35,68 @@ namespace QLQC.DAL
             }
             return lst;
         }
+        public bool Update(LoaiQcDTO lqc)
+        {
+            bool res = false;
+            var c = db.LoaiQcs.FirstOrDefault(x => x.MaLoai == lqc.MaLoai);
+            if (c.MoTa != lqc.MoTa)
+            {
+                c.MoTa = lqc.MoTa;
+            }
+            if (c.HinhThuc != lqc.HinhThuc)
+            {
+                c.HinhThuc = lqc.HinhThuc;
+            }
+            try
+            {
+                db.LoaiQcs.Update(c);
+                db.SaveChanges();
+                res = true;
+            }
+            catch (Exception ex)
+            {
+                res = false;
+            }
+            return res;
+        }
+        public bool Delete(string mlqc)
+        {
+            bool res = false;
+            var c = db.LoaiQcs.FirstOrDefault(x => x.MaLoai == mlqc);
+            try
+            {
+                db.LoaiQcs.Remove(c);
+                db.SaveChanges();
+                res = true;
+            }
+            catch (Exception ex)
+            {
+                res = false;
+            }
+            return res;
+        }
+        public LoaiQcDTO Add(LoaiQcDTO lqc)
+        {
+            LoaiQcDTO res = new LoaiQcDTO();
+
+            var c = new LoaiQc();
+            c.MaLoai = lqc.MaLoai;
+            c.MoTa = lqc.MoTa;
+            c.HinhThuc = lqc.HinhThuc;
+            try
+            {
+                db.LoaiQcs.Add(c);
+                db.SaveChanges();
+                res.MaLoai = c.MaLoai;
+                res.MoTa = c.MoTa;
+                res.HinhThuc = c.HinhThuc;
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
     }
 }
+

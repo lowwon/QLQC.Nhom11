@@ -757,3 +757,6 @@ C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\Nhom11.QLQC\bin\De
 C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\Nhom11.QLQC\bin\Debug\net5.0\QLQC.DTO.pdb
 C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\Nhom11.QLQC\bin\Debug\net5.0\QLQC.DAL.pdb
 C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Razor\Pages\QuangCaoVaLoaiQuangCao.cshtml.g.cs
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\Nhom11.QLQC\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\Nhom11.QLQC\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\Nhom11.QLQC\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

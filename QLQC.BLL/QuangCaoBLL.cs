@@ -18,5 +18,17 @@ namespace QLQC.BLL
         {
             return dal.GetAll();
         }
+        public bool Update(QuangCaoDTO qc)
+        {
+            return dal.Update(qc);
+        }
+        public bool Delete(string mqc)
+        {
+            return dal.Delete(mqc);
+        }
+        public QuangCaoDTO Add(QuangCaoDTO qc)
+        {
+            return dal.Add(qc);
+        }
     }
 }

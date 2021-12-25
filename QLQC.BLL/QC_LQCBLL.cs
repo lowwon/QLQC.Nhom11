@@ -18,5 +18,17 @@ namespace QLQC.BLL
         {
             return dal.GetAll();
         }
+        public bool Update(QC_LQCDTO qc_lqct, QC_LQCDTO qc_lqc)
+        {
+            return dal.Update(qc_lqct, qc_lqc);
+        }
+        public bool Delete(string mqc, string mlqc)
+        {
+            return dal.Delete(mqc, mlqc);
+        }
+        public QC_LQCDTO Add(QC_LQCDTO qc)
+        {
+            return dal.Add(qc);
+        }
     }
 }
