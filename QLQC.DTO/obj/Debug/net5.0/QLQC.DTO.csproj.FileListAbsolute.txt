@@ -10,3 +10,15 @@ C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.cspro
 C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
 C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
 C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.deps.json
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.dll
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\ref\QLQC.DTO.dll
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.pdb
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.AssemblyReference.cache
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.GeneratedMSBuildEditorConfig.editorconfig
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfoInputs.cache
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfo.cs
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.CoreCompileInputs.cache
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
+E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb

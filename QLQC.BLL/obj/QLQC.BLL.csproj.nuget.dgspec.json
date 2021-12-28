@@ -1,21 +1,180 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\quoch\\source\\repos\\Nhom11.QLQC\\QLQC.BLL\\QLQC.BLL.csproj": {}
+    "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\quoch\\source\\repos\\Nhom11.QLQC\\QLQC.BLL\\QLQC.BLL.csproj": {
+    "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quoch\\source\\repos\\Nhom11.QLQC\\QLQC.BLL\\QLQC.BLL.csproj",
+        "projectUniqueName": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj",
         "projectName": "QLQC.BLL",
-        "projectPath": "C:\\Users\\quoch\\source\\repos\\Nhom11.QLQC\\QLQC.BLL\\QLQC.BLL.csproj",
-        "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quoch\\source\\repos\\Nhom11.QLQC\\QLQC.BLL\\obj\\",
+        "projectPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.BLL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj": {
+                "projectPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj"
+              },
+              "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+                "projectPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
+        "projectName": "QLQC.DAL",
+        "projectPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+                "projectPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj",
+        "projectName": "QLQC.DTO",
+        "projectPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "E:\\LTCSDL\\QlQcao\\QLQC.Nhom11\\QLQC.DTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -54,7 +213,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
