@@ -1,0 +1,157 @@
+﻿@page
+@model Nhom11.QLQC.Pages.LoaiQuangCaoModel
+@using System.Text.Json
+@using global::QLQC.DTO
+@{
+    
+}
+<script>
+    var dataLqc = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+</script>
+<form method="post">
+<div class="row">
+    <div class="col-5 form-group">
+        <label>      Mã loại quảng cáo :    </label>
+        <input type="text"  id="mlqc" name="mlqc" class="form-control" />
+    </div>
+    <div class="col-5 form-group">
+        <label>Hình thức quảng cáo : </label>
+        <select  id="ht" name="ht" class="form-control">
+            <option value =""></option>
+            @foreach (var item in Model.lst2)
+            {
+               <option value ="@item.HinhThuc">@item.HinhThuc</option>  
+            }              
+        </select>          
+    </div>
+        
+    <div class="col-2 form-group">
+            <br />
+            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+    </div>
+</div>
+</form>
+<br />
+<div class="text-center">
+    <h2 style="display: inline-block"><b>Danh sách loại quảng cáo</b></h2>
+    <input style="float: right" onclick="openModalLoaiQuangCaoAdd()" type = "button" class="btn btn-outline-success" value="Thêm mới"/>
+        <div style="text-align:left" id="divModalAdd" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Quảng cáo - <span id="spanid"></span></h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                    <label>Mã loại : </label>
+                    <input type="text" class="form-control" id="txtmlqcA"/> 
+                </div>
+                <div class="form-group">
+                    <label>Hình thức : </label>
+                    <input type="text" class="form-control" id="txthtA"/> 
+                </div>
+                <div class="form-group">
+                    <label>Mô tả</label>
+                    <textarea rows="5" class="form-control" id="txtmtA"></textarea>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+                <button type="button" onclick="addLoaiQuangCao()" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+@if (Request.Method.ToUpper() == "GET")
+{
+<table class="table table-success table-condensed">
+    <tr style="text-align:center">
+        <th>Mã loại quảng cáo</th>
+        <th>Hình thức quảng cáo</th>
+        <th>Mô tả</th>
+        <th>Các dự án quảng cáo</th>
+        <th >Tác vụ</th>
+    </tr>
+        @foreach (LoaiQcDTO lqc in Model.lst)
+        {
+            <tr style="text-align:center">
+                <td>@lqc.MaLoai</td>
+                <td>@lqc.HinhThuc</td>
+                <td>@lqc.MoTa</td>
+                <td>
+                   @foreach (var q in Model.lst1)
+                  {
+                        if(String.Compare(@q.MaLoai,@lqc.MaLoai) == 0)
+                        {
+                            @q.MaQc<br />
+                        }
+                  }
+                  <a asp-area="" asp-page="/QuangCaoVaLoaiQuangCao">Chi tiết</a>
+                </td>
+                 <td>
+                    <button style="margin-bottom:5px" onclick="openModalLoaiQuangCao('@lqc.MaLoai')" type="button" class="btn btn-outline-primary" >Sửa</button>                   
+                    <button type="button" onclick="deleteLoaiQuangCao('@lqc.MaLoai')" class="btn btn-outline-danger" >Xoá</button>
+                </td>
+            </tr>
+        }
+    
+</table>
+}
+else if(Request.Method.ToUpper() == "POST") {
+    <table class="table table-success table-condensed">
+    <tr style="text-align:center">
+        <th>Mã loại quảng cáo</th>
+        <th>Hình thức quảng cáo</th>
+        <th>Mô tả</th>
+        <th>Các dự án quảng cáo</th>
+        <th>Tác vụ</th>
+    </tr>     
+    @foreach (LoaiQcDTO lqc in Model.lst)
+        {
+            <tr style="text-align:center">
+                <td>@lqc.MaLoai</td>
+                <td>@lqc.HinhThuc</td>
+                <td>@lqc.MoTa</td>
+                <td>
+                   @foreach (var q in Model.lst1)
+                  {
+                        if(String.Compare(@q.MaLoai,@lqc.MaLoai) == 0)
+                        {
+                            @q.MaQc<br />
+                        }
+                  }
+                  <a asp-area="" asp-page="/QuangCaoVaLoaiQuangCao">Chi tiết</a>
+                </td>
+                 <td>
+<button style="margin-bottom:5px" onclick="openModalLoaiQuangCao('@lqc.MaLoai')" type="button" class="btn btn-outline-primary" >Sửa</button>                   
+                    <button type="button" onclick="deleteLoaiQuangCao('@lqc.MaLoai')" class="btn btn-outline-danger" >Xoá</button>
+                </td>
+            </tr>
+        }
+</table>
+}
+<div style="text-align:left" id="divModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Quảng cáo - <span id="spanid"></span></h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <div class="form-group">
+            <label>Hình thức : </label>
+            <input type="text" class="form-control" id="txtht"/> 
+        </div>
+        <div class="form-group">
+            <label>Mô tả</label>
+            <textarea rows="5" class="form-control" id="txtmt"></textarea>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+        <button type="button" onclick="saveLoaiQuangCao()" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+    </div>
+</div>

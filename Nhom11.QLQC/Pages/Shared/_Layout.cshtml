@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Nhom11.QLQC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Nhom11.QLQC</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/NhanVien">Nhân Viên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/NhomNhanVien">Nhóm Nhân Viên</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/QuangCao">Quảng Cáo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/LoaiQuangCao">Loại Quảng Cáo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/DoiTac">Đối Tác</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/HopDong">Hợp Đồng</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                           Nâng cao
+                           </a>
+                           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                               <li class="dropdown-header">Quảng cáo</li>
+                            <li><a class="dropdown-item" href="#">Tìm các quảng cáo mà nhân viên đã thực hiện</a> </li>
+                            <li><a class="dropdown-item" href="#">Tìm các quảng cáo được lãnh đạo bởi nhóm trưởng</a></li>
+                            <li><a class="dropdown-item" href="#">Tìm các quảng cáo của nhóm nhân viên</a></li>
+                            <li><a class="dropdown-item" href="#">Tìm các quảng cáo của đối tác</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="dropdown-header">Đối tác</li>
+                            <li><a class="dropdown-item" href="#">Tìm các đối tác mà nhân viên đã kí hợp đồng</a></li>
+                            <li><a class="dropdown-item" href="#">Tìm các đối tác mà nhóm nhân viên đã quảng cáo</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="dropdown-header">Nhân viên</li>
+                            <li><a class="dropdown-item" href="#">Tìm các nhân viên mà đối tác đã kí hợp đồng</a></li>                              
+                            <li><a class="dropdown-item" href="#">Tìm các nhân viên thuộc nhóm nhân viên</a></li>
+                            <li><a class="dropdown-item" href="#">Tìm các nhân viên đã thực hiện quảng cáo</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="dropdown-header">Hợp đồng</li>
+                            <li><a class="dropdown-item" href="#">Tìm các hợp đồng nhân viên đã kí </a></li>
+                            <li><a class="dropdown-item" href="#">Tìm các hợp đồng đối tác đã kí </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="dropdown-header">Loại quảng cáo</li>
+                            <li><a class="dropdown-item" href="#">Tìm các loại quảng cáo đối tác đã dùng qua</a></li>
+                          </ul>                    
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Nhom11.QLQC - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+@**@
