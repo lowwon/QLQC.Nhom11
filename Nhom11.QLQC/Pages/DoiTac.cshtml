@@ -1,54 +1,164 @@
 ﻿@page
+@using global::QLQC.DTO
+@using System.Text.Json
 @model Nhom11.QLQC.Pages.DoiTacModel
+
+@Html.AntiForgeryToken()
+<script type="text/javascript">
+    var dataKH = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+</script>
+
+
 <form method="post">
-<div class="row">
-    <div class="col-3 form-group">
-        <label>    Mã đối tác :    </label>
-        <input type="text"  id="mn" name="mn" class="form-control" />
-    </div>
-    <div class="col-3 form-group">
-        <label style="margin-left: 50px">Tên đối tác : </label>
-        <input style="margin-left: 50px" type="text"  id="tn" name="tn" class="form-control" />
-    </div>
-    <div class="col-3 form-group">
-        <label style="margin-left: 105px">Email : </label>
-        <input style="margin-left: 105px" type="text"  id="mtn" name="mtn" class="form-control" />
-    </div>
-    <div class="col-3 form-group">
+    <div class="row">
+        <div class="col-5 form-group">
+            <label>     Mã khách hàng :    </label>
+            <select id="maKH" name="maKH" class="form-control">
+                <option value=""></option>
+                @foreach (var item in Model.lst)
+                {
+                    <option value="@item.MaKH">@item.MaKH</option>
+
+                }
+            </select>
+
+        </div>
+        <div class="col-5 form-group">
+            <label>Họ Tên : </label>
+            <select id="tenKH" name="tenKH" class="form-control">
+                <option value=""></option>
+                @foreach (var item in Model.lst)
+                {
+                    <option value="@item.TenKH">@item.TenKH</option>
+
+                }
+            </select>
+        </div>
+
+        <div class="col-2 form-group">
             <br />
-            <input  style="margin-top: 5px; margin-left: 165px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
+        </div>
     </div>
-</div>
 </form>
 <br />
 <div class="text-center">
-    <h2><b>Danh sách đối tác</b></h2>
+    <h2 style="display: inline-block"><b>Danh sách Khách Hàng</b></h2>
+    <input style="float: right" onclick="openKH(null)" type="button" class="btn btn-outline-success" value="Thêm mới" />
+    <div style="text-align:left" id="divModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Khách Hàng - <span id="spanMaKH"></span></h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txtMaKH">Mã Khách Hàng</label>
+                        <input type="text" class="form-control" id="txtMaKH" aria-describedby="KHHelp" placeholder="Nhập mã Khách Hàng">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtTenKH">Tên Khách Hàng</label>
+                        <input type="text" class="form-control" id="txtTenKH" aria-describedby="TenKHHelp" placeholder="Nhập tên Khách Hàng">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtGT">Giới tính</label>
+                        <input type="text" class="form-control" id="txtGT" aria-describedby="GTHelp" placeholder="Nam">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" id="txtEmailKH" aria-describedby="EmailKHHelp" placeholder="Nhập email">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="saveKH();" class="btn btn-primary">Lưu thay đổi</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
-    
 @if (Request.Method.ToUpper() == "GET")
 {
-<table class="table table-success table-condensed">
-    <tr>
-        <th>Mã đối tác</th>
-        <th>Tên đối tá</th>
-        <th>Email</th>
-        <th>Tác vụ</th>
-            
-    </tr>
-    <tr>
-        <td>Mã Sản phẩm</td>
-        <td>Tên sản phẩm</td>
-        <td>Đơn vị tính</td>
-    </tr>
-</table>
-}
-else if(Request.Method.ToUpper() == "POST") {
     <table class="table table-success table-condensed">
-    <tr>
-        <th>Mã đối tác</th>
-        <th>Tên đối tá</th>
-        <th>Email</th>
-        <th>Tác vụ</th>
-    </tr>        
-</table>
+        <tr style="text-align:center">
+            <th>Mã khách hàng</th>
+            <th>Họ Tên</th>
+            <th>Giới tính</th>
+            <th>Email</th>
+
+        </tr>
+        @foreach (KhachHangDTO c in Model.lst)
+        {
+            <tr style="text-align:center">
+                <td>@c.MaKH</td>
+                <td>@c.TenKH</td>
+                <td>@c.GT</td>
+                <td>@c.Email</td>
+
+                <td>
+                    <button style="margin-bottom:5px" onclick="openKH('@c.MaKH')" type="button" class="btn btn-outline-primary">Sửa</button>
+                    <button type="button" onclick="deleteKH('@c.MaKH')" class="btn btn-outline-danger">Xoá</button>
+                </td>
+            </tr>
+        }
+
+    </table>
 }
+else if (Request.Method.ToUpper() == "POST")
+{
+    <table class="table table-success table-condensed">
+        <tr style="text-align:center">
+            <th>Mã khách hàng</th>
+            <th>Họ Tên</th>
+            <th>Giới tính</th>
+            <th>Email</th>
+        </tr>
+        @foreach (KhachHangDTO c in Model.lst)
+        {
+            <tr style="text-align:center">
+                <td>@c.MaKH</td>
+                <td>@c.TenKH</td>
+                <td>@c.GT</td>
+                <td>@c.Email</td>
+                <td>
+                    <button style="margin-bottom:5px" onclick="openKH('@c.MaKH')" type="button" class="btn btn-outline-primary">Sửa</button>
+                    <button type="button" onclick="deleteKH('@c.MaKH')" class="btn btn-outline-danger">Xoá</button>
+                </td>
+            </tr>
+        }
+    </table>
+}
+<div style="text-align:left" id="divModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Khách Hàng - <span id="spanMaKH"></span></h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="txtMaKH">Mã Khách Hàng</label>
+                    <input type="text" class="form-control" id="txtMaKH" aria-describedby="KHHelp" placeholder="Nhập mã Khách Hàng">
+                </div>
+                <div class="form-group">
+                    <label for="txtTenKH">Tên Khách Hàng</label>
+                    <input type="text" class="form-control" id="txtTenKH" aria-describedby="TenKHHelp" placeholder="Nhập tên Khách Hàng">
+                </div>
+                <div class="form-group">
+                    <label for="txtGT">Giới tính</label>
+                    <input type="text" class="form-control" id="txtGT" aria-describedby="GTHelp" placeholder="Nam">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="txtEmailKH" aria-describedby="EmailKHHelp" placeholder="Nhập email">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="saveKH()" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
