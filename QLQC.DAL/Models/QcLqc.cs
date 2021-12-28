@@ -3,7 +3,12 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace QLQC.DAL
+//<<<<<<< HEAD
+//namespace QLQC.DAL
+//=======
+//namespace QLQC.DAL.Models
+//>>>>>>> 66b4d91e6a008838e6cb84adf942a761692763b5
+namespace QLQC.DAL.Models
 {
     public partial class QcLqc
     {

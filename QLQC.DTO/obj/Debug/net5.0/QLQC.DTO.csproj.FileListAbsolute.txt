@@ -10,6 +10,7 @@ C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.cspro
 C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
 C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
 C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb
+<<<<<<< HEAD
 E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.deps.json
 E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.dll
 E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\ref\QLQC.DTO.dll
@@ -22,3 +23,17 @@ E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.CoreCompi
 E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
 E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
 E:\LTCSDL\QlQcao\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb
+=======
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.deps.json
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\ref\QLQC.DTO.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.AssemblyReference.cache
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfoInputs.cache
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfo.cs
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.CoreCompileInputs.cache
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb
+>>>>>>> 66b4d91e6a008838e6cb84adf942a761692763b5

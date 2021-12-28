@@ -4,7 +4,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace QLQC.DAL
+//<<<<<<< HEAD
+namespace QLQC.DAL.Models
+//=======
+//namespace QLQC.DAL.Models
+//>>>>>>> 66b4d91e6a008838e6cb84adf942a761692763b5
 {
     public partial class qlQcaoContext : DbContext
     {
@@ -30,7 +34,11 @@ namespace QLQC.DAL
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//<<<<<<< HEAD
                 optionsBuilder.UseSqlServer("Server=DESKTOP-H8VV1AJ;Database=qlQcao;Trusted_Connection=True;");
+//=======
+               // optionsBuilder.UseSqlServer("Server=.;Database=qlQcao;Trusted_Connection=True;");
+//.Models>>>>>>> 66b4d91e6a008838e6cb84adf942a761692763b5
             }
         }
 

@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Mvc;
 namespace Nhom11.QLQC
 {
     public class Startup
@@ -26,9 +26,16 @@ namespace Nhom11.QLQC
         {
 
             services.AddRazorPages();
-            services.AddMvc()
+//<<<<<<< HEAD
+           /* services.AddMvc()
             .SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
+           */
+//=======
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
+            services.AddControllers().AddNewtonsoftJson();
+//>>>>>>> 66b4d91e6a008838e6cb84adf942a761692763b5
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

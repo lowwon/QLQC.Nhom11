@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QLQC.DTO;
-//using QLQC.DAL.Models;
+using QLQC.DAL.Models;
 
 namespace QLQC.DAL
 {
