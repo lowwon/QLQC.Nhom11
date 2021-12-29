@@ -1,114 +1,215 @@
 ﻿@page
+@using global::QLQC.DTO
+@using System.Text.Json;
 @model Nhom11.QLQC.Pages.NhanVienModel
 @{
 }
+@Html.AntiForgeryToken()
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery antiforgery
+@{
+    var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+}
+<script>
+    var dataNv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+</script>
 <form method="post">
-<div class="row">
-    <div class="col-2 form-group">
-        <label>Mã nhân viên : </label>
-        <input type="text" id="mnv" name="mnv" class="form-control" />
-    </div>
-    <div class="col-2 form-group">
-        <label>      Mã nhóm :    </label>
-        <select  id="mn" name="mn" class="form-control">
-            <option value =""></option>
-            <option value ="2014">Trước năm 2014</option>            
-            <option value ="2016">2015 - 2016</option> 
-            <option value ="2018">2017 - 2018</option> 
-            <option value ="2020">2019 - 2020</option> 
-            <option value ="2021">Từ năm 2021</option>
-        </select>
-    </div>
-    <div class="col-3 form-group">
-        <label>Tên nhân viên : </label>
-        <input type="text"  id="tnv" name="tnv" class="form-control" />
-    </div>
-    <div class="col-2 form-group">
-        <label>Năm sinh: </label>
-        <select  id="ns" name="ns" class="form-control">
-            <option value =""></option>
-            <option value ="1980">Trước năm 1980</option>            
-            <option value ="1985">1981 - 1985</option> 
-            <option value ="1990">1986 - 1990</option> 
-            <option value ="1995">1991 - 1995</option> 
-            <option value ="1996">Từ năm 1996</option>
-        </select>
-    </div>
-    <div class="col-3 form-group">
-        <label>Email : </label>
-        <input type="text"  id="emailnv" name="emailnv" class="form-control" />
-    </div>      
-    <div class="col-2 form-group">
-        <label>      Năm vào làm:     </label>
-        <select  id="nvl" name="nvl" class="form-control">
-            <option value =""></option>
-            <option value ="2014">Trước năm 2014</option>            
-            <option value ="2016">2015 - 2016</option> 
-            <option value ="2018">2017 - 2018</option> 
-            <option value ="2020">2019 - 2020</option> 
-            <option value ="2021">Từ năm 2021</option>
-        </select>
-    </div>
-    <div class="col-4 form-group">
-        <label>Theo năm sinh</label>
-        <select  id="sx1" name="sx1" class="form-control">
-            <option value =""> </option>            
-            <option value ="tangdan">Tăng dần ↑ </option>
-            <option value ="giamdan">Giảm dần ↓ </option>
-        </select>
-    </div>
-    <div class="col-4 form-group">
-        <label>Theo năm làm việc</label>
-        <select  id="sx2" name="sx2" class="form-control">
-            <option value =""> </option>            
-            <option value ="tangdan">Tăng dần ↑ </option>
-            <option value ="giamdan">Giảm dần ↓ </option>
-        </select>
-    </div>
-    <div class="col-2 form-group">
+    <div class="row">
+        <div class="col-2 form-group">
+            <label>Mã nhân viên : </label>
+            <input type="text" id="mnv" name="mnv" class="form-control" />
+        </div>
+        <div class="col-2 form-group">
+            <label>      Mã nhóm :    </label>
+            <select id="mn" name="mn" class="form-control">
+                <option value=""></option>
+                <option value="2014">Trước năm 2014</option>
+                <option value="2016">2015 - 2016</option>
+                <option value="2018">2017 - 2018</option>
+                <option value="2020">2019 - 2020</option>
+                <option value="2021">Từ năm 2021</option>
+            </select>
+        </div>
+        <div class="col-3 form-group">
+            <label>Tên nhân viên : </label>
+            <input type="text" id="tnv" name="tnv" class="form-control" />
+        </div>
+        <div class="col-2 form-group">
+            <label>Năm sinh: </label>
+            <select id="ns" name="ns" class="form-control">
+                <option value=""></option>
+                <option value="1980">Trước năm 1980</option>
+                <option value="1985">1981 - 1985</option>
+                <option value="1990">1986 - 1990</option>
+                <option value="1995">1991 - 1995</option>
+                <option value="1996">Từ năm 1996</option>
+            </select>
+        </div>
+        <div class="col-3 form-group">
+            <label>Email : </label>
+            <input type="text" id="emailnv" name="emailnv" class="form-control" />
+        </div>
+        <div class="col-2 form-group">
+            <label>      Năm vào làm:     </label>
+            <select id="nvl" name="nvl" class="form-control">
+                <option value=""></option>
+                <option value="2014">Trước năm 2014</option>
+                <option value="2016">2015 - 2016</option>
+                <option value="2018">2017 - 2018</option>
+                <option value="2020">2019 - 2020</option>
+                <option value="2021">Từ năm 2021</option>
+            </select>
+        </div>
+        <div class="col-4 form-group">
+            <label>Theo năm sinh</label>
+            <select id="sx1" name="sx1" class="form-control">
+                <option value=""> </option>
+                <option value="tangdan">Tăng dần ↑ </option>
+                <option value="giamdan">Giảm dần ↓ </option>
+            </select>
+        </div>
+        <div class="col-4 form-group">
+            <label>Theo năm làm việc</label>
+            <select id="sx2" name="sx2" class="form-control">
+                <option value=""> </option>
+                <option value="tangdan">Tăng dần ↑ </option>
+                <option value="giamdan">Giảm dần ↓ </option>
+            </select>
+        </div>
+        <div class="col-2 form-group">
             <br />
-            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
+        </div>
     </div>
-</div>
 </form>
 <br />
 <div class="text-center">
-<h2><b>Danh sách nhân viên</b></h2>
+    <h2><b>Danh sách nhân viên</b></h2>
+
 </div>
-    
+<div>
+    <button type="button" onclick="openModalNV(null);" class="btn btn-outline-success"> Thêm mới</button>
+</div>
+
 @if (Request.Method.ToUpper() == "GET")
 {
-<table class="table table-success table-condensed">
-    <tr>
-        <th>Mã nhân viên</th>
-        <th>Tên nhân viên</th>
-        <th>Email</th>
-        <th>Năm sinh</th>
-        <th>Năm vào làm</th>
-        <th>Mã nhóm</th>
-        <th>Tác vụ</th>
-    </tr>
-    <tr>
-        <td>a</td>
-        <td>b</td>
-        <td>c</td>
-        <td>d</td>
-        <td>e</td>
-        <td>f</td>
-    </tr>
-</table>
+    <table id="tbNV" class="table table-success table-condensed">
+        <tr>
+            <th>Mã nhân viên</th>
+            <th>Tên nhân viên</th>
+            <th>Mã nhóm</th>
+            <th>Ngày sinh</th>
+            <th>Ngày vào làm</th>
+            <th>Email</th>
+            <th>Giới tính</th>
+        </tr>
+        @foreach (NhanVienDTO nv in Model.lst)
+        {
+            <tr id="trNv_@nv.MaNv" style="text-align:center">
+                <td>@nv.MaNv</td>
+                <td>@nv.TenNv</td>
+                <td>@nv.MaNhom</td>
+                <td>@nv.NgSinh</td>
+                <td>@nv.NgVaoLam</td>
+                <td>@nv.Email</td>
+                <td>@nv.Gt</td>
+
+                <td>
+                    <button style="margin-bottom:5px" type="button" onclick="openModalNV('@nv.MaNv');" class="btn btn-outline-primary">Sửa</button>
+                    <button type="button" onclick="deleteNhanVien('@nv.MaNv');" class="btn btn-outline-danger">Xoá</button>
+                </td>
+            </tr>
+        }
+    </table>
 }
-else if(Request.Method.ToUpper() == "POST") {
-    <table class="table table-success table-condensed">
-    <tr>
-        <th>Mã nhân viên</th>
-        <th>Tên nhân viên</th>
-        <th>Email</th>
-        <th>Năm sinh</th>
-        <th>Năm vào làm</th>
-        <th>Mã nhóm</th>
-        <th>Tác vụ</th>
-    </tr>        
-</table>
+else if (Request.Method.ToUpper() == "POST")
+{
+    <table id="tbNV" class="table table-success table-condensed">
+        <tr>
+            <th>Mã nhân viên</th>
+            <th>Tên nhân viên</th>
+            <th>Mã nhóm</th>
+            <th>Ngày sinh</th>
+            <th>Ngày vào làm</th>
+            <th>Email</th>
+            <th>Giới tính</th>
+        </tr>
+        @foreach (NhanVienDTO nv in Model.lst)
+        {
+            <tr id="trNv_@nv.MaNv" style="text-align:center">
+                <td>@nv.MaNv</td>
+                <td>@nv.TenNv</td>
+                <td>@nv.MaNhom</td>
+                <td>@nv.NgSinh</td>
+                <td>@nv.NgVaoLam</td>
+                <td>@nv.Email</td>
+                <td>@nv.Gt</td>
+
+                <td>
+                    <button style="margin-bottom:5px" type="button" onclick="openModalNV('@nv.MaNv');" class="btn btn-outline-primary">Sửa</button>
+                    <button type="button" onclick="deleteNhanVien('@nv.MaNv');" class="btn btn-outline-danger">Xoá</button>
+                </td>
+            </tr>
+        }
+    </table>
 }
+
+
+
+
+
+<div id="divModalNV" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm nhân viên - <span id="spanIdNv"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="txtMaNv">Mã nhân viên</label>
+                    <input type="text" class="form-control" id="txtMaNv" aria-describedby="MaNvHelp">
+                    <small id="MaNvHelp" class="form-text text-muted">Mã nhân viên không được trống !</small>
+                </div>
+                <div class="form-group">
+                    <label for="txtTenNv">Tên nhân viên</label>
+                    <input type="text" class="form-control" id="txtTenNv" aria-describedby="TenNvHelp">
+                    <small id="TenNvHelp" class="form-text text-muted">Tên nhân viên không được trống !</small>
+                </div>
+                <div class="form-group">
+                    <label for="txtMaNhom">Mã nhóm</label>
+                    <input type="text" class="form-control" id="txtMaNhom" aria-describedby="MaNhomHelp">
+                    <small id="MaNhomHelp" class="form-text text-muted">Mã nhóm không được trống !</small>
+                </div>
+                <div class="form-group">
+                    <label for="txtNgVaoLam">Ngày vào làm</label>
+                    <input type="text" class="form-control" id="txtNgVaoLam" aria-describedby="NgVaoLamHelp">
+                    <small id="NgVaoLamHelp" class="form-text text-muted">Ngày vào làm không được trống !.</small>
+                </div>
+                <div class="form-group">
+                    <label for="txtNgSinh">Ngày sinh </label>
+                    <input type="text" class="form-control" id="txtNgSinh" aria-describedby="MaNhomHelp">
+                    <small id="NgSinhHelp" class="form-text text-muted">Ngày sinh không được trống !.</small>
+                </div>
+                <div class="form-group">
+                    <label for="txtEmail">Email</label>
+                    <input type="text" class="form-control" id="txtEmail" aria-describedby="EmailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="txtGt">Giới tính</label>
+                    <input type="text" class="form-control" id="txtGt" aria-describedby="GtHelp" />
+                    <small id="GtHelp" class="form-text text-muted">Giới tính không được trống !.</small>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="saveNhanVien();" class="btn btn-primary">Lưu</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 

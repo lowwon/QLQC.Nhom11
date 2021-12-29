@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DAL\\QLQC.DAL.csproj": {}
+    "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DAL\\QLQC.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DAL\\QLQC.DAL.csproj": {
+    "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DAL\\QLQC.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DAL\\QLQC.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DAL\\QLQC.DAL.csproj",
         "projectName": "QLQC.DAL",
-        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DAL\\QLQC.DAL.csproj",
-        "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DAL\\QLQC.DAL.csproj",
+        "packagesPath": "C:\\Users\\Thai Tuong\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Thai Tuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DTO\\QLQC.DTO.csproj": {
-                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DTO\\QLQC.DTO.csproj"
+              "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DTO\\QLQC.DTO.csproj": {
+                "projectPath": "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DTO\\QLQC.DTO.csproj"
               }
             }
           }
@@ -80,21 +80,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DTO\\QLQC.DTO.csproj": {
+    "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DTO\\QLQC.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DTO\\QLQC.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DTO\\QLQC.DTO.csproj",
         "projectName": "QLQC.DTO",
-        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DTO\\QLQC.DTO.csproj",
-        "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\New folder\\QLQC.DTO\\obj\\",
+        "projectPath": "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DTO\\QLQC.DTO.csproj",
+        "packagesPath": "C:\\Users\\Thai Tuong\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Thai Tuong\\Source\\Repos\\QLQC.Nhom111\\QLQC.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Thai Tuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -134,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
