@@ -12,6 +12,8 @@ namespace Nhom11.QLQC.Pages
     {
         private KhachHangBLL bus;
         public string maKH { get; private set; }
+        public string tenKH { get; private set; }
+        public string GT { get; private set; }
         public List<KhachHangDTO> lst;
 
 
@@ -27,7 +29,8 @@ namespace Nhom11.QLQC.Pages
         {
             lst = bus.GetAll().ToList();
             maKH = Request.Form["maKH"];
-
+            tenKH = Request.Form["tenKH"];
+            GT = Request.Form["GT"];
             var temp1 = new List<KhachHangDTO>();
 
             if (maKH != "")
@@ -37,7 +40,20 @@ namespace Nhom11.QLQC.Pages
                          select s).ToList();
                 lst = temp1;
             }
-
+            if (tenKH != "")
+            {
+                temp1 = (from s in lst
+                         where s.TenKH.Contains(tenKH.Trim())
+                         select s).ToList();
+                lst = temp1;
+            }
+            if (GT != "")
+            {
+                temp1 = (from s in lst
+                         where s.GT.Trim() == GT.Trim()
+                         select s).ToList();
+                lst = temp1;
+            }
         }
         public IActionResult OnPostUpdate(string KH)
         {

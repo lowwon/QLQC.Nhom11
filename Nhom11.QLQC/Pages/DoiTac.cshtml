@@ -11,28 +11,24 @@
 
 <form method="post">
     <div class="row">
-        <div class="col-5 form-group">
+        <div class="col-3 form-group">
             <label>     Mã khách hàng :    </label>
-            <select id="maKH" name="maKH" class="form-control">
-                <option value=""></option>
-                @foreach (var item in Model.lst)
-                {
-                    <option value="@item.MaKH">@item.MaKH</option>
-
-                }
-            </select>
+            <input type="text" id="maKH" name="maKH" class="form-control" />
 
         </div>
         <div class="col-5 form-group">
             <label>Họ Tên : </label>
-            <select id="tenKH" name="tenKH" class="form-control">
-                <option value=""></option>
-                @foreach (var item in Model.lst)
-                {
-                    <option value="@item.TenKH">@item.TenKH</option>
+            <input type="text" id="tenKH" name="tenKH" class="form-control" />
+        </div>
 
-                }
+        <div class="col-2 form-group">
+            <label>Giới tính : </label>
+            <select id="GT" name="GT" class="form-control">
+                <option value=""></option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
             </select>
+
         </div>
 
         <div class="col-2 form-group">
