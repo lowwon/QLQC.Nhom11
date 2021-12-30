@@ -34,3 +34,15 @@ C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.deps.json
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\ref\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.AssemblyReference.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfoInputs.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfo.cs
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb

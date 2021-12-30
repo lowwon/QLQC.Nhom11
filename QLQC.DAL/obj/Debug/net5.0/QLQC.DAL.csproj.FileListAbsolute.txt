@@ -49,3 +49,21 @@ C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.DAL\obj\Debug\net5.0\ref\QLQC.DAL.dll
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.pdb
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.genruntimeconfig.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.deps.json
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.runtimeconfig.json
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.runtimeconfig.dev.json
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\ref\QLQC.DAL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.csproj.AssemblyReference.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.AssemblyInfoInputs.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.AssemblyInfo.cs
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.csproj.CoreCompileInputs.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.csproj.CopyComplete
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\ref\QLQC.DAL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.genruntimeconfig.cache

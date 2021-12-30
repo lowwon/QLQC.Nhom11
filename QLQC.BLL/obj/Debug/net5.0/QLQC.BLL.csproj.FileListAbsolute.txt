@@ -44,3 +44,20 @@ C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
 C:\Users\Thai Tuong\Source\Repos\QLQC.Nhom111\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.deps.json
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.AssemblyReference.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfoInputs.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfo.cs
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CoreCompileInputs.cache
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CopyComplete
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\ngoca\OneDrive\Desktop\TEST\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb
