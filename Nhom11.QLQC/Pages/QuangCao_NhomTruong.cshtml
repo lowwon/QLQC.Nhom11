@@ -1,0 +1,94 @@
+﻿@page
+@using global::QLQC.DTO
+@model Nhom11.QLQC.Pages.QuangCao_NhomTruongModel
+@{
+}
+<h1 style="text-align:center; margin-bottom : 20px">Tìm quảng cáo nhóm trưởng lãnh đạo</h1>
+<div >
+	<form method="post">
+@*		<div style="display:inline-block; margin-left : 32%">
+			<label>Tìm theo tên khách hàng</label>
+			<input type="radio" name="a" value="tnt" class="form-control" />
+		</div>
+		<div style = "display: inline-block; margin-left : 50px">
+			<label>Tìm theo mã khách hàng</label>
+			<input type="radio" name="a" value="mnt"  class="form-control"/>
+		</div>*@
+		<div style = "margin-left : 32%;margin-right : 30%;margin-top : 20px">
+			<label style = "display: inline-block">Nhập mã nhóm trưởng</label>
+			<input style = "margin-left :160px" type="submit" value="Tìm kiếm" class="btn btn-primary"/>
+			<input style="margin-top : 10px;margin-bottom : 20px" type="text" id="ass" name="ass" class="form-control"/>
+		</div>
+	</form>
+</div>
+@if (Request.Method.ToUpper() == "GET")
+{
+<table class="table table-success table-condensed">
+    <tr style="text-align:center">
+        <th>Mã quảng cáo</th>
+        <th>Ngày thành lập</th>
+        <th>Ngày kết thúc</th>
+        <th>Tổng tiền</th>
+        <th>Nhóm thực hiện</th>
+        <th>Khách hàng</th>
+        <th>Mô tả</th>
+        <th>Loại quảng cáo</th>
+    </tr>
+    </table>
+}
+else if(Request.Method.ToUpper() == "POST") {
+    @if (@Model.value != "")
+        {
+            <table class="table table-success table-condensed">
+            <tr style="text-align:center">
+                <th>Mã quảng cáo</th>
+                <th>Ngày thành lập</th>
+                <th>Ngày kết thúc</th>
+                <th>Số tiền</th>
+                <th>Nhóm thực hiện</th>
+                <th>Khách hàng</th>
+                <th>Mô tả</th>
+                <th>Loại quảng cáo</th>
+            </tr>
+            @foreach (QuangCaoDTO qc in Model.lst)
+            {
+                <tr id="trQc@qc.MaQc" style="text-align:center">
+                    <td>@qc.MaQc</td>
+                    <td>@qc.NgBd</td>
+                    <td>@qc.NgKt</td>
+                    <td>@qc.SoTien</td>
+                    <td>@qc.MaNhom</td>
+                    <td>@qc.MaKh</td>
+                    <td>@qc.YeuCau</td>
+                    <td>
+                        @foreach (var q in Model.lst2)
+                       {
+                            @if(String.Compare(@q.MaQc, @qc.MaQc)==0)
+                            {
+                                @q.MaLoai <br />
+                            }
+                        
+                       }
+                       <a asp-area="" asp-page="/QuangCaoVaLoaiQuangCao">Chi tiết</a>
+                    </td>
+
+                </tr>
+            }
+            </table>
+        }
+        else
+        {
+            <table class="table table-success table-condensed">
+            <tr style="text-align:center">
+                <th>Mã quảng cáo</th>
+                <th>Ngày thành lập</th>
+                <th>Ngày kết thúc</th>
+                <th>Số tiền</th>
+                <th>Nhóm thực hiện</th>
+                <th>Khách hàng</th>
+                <th>Mô tả</th>
+                <th>Loại quảng cáo</th>
+            </tr>
+            </table>
+        }
+}
