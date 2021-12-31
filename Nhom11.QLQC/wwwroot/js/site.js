@@ -606,3 +606,118 @@ function deleteNhanVien(id) {
     });
 
 }
+
+function openHopDong(id) {
+    if (id != null) {
+        $('#divModal').modal('show');
+        $('#spanid').text(id);
+        var item = null;
+        for (var i = 0; i < dataHd.length; i++) {
+            item = dataHd[i];
+            if (item.MaHD == id) {
+                console.log(item);
+                break;
+            }
+        }
+        $('#txtmhd').val(item.MaHD);
+        $('#txtnk').val(item.NgayKy);
+        $('#txtmnv').val(item.MaNV);
+        $('#txtmkh').val(item.MaKH);
+    }
+    else {
+        $('#divModalAdd').modal('show');
+        $('#spanidA').text("Thêm mới");
+        $('#txtmhdA').val();
+        $('#txtnkA').val();
+        $('#txtmnvA').val();
+        $('#txtmkhA').val();
+    }
+}
+
+function saveHopDong() {
+    var item = {};
+    item.MaHd = $("#spanid").text();
+    item.NgayKy = $("#txtnk").val();
+    item.MaNv = $("#txtmnv").val();
+    item.MaKh = $("#txtmkh").val();
+
+    var str = JSON.stringify(item);
+    console.log(str);
+    $.ajax
+        ({
+            type: "POST",
+            url: "/HopDong?handler=Update",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: { hd: str },
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res.success === true || res.success == true) {
+                    console.log("Cap nhat thanh cong");
+                    alert("Cập nhật thành công!");
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrow) {
+                alert("Cập nhật thất bại!");
+
+            }
+        });
+}
+function deleteHopDong(mhd) {
+    $.ajax
+        ({
+            type: "POST",
+            url: "/HopDong?handler=Delete",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: { mhd: mhd },
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res.success === true || res.success == true) {
+                    alert("Xoá thành công!");
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrow) {
+                alert("Xoá thất bại!");
+            }
+        });
+}
+
+function addHopDong() {
+    var item = {};
+    item.MaHd = $('#txtmhdA').val();
+    item.MaKh = $('#txtmkhA').val();
+    item.MaNv = $('#txtmnvA').val();
+    item.NgayKy = $('#txtnkA').val();
+    var str = JSON.stringify(item);
+    console.log(str);
+    $.ajax
+        ({
+            type: "POST",
+            url: "/HopDong?handler=Add",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: { Hd: str },
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res.success === true || res.success == true) {
+                    console.log("Thêm mới thành công");
+                    alert("Thêm mới thành công!");
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrow) {
+                alert("Thêm mới thất bại!");
+            }
+        });
+}

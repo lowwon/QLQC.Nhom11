@@ -1,80 +1,149 @@
 ﻿@page
+@using global::QLQC.DTO
+@using System.Text.Json
 @model Nhom11.QLQC.Pages.HopDongModel
 @{
 }
-@using global::QLQC.DTO
+<script>
+    var dataHd = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+</script>
 <form method="post">
     <div class="row">
-    <div class="col-2 form-group">
-        <label>Mã hợp đồng :</label>
-        <input type="text"  id="mhd" name="mhd" class="form-control" />
-    </div>
-    <div class="col-2 form-group">
-        <label>Ngày ký kết : </label>
-        <select  id="nkk" name="nkk" class="form-control">
-            <option value =""></option>
-            <option value ="2018">Trước năm 2019</option>            
-            <option value ="2019">2019</option> 
-            <option value ="2020">2020</option> 
-            <option value ="2021">Từ năm 2021</option> 
-        </select>          
-    </div>
-    <div class="col-3 form-group">
-        <label>Mã nhân viên thực hiện : </label>
-        <input type="text"  id="mnv" name="mnv" class="form-control" />
-    </div>
-    <div class="col-2 form-group">
-        <label>Mã đối tác : </label>
-        <input type="text"  id="mdt" name="mdt" class="form-control" />
-    </div>
-    <div class="col-2 form-group">
-        <label>Theo ngày kí kết</label>
-        <select style="margin-left: -10px" id="sx" name="sx" class="form-control">
-            <option value =""> </option>            
-            <option value ="tangdan">Tăng dần ↑ </option>
-            <option value ="giamdan">Giảm dần ↓ </option>
-        </select>
-    </div>
-    <div class="col-1 form-group">
+        <div class="col-2 form-group">
+            <label>Mã hợp đồng:</label>
+            <input type="text" id="mhd" name="mhd" class="form-control" />
+        </div>
+        <div class="col-3 form-group">
+            <label>Mã nhân viên thực hiện: </label>
+            <input type="text" id="mnv" name="mnv" class="form-control" />
+        </div>
+        <div class="col-2 form-group">
+            <label>Mã khách hàng: </label>
+            <input type="text" id="mkh" name="mkh" class="form-control" />
+        </div>
+        <div class="col-1 form-group">
             <br />
-            <input style="margin-top: 5px; margin-left: -25px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+            <input style="margin-top: 5px; margin-left: -25px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
+        </div>
     </div>
-</div>
 </form>
 <br />
 <div class="text-center">
-    <h2><b>Danh sách Hợp đồng</b></h2>
+    <h2 style="display: inline-block"><b>Danh sách Hợp đồng</b></h2>
+    <input style="float: right" onclick="openHopDong(null)" type="button" class="btn btn-outline-success" value="Thêm mới" />
+    <div style="text-align:left" id="divModalAdd" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hợp đồng - <span id="spanidA"></span></h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txtmhd">Mã hợp đồng</label>
+                        <input type="text" class="form-control" id="txtmhdA" aria-describedby="Help" placeholder="Nhập mã hợp đồng">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtmnk">Ngày ký </label>
+                        <input type="datetime-local" class="form-control" id="txtnkA" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mã nhân viên</label>
+                        <input type="text" class="form-control" id="txtmnvA" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mã khách hàng</label>
+                        <input type="text" class="form-control" id="txtmkhA" />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" onclick="addHopDong()" class="btn btn-outline-success">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @if (Request.Method.ToUpper() == "GET")
 {
-<table class="table table-success table-condensed">
-    <tr>
-        <th>Mã hợp đồng</th>
-        <th>Ngày ký kết</th>
-        <th>Mã nhân viên thực hiện</th>
-        <th>Mã đối tác</th>
-        <th>Tác vụ</th>        
-    </tr>
-    @foreach (HopDongDTO item in Model.lst)
-   {
-       <tr>
-           <td>@item.MaHD</td>
-           <td>@item.NgayKy</td>
-           <td>@item.MaNV</td>
-           <td>@item.MaKH</td>
-
-       </tr>
-   }
-</table>
-}
-else if(Request.Method.ToUpper() == "POST") {
     <table class="table table-success table-condensed">
-    <tr>
-        <th>Mã hợp đồng</th>
-        <th>Ngày ký kết</th>
-        <th>Mã nhân viên thực hiện</th>
-        <th>Mã đối tác</th>
-        <th>Tác vụ</th>
-    </tr>        
-</table>
+        <tr>
+            <th>Mã hợp đồng</th>
+            <th>Ngày ký kết</th>
+            <th>Mã nhân viên thực hiện</th>
+            <th>Mã đối tác</th>
+            <th>Tác vụ</th>
+        </tr>
+        @foreach (HopDongDTO hd in Model.lst)
+        {
+            <tr id="trHd@hd.MaHd" style="text-align:center">
+                <th>@hd.MaHD</th>
+                <th>@hd.NgayKy</th>
+                <th>@hd.MaNV</th>
+                <th>@hd.MaKH</th>
+                <td>
+                    <button type="button" onclick="openHopDong('@hd.MaHD');" class="btn btn-outline-secondary btn-sm">Sửa</button>
+                    <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()';)" class="btn btn-outline-danger btn-sm">Xóa</button>
+                </td>
+            </tr>
+        }
+    </table>
 }
+
+else if (Request.Method.ToUpper() == "POST")
+{
+    <table class="table table-success table-condensed">
+        <tr>
+            <th>Mã hợp đồng</th>
+            <th>Ngày ký kết</th>
+            <th>Mã nhân viên thực hiện</th>
+            <th>Mã đối tác</th>
+            <th>Tác vụ</th>
+        </tr>
+        @foreach (HopDongDTO hd in Model.lst)
+        {
+            <tr style="text-align:center">
+                <th>@hd.MaHD</th>
+                <th>@hd.NgayKy</th>
+                <th>@hd.MaNV</th>
+                <th>@hd.MaKH</th>
+                <td>
+                    <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-secondary btn-sm">Sửa</button>
+                    <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger btn-sm">Xóa</button>
+                </td>
+            </tr>
+        }
+    </table>
+}
+<div style="text-align:left" id="divModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Hợp đồng - <span id="spanid"></span></h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="txtmhd">Mã hợp đồng</label>
+                    <input type="text" class="form-control" id="txtmhd" aria-describedby="Help" placeholder="Nhập mã hợp đồng">
+                </div>
+                <div class="form-group">
+                    <label for="txtnk">Ngày ký </label>
+                    <input type="datetime-local" class="form-control" id="txtnk" />
+                </div>
+                <div class="form-group">
+                    <label>Mã nhân viên</label>
+                    <input type="text" class="form-control" id="txtmnv" />
+                </div>
+                <div class="form-group">
+                    <label>Khách hàng</label>
+                    <input type="text" class="form-control" id="txtmkh" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" onclick="saveHopDong()" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
