@@ -3,9 +3,10 @@
 @model Nhom11.QLQC.Pages.QuangCao_NhanVienModel
 @{
 }
+<h1 style="text-align:center; margin-bottom : 20px">Tìm quảng cáo nhân viên thực hiện</h1>
 <div >
 	<form method="post">
-		<div style="display:inline-block; margin-left : 34%">
+		<div style="display:inline-block; margin-left : 32%">
 			<label>Tìm theo tên nhân viên</label>
 			<input type="radio" name="a" value="tnv" class="form-control" />
 		</div>
@@ -13,10 +14,10 @@
 			<label>Tìm theo mã nhân viên</label>
 			<input type="radio" name="a" value="mnv"  class="form-control"/>
 		</div>
-		<div style = "margin-left : 32%;margin-right : 30%;margin-top : 20px">
+		<div style = "margin-left : 30%;margin-right : 30%;margin-top : 20px">
 			<label style = "display: inline-block">Nhập tên hoặc mã nhân viên</label>
-			<input style = "margin-left :120px" type="submit" value="Tìm kiếm" class="btn btn-primary"/>
-			<input style="margin-top : 10px;margin-bottom : 20px"type="text" class="form-control"/>
+			<input style = "margin-left :145px" type="submit" value="Tìm kiếm" class="btn btn-primary"/>
+			<input style="margin-top : 10px;margin-bottom : 20px" type="text" id="ass" name="ass" class="form-control"/>
 		</div>
 	</form>
 </div>
@@ -60,7 +61,15 @@ else if(Request.Method.ToUpper() == "POST") {
                     <td>@qc.MaKh</td>
                     <td>@qc.YeuCau</td>
                     <td>
-                        @Model.gt
+                       @foreach (var q in Model.lst3)
+                       {
+                            @if(String.Compare(@q.MaQc, @qc.MaQc)==0)
+                            {
+                                @q.MaLoai <br />
+                            }
+                        
+                       }
+                       <a asp-area="" asp-page="/QuangCaoVaLoaiQuangCao">Chi tiết</a>
                     </td>
 
                 </tr>
