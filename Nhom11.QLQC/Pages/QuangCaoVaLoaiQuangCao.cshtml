@@ -1,0 +1,175 @@
+﻿@page
+@using global::QLQC.DTO
+@using System.Text.Json
+@model Nhom11.QLQC.Pages.QuangCaoVaLoaiQuangCaoModel
+@{
+}
+<script>
+    var dataQc_Lqc = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+</script>
+<form method="post">
+<div class="row">
+    <div class="col-3 form-group">
+        <label>Mã quảng cáo :</label>
+        <input  type="text"  id="mqc" name="mqc" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+        <label style="margin-left: 50px"  >Mã loại quảng cáo :</label>
+        <input style="margin-left: 50px"  type="text"  id="mlqc" name="mlqc" class="form-control" />
+    </div>
+    <div class="col-3 form-group">
+        <label style="margin-left: 100px" >Hình thức :</label>
+        <select style="margin-left: 100px" id="ht" name="ht" class="form-control">
+            <option value =""></option>
+            @foreach (var item in Model.lst1)
+            {
+               <option value ="@item.HinhThuc">@item.HinhThuc</option>  
+            }              
+        </select> 
+    </div>
+    <div class="col-3 form-group">
+            <br />
+            <input style="margin-top: 5px; margin-left: 150px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+    </div>
+</div>
+</form>
+<br />
+<div class="text-center">
+    <h2 style="display: inline-block"><b>Các quảng cáo và loại quảng cáo</b></h2>
+    <input style="float: right" onclick="openModalQuangCao_LoaiQuangCaoAdd()" type = "button" class="btn btn-outline-success" value="Thêm mới"/>
+    <div style="text-align:left" id="divModalAdd" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Quảng cáo - Loại quảng cáo | Thêm mới</span></h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <div class="form-group">
+            <label>Mã quảng cáo : </label>
+            <select id="txtmqcA" class="form-control">
+            <option value =""></option>
+            @foreach (var item in Model.lst2)
+            {
+               <option value ="@item.MaQc">@item.MaQc</option>  
+            }              
+            </select>
+            <small class="form-text text-muted">Mã quảng cáokhông được trống !</small>
+        </div>
+        <div class="form-group">
+            <label>Mã loại : </label>
+            <select id="txtmlqcA" class="form-control">
+            <option value =""></option>
+            @foreach (var item in Model.lst1)
+            {
+               <option value ="@item.MaLoai">@item.MaLoai</option>  
+            }              
+            </select>
+            <small class="form-text text-muted">Mã loại không được trống !</small>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+        <button type="button" onclick="addQuangCao_LoaiQuangCao()" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+@if (Request.Method.ToUpper() == "GET")
+{
+<table class="table table-success table-condensed">
+    <tr style="text-align:center">
+        <th>Mã quảng cáo</th>
+        <th>Mã loại quảng cáo</th>
+        <th>Hình thức</th>
+        <th colspan="2">Tác vụ</th>
+    </tr>
+    @foreach(QC_LQCDTO qc in Model.lst )
+    {
+        <tr style="text-align:center">
+            <td>@qc.MaQc</td>
+            <td>@qc.MaLoai</td>
+            <td>
+               @foreach (var q in Model.lst1)
+               {
+                    @if(String.Compare(@q.MaLoai,@qc.MaLoai) == 0)
+                    {
+                        @q.HinhThuc
+                    }            
+               }
+            </td>
+            <td>
+                <button  type="button" onclick="openModalQuangCao_LoaiQuangCao('@qc.MaQc','@qc.MaLoai')" class="btn btn-outline-primary" >Sửa</button>                   
+                <button type="button" onclick="deleteModalQuangCao_LoaiQuangCao('@qc.MaQc','@qc.MaLoai')" class="btn btn-outline-danger" >Xoá</button>
+            </td>
+        </tr> 
+    }
+</table>
+}
+else if(Request.Method.ToUpper() == "POST") {
+    <table class="table table-success table-condensed">
+    <tr style="text-align:center">
+        <th>Mã quảng cáo</th>
+        <th>Mã loại quảng cáo</th>
+        <th>Hình thức</th>
+        <th colspan="2">Tác vụ</th>
+    </tr>        
+    @foreach(QC_LQCDTO qc in Model.lst )
+    {
+        <tr style="text-align:center">
+            <td>@qc.MaQc</td>
+            <td>@qc.MaLoai</td>
+            <td>
+               @foreach (var q in Model.lst1)
+               {
+                    @if(String.Compare(@q.MaLoai,@qc.MaLoai) == 0)
+                    {
+                        @q.HinhThuc
+                    }            
+               }
+            </td>
+            <td>
+                <button  type="button" onclick="openModalQuangCao_LoaiQuangCao('@qc.MaQc','@qc.MaLoai')" class="btn btn-outline-primary" >Sửa</button>                   
+                <button type="button" onclick="deleteModalQuangCao_LoaiQuangCao('@qc.MaQc','@qc.MaLoai')" class="btn btn-outline-danger" >Xoá</button>
+            </td>
+        </tr> 
+    }
+</table>
+}
+<div style="text-align:left" id="divModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Quảng cáo - Loại quảng cáo | <span id="spanid1"></span> - <span id="spanid2"></span></h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <div class="form-group">
+            <label>Mã quảng cáo : </label>
+            <select id="txtmqc" class="form-control">
+            <option value =""></option>
+            @foreach (var item in Model.lst2)
+            {
+               <option value ="@item.MaQc">@item.MaQc</option>  
+            }              
+            </select>
+            <small class="form-text text-muted">Mã quảng cáo không được trống !</small>
+        </div>
+        <div class="form-group">
+            <label>Mã loại : </label>
+            <select id="txtmlqc" class="form-control">
+            <option value =""></option>
+            @foreach (var item in Model.lst1)
+            {
+               <option value ="@item.MaLoai">@item.MaLoai</option>  
+            }              
+            </select>
+            <small class="form-text text-muted">Mã loại không được trống !</small>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary"  data-dismiss="modal">Close</button>
+        <button type="button" onclick="saveQuangCao_LoaiQuangCao()" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+    </div>
+</div>

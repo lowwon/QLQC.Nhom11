@@ -1,0 +1,68 @@
+﻿@page
+@model Nhom11.QLQC.Pages.DoiTac_NhanVienModel
+@{
+}
+@using global::QLQC.DTO
+@{
+}
+<div >
+	<form method="post">
+		<div style="display:inline-block; margin-left : 32%">
+			<label>Tìm theo tên nhân viên</label>
+			<input type="radio" name="a" value="tnv" class="form-control" />
+		</div>
+		<div style = "display: inline-block; margin-left : 50px">
+			<label>Tìm theo mã nhân viên</label>
+			<input type="radio" name="a" value="mnv"  class="form-control"/>
+		</div>
+		<div style = "margin-left : 32%;margin-right : 30%;margin-top : 20px">
+			<label style = "display: inline-block">Nhập tên hoặc mã nhân viên</label>
+			<input style = "margin-left :110px" type="submit" value="Tìm kiếm" class="btn btn-primary"/>
+			<input style="margin-top : 10px;margin-bottom : 20px" type="text" id="ass" name="ass" class="form-control"/>
+		</div>
+	</form>
+</div>
+@if (Request.Method.ToUpper() == "GET")
+{
+<table class="table table-success table-condensed">
+    <tr style="text-align:center">
+            <th>Mã khách hàng</th>
+            <th>Họ Tên</th>
+            <th>Giới tính</th>
+            <th>Email</th>
+        </tr>
+    </table>
+}
+else if(Request.Method.ToUpper() == "POST") {
+    @if (@Model.gt != "")
+    {
+        <table class="table table-success table-condensed">
+        <tr style="text-align:center">
+            <th>Mã khách hàng</th>
+            <th>Họ Tên</th>
+            <th>Giới tính</th>
+            <th>Email</th>
+        </tr>
+        @foreach (KhachHangDTO c in Model.lst)
+        {
+            <tr style="text-align:center">
+                <td>@c.MaKH</td>
+                <td>@c.TenKH</td>
+                <td>@c.GT</td>
+                <td>@c.Email</td>
+            </tr>
+        }
+        </table>
+    }
+    else
+    {
+        <table class="table table-success table-condensed">
+        <tr style="text-align:center">
+            <th>Mã khách hàng</th>
+            <th>Họ Tên</th>
+            <th>Giới tính</th>
+            <th>Email</th>
+        </tr>
+        </table>
+    }
+}

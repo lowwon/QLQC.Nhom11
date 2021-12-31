@@ -1,0 +1,63 @@
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.deps.json
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.AssemblyReference.cache
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfoInputs.cache
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfo.cs
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CoreCompileInputs.cache
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\source\repos\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.deps.json
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.AssemblyReference.cache
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfoInputs.cache
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfo.cs
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CoreCompileInputs.cache
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.dll
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.pdb
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\quoch\OneDrive\Máy tính\New folder (2)\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CopyComplete
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.deps.json
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.dll
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.dll
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.pdb
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.AssemblyReference.cache
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfoInputs.cache
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfo.cs
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CoreCompileInputs.cache
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CopyComplete
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.deps.json
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.pdb
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.dll
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.dll
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.pdb
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.AssemblyReference.cache
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfoInputs.cache
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfo.cs
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CoreCompileInputs.cache
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CopyComplete
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
+C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb

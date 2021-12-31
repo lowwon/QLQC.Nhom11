@@ -1,0 +1,95 @@
+﻿@page
+@using global::QLQC.DTO
+@using System.Text.Json;
+@model Nhom11.QLQC.Pages.NhomNhanVienModel
+@{
+}
+@Html.AntiForgeryToken()
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery antiforgery
+@{
+    var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+}
+<script>
+    var dataNnv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+</script>
+<form method="post">
+    <div class="row">
+        <div class="col-2 form-group">
+            <label>      Mã nhóm :    </label>
+            <input type="text" id="mn" name="mn" class="form-control" />
+        </div>
+        <div class="col-2 form-group">
+            <label>Tên nhóm : </label>
+            <input type="text" id="tn" name="tn" class="form-control" />
+        </div>
+        <div class="col-2 form-group">
+            <label>Mã trưởng nhóm : </label>
+            <input type="text" id="mtn" name="mtn" class="form-control" />
+        </div>
+        <div class="col-2 form-group">
+            <label>Theo năm thành lập</label>
+            <select id="sx" name="sx" class="form-control">
+                <option value=""> </option>
+                <option value="tangdan">Tăng dần ↑ </option>
+                <option value="giamdan">Giảm dần ↓ </option>
+            </select>
+        </div>
+        <div class="col-2 form-group">
+            <br />
+            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
+        </div>
+    </div>
+</form>
+<br />
+<div class="text-center">
+    <h2 style="display: inline-block"><b>Danh sách nhóm nhân viên</b></h2>
+    <button style="float: right" type="button" onclick="openModalNV(null);" class="btn btn-outline-success"> Thêm mới</button>
+</div>
+
+@if (Request.Method.ToUpper() == "GET")
+{
+    <table class="table table-success table-condensed">
+        <tr>
+            <th>Mã nhóm</th>
+            <th>Tên nhóm</th>
+            <th>Mã nhóm trưởng</th>
+        </tr>
+        @foreach (NhomNhanVienDTO nnv in Model.lst)
+        {
+            <tr id="trNv_@nnv.MaNhom" style="text-align:center">
+                <td>@nnv.MaNhom</td>
+                <td>@nnv.TenNhom</td>
+                <td>@nnv.MaNt</td>
+    
+                <td>
+                    <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
+                    <button type="button" onclick="deleteNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else if (Request.Method.ToUpper() == "POST")
+{
+    <table class="table table-success table-condensed">
+        <tr>
+            <th>Mã nhóm</th>
+            <th>Tên nhóm</th>
+            <th>Mã nhóm trưởng</th>
+        </tr>
+        @foreach (NhomNhanVienDTO nnv in Model.lst)
+        {
+            <tr id="trNv_@nnv.MaNhom" style="text-align:center">
+                <td>@nnv.MaNhom</td>
+                <td>@nnv.TenNhom</td>
+                <td>@nnv.MaNt</td>
+                <td>
+
+                    <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
+                    <button type="button" onclick="deleteNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
+                </td>
+            </tr>
+        }
+    </table>
+}
