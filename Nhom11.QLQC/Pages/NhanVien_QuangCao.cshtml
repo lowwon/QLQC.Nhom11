@@ -1,0 +1,57 @@
+﻿@page
+@model Nhom11.QLQC.Pages.NhanVien_QuangCaoModel
+@{
+}
+@using global::QLQC.DTO
+<h1 style="text-align:center; margin-bottom : 20px">Tìm các nhân viên thực hiện quảng cáo</h1>
+<div>
+    <form method="post">
+
+        <div style="margin-left : 32%;margin-right : 30%;margin-top : 20px">
+            <label style="display: inline-block">Nhập mã quảng cáo</label>
+            <input style="margin-left :75px" type="submit" value="Tìm kiếm" class="btn btn-primary" />
+            <input style="margin-top : 10px;margin-bottom : 20px" type="text" id="timkiem" name="timkiem" class="form-control" />
+        </div>
+    </form>
+</div>
+@if (Request.Method.ToUpper() == "GET")
+{
+    <table class="table table-success table-condensed">
+        <tr style="text-align:center">
+            <th>Mã nhân viên</th>
+            <th>Họ Tên</th>
+            <th>Mã nhóm</th>
+            <th>Ngày sinh</th>
+            <th>Ngày vào làm</th>
+            <th>Giới tính</th>
+            <th>Email</th>
+        </tr>
+    </table>
+}
+else if (Request.Method.ToUpper() == "POST")
+{
+    <table class="table table-success table-condensed">
+        <tr style="text-align:center">
+            <th>Mã nhân viên</th>
+            <th>Họ Tên</th>
+            <th>Mã nhóm</th>
+            <th>Ngày sinh</th>
+            <th>Ngày vào làm</th>
+            <th>Giới tính</th>
+            <th>Email</th>
+        </tr>
+        @foreach (NhanVienDTO c in Model.lst2)
+        {
+            <tr style="text-align:center">
+                <td>@c.MaNv</td>
+                <td>@c.TenNv</td>
+                <td>@c.MaNhom</td>
+                <td>@c.NgSinh</td>
+                <td>@c.NgVaoLam</td>
+                <td>@c.Gt</td>
+                <td>@c.Email</td>
+            </tr>
+        }
+    </table>
+
+}

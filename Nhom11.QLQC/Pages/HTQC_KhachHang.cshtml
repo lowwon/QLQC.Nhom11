@@ -1,0 +1,85 @@
+﻿@page
+@model Nhom11.QLQC.Pages.HTQC_KhachHangModel
+@{
+}
+@using global::QLQC.DTO
+<h1 style="text-align:center; margin-bottom : 20px">Tìm Loại quảng cáo đối tác đã dùng qua</h1>
+<div>
+    <form method="post">
+        <div style="display:inline-block; margin-left : 32%">
+            <label>Tìm theo tên khách hàng</label>
+            <input type="radio" name="a" value="tkh" class="form-control" />
+        </div>
+        <div style="display: inline-block; margin-left : 50px">
+            <label>Tìm theo mã khách hàng</label>
+            <input type="radio" name="a" value="mkh" class="form-control" />
+        </div>
+        <div style="margin-left : 32%;margin-right : 30%;margin-top : 20px">
+            <label style="display: inline-block">Nhập tên hoặc mã khách hàng</label>
+            <input style="margin-left :110px" type="submit" value="Tìm kiếm" class="btn btn-primary" />
+            <input style="margin-top : 10px;margin-bottom : 20px" type="text" id="ass" name="ass" class="form-control" />
+        </div>
+    </form>
+</div>
+@if (Request.Method.ToUpper() == "GET")
+{
+    <table class="table table-success table-condensed">
+        <tr style="text-align:center">
+            <th>Mã Loai</th>
+            <th>Hình thức</th>
+            <th>Mô tả</th>
+            <th>Mã khách hàng</th>
+            <th>Tên khách hàng</th>
+        </tr>
+    </table>
+}
+else if (Request.Method.ToUpper() == "POST")
+{
+
+    @if (@Model.gt != "")
+    {
+        <table class="table table-success table-condensed">
+            <tr style="text-align:center">
+                <th>Mã Loai</th>
+                <th>Hình thức</th>
+                <th>Mô tả</th>
+                <th>Mã khách hàng</th>
+                <th>Tên khách hàng</th>
+
+            </tr>
+            @foreach (LoaiQcDTO lqc in Model.lstlqc)
+             {
+        <tr style="text-align:center">
+            <td>@lqc.MaLoai</td>
+            <td>@lqc.HinhThuc</td>
+            <td>@lqc.MoTa</td>
+             <td>
+                @foreach (KhachHangDTO q in Model.lstkh)
+                 {
+                    @q.MaKH
+                 }
+            </td>
+             <td>
+                @foreach (KhachHangDTO q in Model.lstkh)
+                 {
+                    
+                    @q.TenKH
+                 }
+            </td>
+        </tr>
+             }
+        </table>
+    }
+    else
+    {
+        <table class="table table-success table-condensed">
+            <tr style="text-align:center">
+                <th>Mã Loai</th>
+                <th>Hình thức</th>
+                <th>Mô tả</th>
+                <th>Mã khách hàng</th>
+                <th>Tên khách hàng</th>
+            </tr>
+        </table>
+    }
+}
