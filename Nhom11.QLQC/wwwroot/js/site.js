@@ -1,8 +1,6 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-const { data, error } = require("jquery");
-
 // Write your JavaScript code.
 function openModalQuangCao(id) {
     $("#divModal").modal("show");
@@ -10,6 +8,7 @@ function openModalQuangCao(id) {
     var i = 0;
     for (i = 0; i < dataQc.length; i++) {
         if (dataQc[i].MaQc == id) {
+            console.log(dataQc[i]);
             break;
         }
     }
@@ -334,7 +333,106 @@ function addQuangCao_LoaiQuangCao() {
         }
     });
 }
-
+function goPrevQuangCao() {
+    if (curPageQC == 1) {
+        alert("Bạn đang ở trang đầu!");
+    }
+    else {
+        curPageQC = curPageQC - 1;
+        getDataPageQC(curPageQC);
+    }
+}
+function goNextQuangCao() {
+    if (curPageQC == totalPageQC) {
+        alert("Bạn đang ở trang cuối!");
+    }
+    else {
+        curPageQC = curPageQC + 1;
+        getDataPageQC(curPageQC);
+    }
+}
+function getDataPageQC(page) {
+    var filter = {
+        Page: page,
+        Size: 5
+    };
+    var str = JSON.stringify(filter);
+    console.log(str);
+    $.ajax({
+        type: "POST",
+        url: "/QuangCao?handler=List",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { filter: str },
+        dataType: "json",
+        success: function (res) {
+            if (res.success === true || res.success == true) {
+                console.log(res.data);
+                var data = res.data;
+                dataQcx = data.data;
+                totalPageQC = data.totalPage;
+                $('#tbodyQc').html("");
+                $('#QcTemplate').tmpl(dataQcx).appendTo("#tbodyQc");
+                $('#spanCurrentPageQC').text(curPageQC)
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrow) {
+            alert("Cập nhật thất bại!");
+        }
+    });
+}
+function goPrevQuangCao_LoaiQuangCao() {
+    if (curPageQC_Lqc == 1) {
+        alert("Bạn đang ở trang đầu!");
+    }
+    else {
+        curPageQC_Lqc = curPageQC_Lqc - 1;
+        getDataPageQuangCao_LoaiQuangCao(curPageQC_Lqc);
+    }
+}
+function goNextQuangCao_LoaiQuangCao() {
+    if (curPageQC_Lqc == totalPageQC_Lqc) {
+        alert("Bạn đang ở trang cuối!");
+    }
+    else {
+        curPageQC_Lqc = curPageQC_Lqc + 1;
+        getDataPageQuangCao_LoaiQuangCao(curPageQC_Lqc);
+    }
+}
+function getDataPageQuangCao_LoaiQuangCao(page) {
+    var filter = {
+        Page: page,
+        Size: 5
+    };
+    var str = JSON.stringify(filter);
+    console.log(str);
+    $.ajax({
+        type: "POST",
+        url: "/QuangCaoVaLoaiQuangCao?handler=List",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { filter: str },
+        dataType: "json",
+        success: function (res) {
+            if (res.success === true || res.success == true) {
+                console.log(res.data);
+                var data = res.data;
+                dataQc_Lqcx = data.data;
+                totalPageQC_Lqc = data.totalPage;
+                $('#tbodyQc_Lqc').html("");
+                $('#Qc_LqcTemplate').tmpl(dataQc_Lqcx).appendTo("#tbodyQc_Lqc");
+                $('#spanCurrentQuangCao_LoaiQuangCao').text(curPageQC_Lqc)
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrow) {
+            alert("Cập nhật thất bại!");
+        }
+    });
+}
 //Khách hàng
 function openKH(id) {
     if (id != null) {
