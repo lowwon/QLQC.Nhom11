@@ -34,6 +34,46 @@ namespace QLQC.DAL
             }
             return lst;
         }
+        public object GetQuangCaoByPage(int page, int size)
+        {
+            List<QC_LQCDTO> data = new List<QC_LQCDTO>();
+            var res = new
+            {
+                Data = data,
+                TotalRecord = 0,
+                TotalPage = 0,
+                Page = page,
+                Size = size
+            };
+            try
+            {
+                var lst2 = db.QcLqcs.ToList();
+                var offset = (page - 1) * size;
+                var totalRecord = lst2.Count;
+                int totalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+                var lst = lst2.Skip(offset).Take(size);
+                foreach (var d in lst)
+                {
+                    QC_LQCDTO a = new QC_LQCDTO();
+                    a.MaQc = d.MaQc;
+                    a.MaLoai = d.MaLoai;
+                    data.Add(a);
+                }
+                res = new
+                {
+                    Data = data,
+                    TotalRecord = totalRecord,
+                    TotalPage = totalPage,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
         public bool Update(QC_LQCDTO qc_lqct, QC_LQCDTO qc_lqc)
         {
             bool res = false;

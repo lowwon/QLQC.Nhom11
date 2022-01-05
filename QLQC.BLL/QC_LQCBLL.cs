@@ -30,5 +30,9 @@ namespace QLQC.BLL
         {
             return dal.Add(qc);
         }
+        public object GetQuangCaoByPage(int page, int size)
+        {
+            return dal.GetQuangCaoByPage(page, size);
+        }
     }
 }

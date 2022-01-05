@@ -39,15 +39,60 @@ namespace QLQC.DAL
             }
             return lst;
         }
+        public object GetQuangCaoByPage(int page, int size)
+        {
+            List<QuangCaoDTO> data = new List<QuangCaoDTO>();
+            var res = new
+            {
+                Data = data,
+                TotalRecord = 0,
+                TotalPage = 0,
+                Page = page,
+                Size = size
+            };
+            try
+            {
+                var lst2 = db.QuangCaos.ToList();
+                var offset = (page - 1) * size;
+                var totalRecord = lst2.Count;
+                int totalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+                var lst = lst2.Skip(offset).Take(size);
+                foreach (var d in lst)
+                {
+                    QuangCaoDTO a = new QuangCaoDTO();
+                    a.MaQc = d.MaQc;
+                    a.MaKh = d.MaKh;
+                    a.YeuCau = d.YeuCau;
+                    a.SoTien = d.SoTien;
+                    a.NgBd = d.NgBd;
+                    a.NgKt = d.NgKt;
+                    a.MaNhom = d.MaNhom;
+                    data.Add(a);
+                }
+                res = new
+                {
+                    Data = data,
+                    TotalRecord = totalRecord,
+                    TotalPage = totalPage,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
         public bool Update(QuangCaoDTO qc)
         {
             bool res = false;
-            var c = db.QuangCaos.FirstOrDefault(x => x.MaQc == qc.MaQc);    
-            if(c.NgBd != qc.NgBd)
+            var c = db.QuangCaos.FirstOrDefault(x => x.MaQc == qc.MaQc);
+            if (c.NgBd != qc.NgBd)
             {
                 c.NgBd = qc.NgBd;
             }
-            if(c.NgKt != qc.NgKt)
+            if (c.NgKt != qc.NgKt)
             {
                 c.NgKt = qc.NgKt;
             }
@@ -82,7 +127,7 @@ namespace QLQC.DAL
         public bool Delete(string mqc)
         {
             bool res = false;
-            var c = db.QuangCaos.FirstOrDefault(x => x.MaQc.Trim() == mqc.Trim());           
+            var c = db.QuangCaos.FirstOrDefault(x => x.MaQc.Trim() == mqc.Trim());
             try
             {
                 db.QuangCaos.Remove(c);

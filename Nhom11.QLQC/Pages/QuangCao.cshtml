@@ -5,7 +5,10 @@
 @{
 }
 <script>
-    var dataQc = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var dataQc = @Html.Raw(JsonSerializer.Serialize(Model.lst1));
+    var dataQcx = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var curPageQC = 1;
+    var totalPageQC = @Html.Raw(Model.TotalPage);
 </script>
 <form method="post">
 <div class="row">
@@ -66,7 +69,7 @@
     </div>
     <div class="col-3 form-group">
             <br />
-            <input style="margin-top: 5px; margin-left: 165px" type="submit" class="btn btn-primary" value="Tìm kiếm"/>
+            <input style="margin-top: 5px; margin-left: 165px" type="submit" class="btn btn-primary" id="tkx" value="Tìm kiếm"/>
     </div>
 </div>
 </form>
@@ -126,10 +129,10 @@
 </div>
 @if (Request.Method.ToUpper() == "GET")
 {
-<table class="table table-success table-condensed">
+<table id="tblQc" class="table table-success table-condensed">
     <tr style="text-align:center">
         <th>Mã quảng cáo</th>
-        <th>Ngày thành lập</th>
+        <th>Ngày bắt đầu</th>
         <th>Ngày kết thúc</th>
         <th>Số tiền</th>
         <th>Nhóm thực hiện</th>
@@ -138,9 +141,10 @@
         <th>Loại quảng cáo</th>
         <th colspan="2">Tác vụ</th>
     </tr>
-    @foreach(QuangCaoDTO qc in Model.lst )
-    {
-        <tr id="trQc@qc.MaQc" style="text-align:center">
+    <tbody id="tbodyQc">
+        @foreach(QuangCaoDTO qc in Model.lst )
+        {
+            <tr id="trQc@qc.MaQc" style="text-align:center">
             <td>@qc.MaQc</td>
             <td>@qc.NgBd</td>
             <td>@qc.NgKt</td>
@@ -148,29 +152,29 @@
             <td>@qc.MaNhom</td>
             <td>@qc.MaKh</td>
             <td>@qc.YeuCau</td>
-            <td>
-               @foreach (var q in Model.lst1)
-               {
-                    @if(String.Compare(@q.MaQc, @qc.MaQc)==0)
-                    {
-                        @q.MaLoai <br />
-                    }                       
-               }
-               <a asp-area="" asp-page="/QuangCaoVaLoaiQuangCao">Chi tiết</a>
+            <td>  <button type="submit" class="btn btn-outline-primary" > <a href="/QuangCaoVaLoaiQuangCao">Chi tiết</a></button>         
             </td>
             <td>
                 <button style="margin-bottom:5px" onclick="openModalQuangCao('@qc.MaQc')" type="button" class="btn btn-outline-primary" >Sửa</button>                   
                 <button type="button" onclick="deleteQuangCao('@qc.MaQc.Trim()')" class="btn btn-outline-danger" >Xoá</button>
             </td>
-        </tr> 
-    }
+            </tr>
+        }
+    </tbody>
 </table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goPrevQuangCao()">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)"><span id="spanCurrentPageQC">1</span></a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goNextQuangCao()">Previous</a></li>
+    </ul>
+</nav>
 }
 else if(Request.Method.ToUpper() == "POST") {
-    <table class="table table-success table-condensed">
+    <table id="tblQc" class="table table-success table-condensed">
     <tr style="text-align:center">
         <th>Mã quảng cáo</th>
-        <th>Ngày thành lập</th>
+        <th>Ngày bắt đầu</th>
         <th>Ngày kết thúc</th>
         <th>Số tiền</th>
         <th>Nhóm thực hiện</th>
@@ -179,9 +183,10 @@ else if(Request.Method.ToUpper() == "POST") {
         <th>Loại quảng cáo</th>
         <th colspan="2">Tác vụ</th>
     </tr>        
-    @foreach(QuangCaoDTO qc in Model.lst )
-    {
-        <tr id="trQc@qc.MaQc" style="text-align:center">
+    <tbody id="tbodyQc">
+        @foreach(QuangCaoDTO qc in Model.lst )
+        {
+            <tr id="trQc@qc.MaQc" style="text-align:center">
             <td>@qc.MaQc</td>
             <td>@qc.NgBd</td>
             <td>@qc.NgKt</td>
@@ -189,24 +194,24 @@ else if(Request.Method.ToUpper() == "POST") {
             <td>@qc.MaNhom</td>
             <td>@qc.MaKh</td>
             <td>@qc.YeuCau</td>
-            <td>
-               @foreach (var q in Model.lst1)
-               {
-                    @if(String.Compare(@q.MaQc, @qc.MaQc)==0)
-                    {
-                        @q.MaLoai <br />
-                    }
-                        
-               }
-               <a asp-area="" asp-page="/QuangCaoVaLoaiQuangCao">Chi tiết</a>
+            <td>                
+                <button type="submit" class="btn btn-outline-primary" > <a href="/QuangCaoVaLoaiQuangCao">Chi tiết</a></button>         
             </td>
             <td>
                 <button style="margin-bottom:5px" onclick="openModalQuangCao('@qc.MaQc')" type="button" class="btn btn-outline-primary" >Sửa</button>                   
                 <button type="button" onclick="deleteQuangCao('@qc.MaQc.Trim()')" class="btn btn-outline-danger" >Xoá</button>
             </td>
         </tr> 
-    }
+        }
+    </tbody>
 </table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goPrevQuangCao()">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)"><span id="spanCurrentPageQC">1</span></a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goNextQuangCao()">Previous</a></li>
+    </ul>
+</nav>
 }
 <div style="text-align:left" id="divModal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
@@ -252,3 +257,21 @@ else if(Request.Method.ToUpper() == "POST") {
     </div>
     </div>
 </div>
+<script id="QcTemplate" type="text/x-jquery-tmpl">
+    <tr id="trQc${maQc}" style="text-align:center">
+            <td>${maQc}</td>
+            <td>${ngBd}</td>
+            <td>${ngKt}</td>
+            <td>${soTien}</td>
+            <td>${maNhom}</td>
+            <td>${maKh}</td>
+            <td>${yeuCau}</td>
+            <td>
+                <button type="submit" class="btn btn-outline-primary" ><a href="/QuangCaoVaLoaiQuangCao">Chi tiết</a></button>         
+            </td>
+            <td>
+                <button style="margin-bottom:5px" onclick="openModalQuangCao('${maQc}')" type="button" class="btn btn-outline-primary" >Sửa</button>                   
+                <button type="button" onclick="deleteQuangCao('${maQc}')" class="btn btn-outline-danger" >Xoá</button>
+            </td>
+        </tr> 
+</script>

@@ -15,9 +15,11 @@ namespace Nhom11.QLQC.Pages
         public List<QC_LQCDTO> lst;
         public List<LoaiQcDTO> lst1;
         public List<QuangCaoDTO> lst2;
+        public List<QC_LQCDTO> lstdata;
         public string mqc { get; private set; }
         public string mlqc { get; private set; }
         public string ht { get; private set; }
+        public int TotalPage;
         public QuangCaoVaLoaiQuangCaoModel()
         {
             bus = new QC_LQCBLL();
@@ -26,13 +28,18 @@ namespace Nhom11.QLQC.Pages
         }
         public void OnGet()
         {
-            lst = bus.GetAll().ToList();
+            int size = 5;
+            lst = bus.GetAll().Take(size).ToList();
+            var totalRecord = bus.GetAll().Count();
+            TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
             lst1 = bus1.GetAll().ToList();
             lst2 = bus2.GetAll().ToList();
+            lstdata = bus.GetAll().ToList();
         }
         public void OnPost()
         {
-            lst = bus.GetAll().ToList();
+            List<QC_LQCDTO> lstemp = bus.GetAll().ToList();
+            lstdata = bus.GetAll().ToList();
             lst1 = bus1.GetAll().ToList();
             lst2 = bus2.GetAll().ToList();
             mqc = Request.Form["mqc"];
@@ -43,28 +50,38 @@ namespace Nhom11.QLQC.Pages
             var temp3 = new List<QC_LQCDTO>();
             if (mqc != "")
             {
-                temp1 = (from s in lst
+                temp1 = (from s in lstemp
                          where s.MaQc.Trim() == mqc.Trim()
                          select s).ToList();
-                lst = temp1;
+                lstemp = temp1;
             }
             if (mlqc != "")
             {
-                temp2 = (from s in lst
+                temp2 = (from s in lstemp
                          where s.MaLoai.Trim() == mlqc.Trim()
                          select s).ToList();
-                lst = temp2;
+                lstemp = temp2;
             }
             if (ht != "")
             {
-                temp3 = (from s in lst
+                temp3 = (from s in lstemp
                          join c in lst1 on s.MaLoai equals c.MaLoai into fg
                          from fgi in (from f in fg
                                       where f.HinhThuc.Trim() == ht.Trim()
                                       select f)
                          select s).ToList();
-                lst = temp3;
+                lstemp = temp3;
             }
+            int size = lstemp.Count();
+            lst = lstemp.Take(size).ToList();
+            var totalRecord = lstemp.Count();
+            TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+        }
+        public IActionResult OnPostList(string filter)
+        {
+            var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<Filter>(filter);
+            var Data = bus.GetQuangCaoByPage(obj.Page, obj.Size);
+            return new ObjectResult(new { success = true, data = Data }) { StatusCode = 200 };
         }
         public IActionResult OnPostUpdate(String qclqctemp, String qclqc)
         {
@@ -93,7 +110,6 @@ namespace Nhom11.QLQC.Pages
                 return new ObjectResult(new { success = false }) { StatusCode = 500 };
             }
         }
-
         public IActionResult OnPostAdd(String a)
         {
             var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<QC_LQCDTO>(a);
