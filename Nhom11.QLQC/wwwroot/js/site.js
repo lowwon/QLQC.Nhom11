@@ -704,6 +704,61 @@ function deleteNhanVien(id) {
     });
 
 }
+function goPrevNv() {
+    if (curPageNv == 1) {
+        alert("Bạn đang ở trang đầu!")
+    }
+    else {
+        curPageNv = curPageNv - 1;
+        getDataPageNv(curPageNv);
+    }
+}
+function goNextNv() {
+    if (curPageNv == totPageNv) {
+        alert("Bạn đang ở trang cuối!")
+    }
+    else {
+        curPageNv = curPageNv + 1;
+        getDataPageNv(curPageNv);
+    }
+}
+function getDataPageNv(page) {
+    var filter = {
+        Page: page,
+        Size: 10
+    };
+    var str = JSON.stringify(filter);
+    $.ajax({
+        type: "POST",
+        url: "/NhanVien?handler=List",
+        //data: item
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { filter: str },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.success === true || res.success == true) {
+                console.log(res.data);
+                var data = res.data;
+                dataNv = data.data;
+                totPageNv = data.totalPageNv;
+                $("#tbodyNv").html("");
+                $("#nvTemplate").tmpl(dataNv).appendTo("#tbodyNv");
+                $("#spanCurrentPageNv").text(curPageNv);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
+}
+
+
+
+
 
 function openHopDong(id) {
     if (id != null) {

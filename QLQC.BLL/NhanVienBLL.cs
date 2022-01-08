@@ -31,5 +31,10 @@ namespace QLQC.BLL
         {
             return dal.Add(nv);
         }
+
+        public object GetNhanVienByPage(int page, int size)
+        {
+            return dal.GetNhanVienByPage(page, size);
+        }
     }
 }

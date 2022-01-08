@@ -40,6 +40,52 @@ namespace QLQC.DAL
             }
             return lst;
         }
+        public object GetNhanVienByPage(int page, int size)
+        {
+            List<NhanVienDTO> datanv = new List<NhanVienDTO>();
+            var res = new
+            {
+                Data = datanv,
+                TotalRecordNv = 0,
+                TotalPageNv = 0,
+                Page = page,
+                Size = size
+            };
+            try
+            {
+                var ds = db.NhanViens.ToList();
+                var offsetnv = (page - 1) * size;
+                var totalRecordNv = ds.Count();
+                int totalPageNv = (totalRecordNv % size) == 0 ? (int)(totalRecordNv / size) : (int)((totalRecordNv / size) + 1);
+                var lsnv = ds.Skip(offsetnv).Take(size);
+                foreach (var d in lsnv)
+                {
+                    NhanVienDTO a = new NhanVienDTO();
+                    a.MaNv = d.MaNv;
+                    a.TenNv = d.TenNv;
+                    a.MaNhom = d.MaNhom;
+                    a.NgSinh = d.NgSinh;
+                    a.NgVaoLam = d.NgVaoLam;
+                    a.Email = d.Email;
+                    a.Gt = d.Gt;
+                    datanv.Add(a);
+                }
+                res = new
+                {
+                    Data = datanv,
+                    TotalRecordNv = totalRecordNv,
+                    TotalPageNv = totalPageNv,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
+
         public bool Update(NhanVienDTO nv)
         {
             bool res = false;

@@ -12,6 +12,9 @@
 }
 <script>
     var dataNv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var curPageNv = 1;
+    var totPageNv = @Html.Raw(Model.totalPageNv);
+
 </script>
 <form method="post">
     <div class="row">
@@ -23,11 +26,11 @@
             <label>      Mã nhóm :    </label>
             <select id="mn" name="mn" class="form-control">
                 <option value=""></option>
-                <option value="2014">Trước năm 2014</option>
-                <option value="2016">2015 - 2016</option>
-                <option value="2018">2017 - 2018</option>
-                <option value="2020">2019 - 2020</option>
-                <option value="2021">Từ năm 2021</option>
+                @foreach (var item in Model.lst1)
+                {
+                    <option value="@item.MaNhom">@item.MaNhom</option>
+
+                }
             </select>
         </div>
         <div class="col-3 form-group">
@@ -35,50 +38,17 @@
             <input type="text" id="tnv" name="tnv" class="form-control" />
         </div>
         <div class="col-2 form-group">
-            <label>Năm sinh: </label>
-            <select id="ns" name="ns" class="form-control">
-                <option value=""></option>
-                <option value="1980">Trước năm 1980</option>
-                <option value="1985">1981 - 1985</option>
-                <option value="1990">1986 - 1990</option>
-                <option value="1995">1991 - 1995</option>
-                <option value="1996">Từ năm 1996</option>
-            </select>
-        </div>
-        <div class="col-3 form-group">
-            <label>Email : </label>
-            <input type="text" id="emailnv" name="emailnv" class="form-control" />
-        </div>
-        <div class="col-2 form-group">
             <label>      Năm vào làm:     </label>
             <select id="nvl" name="nvl" class="form-control">
                 <option value=""></option>
                 <option value="2014">Trước năm 2014</option>
-                <option value="2016">2015 - 2016</option>
                 <option value="2018">2017 - 2018</option>
-                <option value="2020">2019 - 2020</option>
                 <option value="2021">Từ năm 2021</option>
-            </select>
-        </div>
-        <div class="col-4 form-group">
-            <label>Theo năm sinh</label>
-            <select id="sx1" name="sx1" class="form-control">
-                <option value=""> </option>
-                <option value="tangdan">Tăng dần ↑ </option>
-                <option value="giamdan">Giảm dần ↓ </option>
-            </select>
-        </div>
-        <div class="col-4 form-group">
-            <label>Theo năm làm việc</label>
-            <select id="sx2" name="sx2" class="form-control">
-                <option value=""> </option>
-                <option value="tangdan">Tăng dần ↑ </option>
-                <option value="giamdan">Giảm dần ↓ </option>
             </select>
         </div>
         <div class="col-2 form-group">
             <br />
-            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
+            <input style="margin-top: 5px; margin-left: 100px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
         </div>
     </div>
 </form>
@@ -100,24 +70,33 @@
             <th>Email</th>
             <th>Giới tính</th>
         </tr>
-        @foreach (NhanVienDTO nv in Model.lst)
-        {
-            <tr id="trNv_@nv.MaNv" style="text-align:center">
-                <td>@nv.MaNv</td>
-                <td>@nv.TenNv</td>
-                <td>@nv.MaNhom</td>
-                <td>@nv.NgSinh</td>
-                <td>@nv.NgVaoLam</td>
-                <td>@nv.Email</td>
-                <td>@nv.Gt</td>
+        <tbody id="tbodyNv">
+            @foreach (NhanVienDTO nv in Model.lst)
+            {
+                <tr id="trNv_@nv.MaNv" style="text-align:center">
+                    <td>@nv.MaNv</td>
+                    <td>@nv.TenNv</td>
+                    <td>@nv.MaNhom</td>
+                    <td>@nv.NgSinh</td>
+                    <td>@nv.NgVaoLam</td>
+                    <td>@nv.Email</td>
+                    <td>@nv.Gt</td>
 
-                <td>
-                    <button style="margin-bottom:5px" type="button" onclick="openModalNV('@nv.MaNv');" class="btn btn-outline-primary">Sửa</button>
-                    <button type="button" onclick="deleteNhanVien('@nv.MaNv');" class="btn btn-outline-danger">Xoá</button>
-                </td>
-            </tr>
-        }
+                    <td>
+                        <button style="margin-bottom:5px" type="button" onclick="openModalNV('@nv.MaNv');" class="btn btn-outline-primary">Sửa</button>
+                        <button type="button" onclick="deleteNhanVien('@nv.MaNv');" class="btn btn-outline-danger">Xoá</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" onclick="goPrevNv();" href="javascript:void(0);">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0);"> <span id="spanCurrentPageNv">1</span></a></li>
+            <li class="page-item"><a class="page-link" onclick="goNextNv();" href="javascript:void(0);">Next</a></li>
+        </ul>
+    </nav>
 }
 else if (Request.Method.ToUpper() == "POST")
 {
@@ -150,6 +129,23 @@ else if (Request.Method.ToUpper() == "POST")
         }
     </table>
 }
+
+<script id="nvTemplate" type="text/x-jquery-tmpl">
+    <tr id="trNv_${maNv}" style="text-align:center">
+        <td>${maNv}</td>
+        <td>${tenNv}</td>
+        <td>${maNhom}</td>
+        <td>${ngSinh}</td>
+        <td>${ngVaoLam}</td>
+        <td>${email}</td>
+        <td>${gt}</td>
+
+        <td>
+            <button style="margin-bottom:5px" type="button" onclick="openModalNV('${maNv}');" class="btn btn-outline-primary">Sửa</button>
+            <button type="button" onclick="deleteNhanVien('${maNv}');" class="btn btn-outline-danger">Xoá</button>
+        </td>
+    </tr>
+</script>
 <div id="divModalNV" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">

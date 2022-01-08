@@ -67,3 +67,21 @@ C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.DAL\obj\Debug\net5.0\QLQ
 C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.DAL\obj\Debug\net5.0\ref\QLQC.DAL.dll
 C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.pdb
 C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.genruntimeconfig.cache
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.deps.json
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.runtimeconfig.json
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.runtimeconfig.dev.json
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\ref\QLQC.DAL.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DAL.pdb
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DTO.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.csproj.AssemblyReference.cache
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.AssemblyInfoInputs.cache
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.AssemblyInfo.cs
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.csproj.CoreCompileInputs.cache
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.csproj.CopyComplete
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\ref\QLQC.DAL.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.pdb
+C:\New folder (2)\QLQC.Nhom11\QLQC.DAL\obj\Debug\net5.0\QLQC.DAL.genruntimeconfig.cache

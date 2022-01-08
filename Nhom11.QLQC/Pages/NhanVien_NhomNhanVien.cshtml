@@ -1,0 +1,86 @@
+﻿@page
+@using global::QLQC.DTO
+@using System.Text.Json;
+@model Nhom11.QLQC.Pages.NhanVien_NhomNhanVienModel
+@{
+}
+@Html.AntiForgeryToken()
+@using Microsoft.AspNetCore.Antiforgery
+@inject IAntiforgery antiforgery
+@{
+    var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-2 form-group">
+            <label>      Mã nhóm :    </label>
+            <select id="mnnnv" name="mnnnv" class="form-control">
+                <option value=""></option>
+                @foreach (var item in Model.lst1)
+                {
+                    <option value="@item.MaNhom">@item.MaNhom</option>
+
+                }
+            </select>
+        </div>
+        <div class="col-3 form-group">
+            <label>Tên nhóm : </label> 
+            <select id="tn" name="tn" class="form-control">
+                <option value=""></option>
+                @foreach (var item in Model.lst1)
+                {
+                    <option value="@item.TenNhom">@item.TenNhom</option>
+
+                }
+            </select>
+        </div>
+        <div style="margin-block: auto; margin-left: auto;" class="col-2 form-group">
+            <br />
+            <input  type="submit" class="btn btn-primary" value="Tìm kiếm" />
+        </div>
+    </div>
+</form>
+<br />
+<div class="text-center">
+    <h2 style="display: inline-block"><b>Nhân viên theo nhóm Nhân viên</b></h2>
+</div>
+
+@if (Request.Method.ToUpper() == "GET")
+{
+<table  class="table table-success table-condensed">
+    <tr style="text-align:center;">
+        <th>Mã nhân viên</th>
+        <th>Tên nhân viên</th>
+        <th>Ngày sinh</th>
+        <th>Ngày vào làm</th>
+        <th>Email</th>
+        <th>Giới tính</th>
+    </tr>
+    
+</table>
+}
+else if (Request.Method.ToUpper() == "POST")
+{
+<table  class="table table-success table-condensed">
+    <tr>
+        <th>Mã nhân viên</th>
+        <th>Tên nhân viên</th>
+        <th>Ngày sinh</th>
+        <th>Ngày vào làm</th>
+        <th>Email</th>
+        <th>Giới tính</th>
+    </tr>
+    @foreach (NhanVienDTO nv in Model.lst)
+    {
+        <tr >
+            <td>@nv.MaNv</td>
+            <td>@nv.TenNv</td>
+            <td>@nv.NgSinh</td>
+            <td>@nv.NgVaoLam</td>
+            <td>@nv.Email</td>
+            <td>@nv.Gt</td>
+        </tr>
+    }
+</table>
+}

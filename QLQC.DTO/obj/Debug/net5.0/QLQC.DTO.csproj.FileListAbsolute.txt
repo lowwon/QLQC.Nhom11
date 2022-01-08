@@ -46,3 +46,15 @@ C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQ
 C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
 C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
 C:\Users\quoch\OneDrive\Máy tính\MMT\Nhom11.QLQC\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.deps.json
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\ref\QLQC.DTO.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.AssemblyReference.cache
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfoInputs.cache
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfo.cs
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.CoreCompileInputs.cache
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
+C:\New folder (2)\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb
