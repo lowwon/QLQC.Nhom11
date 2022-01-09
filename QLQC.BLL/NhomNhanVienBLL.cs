@@ -11,7 +11,7 @@ namespace QLQC.BLL
     public class NhomNhanVienBLL
     {
         private NhomNhanVienDAL dal;
-        public  NhomNhanVienBLL()
+        public NhomNhanVienBLL()
         {
             dal = new NhomNhanVienDAL();
         }
@@ -23,9 +23,9 @@ namespace QLQC.BLL
         {
             return dal.Update(nnv);
         }
-        public bool Delete(string mn)
+        public bool Delete(string nnv)
         {
-            return dal.Delete(mn);
+            return dal.Delete(nnv);
         }
         public NhomNhanVienDTO Add(NhomNhanVienDTO nnv)
         {

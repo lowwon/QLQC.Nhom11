@@ -30,7 +30,7 @@ namespace QLQC.DAL.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=qlQcao;Persist Security Info=True;User ID=tuong;Password=Death000;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=qlQcao;Persist Security Info=True;User ID=tuong;Password=Death231;Pooling=False;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;");
             }
         }
 
@@ -152,7 +152,7 @@ namespace QLQC.DAL.Models
                     .HasMaxLength(10)
                     .IsFixedLength(true);
 
-                entity.Property(e => e.MaNt)
+                entity.Property(e => e.MaNT)
                     .HasMaxLength(10)
                     .HasColumnName("MaNT")
                     .IsFixedLength(true);
@@ -161,7 +161,7 @@ namespace QLQC.DAL.Models
 
                 entity.HasOne(d => d.MaNtNavigation)
                     .WithMany(p => p.NhomNvs)
-                    .HasForeignKey(d => d.MaNt)
+                    .HasForeignKey(d => d.MaNT)
                     .HasConstraintName("FK_Nhom_NV_NhanVien");
             });
 

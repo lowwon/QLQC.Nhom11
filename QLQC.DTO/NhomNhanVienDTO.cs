@@ -10,6 +10,6 @@ namespace QLQC.DTO
     {
         public string MaNhom { get; set; }
         public string TenNhom { get; set; }
-        public string MaNt { get; set; }
+        public string MaNT { get; set; }
     }
 }

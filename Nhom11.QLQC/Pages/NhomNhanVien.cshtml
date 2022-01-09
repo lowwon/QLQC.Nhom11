@@ -11,7 +11,7 @@
     var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
 }
 <script>
-    var dataNnv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var dataNNv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
 </script>
 <form method="post">
     <div class="row">
@@ -24,16 +24,8 @@
             <input type="text" id="tn" name="tn" class="form-control" />
         </div>
         <div class="col-2 form-group">
-            <label>Mã trưởng nhóm : </label>
-            <input type="text" id="mtn" name="mtn" class="form-control" />
-        </div>
-        <div class="col-2 form-group">
-            <label>Theo năm thành lập</label>
-            <select id="sx" name="sx" class="form-control">
-                <option value=""> </option>
-                <option value="tangdan">Tăng dần ↑ </option>
-                <option value="giamdan">Giảm dần ↓ </option>
-            </select>
+            <label>Mã nhóm trưởng : </label>
+            <input type="text" id="mnt" name="mnt" class="form-control" />
         </div>
         <div class="col-2 form-group">
             <br />
@@ -43,13 +35,16 @@
 </form>
 <br />
 <div class="text-center">
-    <h2 style="display: inline-block"><b>Danh sách nhóm nhân viên</b></h2>
-    <button style="float: right" type="button" onclick="openModalNV(null);" class="btn btn-outline-success"> Thêm mới</button>
+    <h2><b>Danh sách nhóm nhân viên</b></h2>
+</div>
+
+<div>
+    <button type="button" onclick="openModalNNV(null);" class="btn btn-outline-success"> Thêm mới</button>
 </div>
 
 @if (Request.Method.ToUpper() == "GET")
 {
-    <table class="table table-success table-condensed">
+    <table id="tbNNV" class="table table-success table-condensed">
         <tr>
             <th>Mã nhóm</th>
             <th>Tên nhóm</th>
@@ -57,14 +52,14 @@
         </tr>
         @foreach (NhomNhanVienDTO nnv in Model.lst)
         {
-            <tr id="trNv_@nnv.MaNhom" style="text-align:center">
+            <tr id="trNNv_@nnv.MaNhom" style="text-align:center">
                 <td>@nnv.MaNhom</td>
                 <td>@nnv.TenNhom</td>
-                <td>@nnv.MaNt</td>
-    
+                <td>@nnv.MaNT</td>
+
                 <td>
                     <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
-                    <button type="button" onclick="deleteNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
+                    <button type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
                 </td>
             </tr>
         }
@@ -72,7 +67,7 @@
 }
 else if (Request.Method.ToUpper() == "POST")
 {
-    <table class="table table-success table-condensed">
+    <table id="tbNNV" class="table table-success table-condensed">
         <tr>
             <th>Mã nhóm</th>
             <th>Tên nhóm</th>
@@ -80,16 +75,52 @@ else if (Request.Method.ToUpper() == "POST")
         </tr>
         @foreach (NhomNhanVienDTO nnv in Model.lst)
         {
-            <tr id="trNv_@nnv.MaNhom" style="text-align:center">
+            <tr id="trNNv_@nnv.MaNhom" style="text-align:center">
                 <td>@nnv.MaNhom</td>
                 <td>@nnv.TenNhom</td>
-                <td>@nnv.MaNt</td>
+                <td>@nnv.MaNT</td>
                 <td>
 
                     <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
-                    <button type="button" onclick="deleteNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
+                    <button type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
                 </td>
             </tr>
         }
     </table>
 }
+
+<div id="divModalNNV" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> Nhóm nhân viên - <span id="spanIdNNv"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="txtMaNhom">Mã nhóm</label>
+                    <input type="text" class="form-control" id="txtMaNhom" aria-describedby="MaNhomHelp">
+                    <small id="MaNhomHelp" class="form-text text-muted">Mã nhóm không được trống !</small>
+                </div>
+                <div class="form-group">
+                    <label for="txtTenNhom">Tên nhóm</label>
+                    <input type="text" class="form-control" id="txtTenNhom" aria-describedby="TenNhomHelp">
+                    <small id="TenNhomHelp" class="form-text text-muted">Tên nhóm nhân viên không được trống !</small>
+                </div>
+                <div class="form-group">
+                    <label for="txtMaNT">Mã nhóm trưởng</label>
+                    <input type="text" class="form-control" id="txtMaNT" aria-describedby="MaNTHelp">
+                    <small id="MaNTHelp" class="form-text text-muted">Mã nhóm trưởng không được trống !</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="saveNhomNhanVien();" class="btn btn-primary">Lưu</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

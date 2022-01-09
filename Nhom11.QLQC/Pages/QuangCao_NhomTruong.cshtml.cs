@@ -45,7 +45,7 @@ namespace Nhom11.QLQC.Pages
                 var temp1 = new List<QuangCaoDTO>();
                 temp1 = (from s in lst
                         join n in lst1 on s.MaNhom equals n.MaNhom
-                        where n.MaNt.Trim() == value.Trim()
+                        where n.MaNT.Trim() == value.Trim()
                         select s).ToList();
                 lst = temp1;
             }

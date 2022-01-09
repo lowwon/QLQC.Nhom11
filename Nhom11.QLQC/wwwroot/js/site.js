@@ -874,3 +874,139 @@ function addHopDong() {
             }
         });
 }
+//nhom nhan vien
+function openModalNNV(id) {
+    $('#divModalNNV').modal('show');
+    if (id != null) {
+        $('#spanIdNNv').text(id);
+        var item = null;
+        for (var i = 0; i < dataNNv.length; i++) {
+            item = dataNNv[i];
+            if (item.MaNhom == id) {
+                console.log(item);
+                break;
+            }
+        }
+        $("#txtMaNhom").val(item.MaNhom);
+        $("#txtTenNhom").val(item.TenNhom);
+        $("#txtMaNT").val(item.MaNT);
+    }
+    else {
+        $('#spanIdNNv').text("Thêm mới");
+        $("#txtMaNhom").val("");
+        $("#txtMaNT").val("");
+        $("#txtTenNhom").val("");
+    }
+}
+
+function saveNhomNhanVien() {
+    if ($('#spanIdNNv').text() == "Thêm mới") {
+        // Create
+        var item = {};
+        item.MaNhom = $("#txtMaNhom").val();
+        item.MaNT = $("#txtMaNT").val();
+        item.TenNhom = $("#txtTenNhom").val();
+        var str = JSON.stringify(item);
+        $.ajax({
+            type: "POST",
+            url: "/NhomNhanVien?handler=Add",
+            //data: item
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: { nnv: str },
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res.success === true || res.success == true) {
+                    console.log(res.nnv);
+
+                    var obj = res.nnv;
+                    item.MaNhom = obj.maNhom;
+                    alert("Thêm mới thành công!");
+                    dataNNv.push(item);
+                    $('#spanIdNNv').text(obj.maNhom);
+                    var htmlStr = '<tr style="text-align:center" id="trNNv_' + obj.maNhom + '">';
+                    htmlStr = htmlStr + '<td>' + obj.maNhom + '</td>';
+                    htmlStr = htmlStr + '<td>' + obj.tenNhom + '</td>';
+                    htmlStr = htmlStr + '<td>' + obj.maNT + '</td>';
+                    htmlStr = htmlStr + '<td> <button style="margin-bottom:5px" type="button" onclick="openModalNNV(' + "'" + obj.maNhom + "'" + ');" class="btn btn-outline-primary">Sửa</button>';
+                    htmlStr = htmlStr + '<button type="button"  onclick="deleteNhomNhanVien(' + "'" + obj.maNhom + "'" + ');" class="btn btn-outline-danger">Xoá</button> </td>';
+                    htmlStr = htmlStr + '</tr>';
+                    $("#tbNNV").append(htmlStr);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    else {
+        // Update
+        var item = {};
+        item.MaNhom = ($("#spanIdNNv").text());
+        item.TenNhom = $("#txtTenNhom").val();
+        item.MaNT = $("#txtMaNT").val();
+        var str = JSON.stringify(item);
+        //console.log(str);
+        $.ajax({
+            type: "POST",
+            url: "/NhomNhanVien?handler=Update",
+            //data: item
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: { nnv: str },
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res.success === true || res.success == true) {
+                    console.log("Cap nhat thanh cong");
+                    alert("Cập nhật thành công!");
+                    location.reload();
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+}
+function deleteNhomNhanVien(id) {
+    //console.log(id);
+    $.ajax({
+        type: "POST",
+        url: "/NhomNhanVien?handler=Delete",
+        //data: item
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { idnnv: id },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.success === true || res.success == true) {
+                //console.log("Xóa thành công");
+                location.reload();
+                //$("#trNNv_" + id).remove();
+                var i = 0;
+                for (var i = 0; i < dataNNv.length; i++) {
+                    var nhomnhanvien = dataNNv[i];
+                    if (nhomnhanvien.MaNhom == item.MaNhom) {
+                        break;
+                    }
+                }
+                dataNNv.splice(i, 1);
+                alert("Xóa thành công!");
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+            alert("Xóa thất bại !!! ");
+        }
+    });
+
+}

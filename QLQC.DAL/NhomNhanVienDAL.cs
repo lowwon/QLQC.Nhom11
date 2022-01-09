@@ -24,7 +24,7 @@ namespace QLQC.DAL
                 foreach (var d in ds)
                 {
                     NhomNhanVienDTO a = new NhomNhanVienDTO();
-                    a.MaNt = d.MaNt;
+                    a.MaNT = d.MaNT;
                     a.TenNhom = d.TenNhom;
                     a.MaNhom = d.MaNhom;
                     lst.Add(a);
@@ -44,8 +44,10 @@ namespace QLQC.DAL
             {
                 c.TenNhom = nnv.TenNhom;
             }
-            if (c.MaNt != nnv.MaNt)
-                c.MaNt = nnv.MaNt;
+            if (c.MaNT != nnv.MaNT)
+                c.MaNT = nnv.MaNT;
+            if (c.MaNhom != nnv.MaNhom)
+                c.MaNhom = nnv.MaNhom;
             try
             {
                 db.NhomNvs.Update(c);
@@ -58,10 +60,10 @@ namespace QLQC.DAL
             }
             return res;
         }
-        public bool Delete(string mn)
+        public bool Delete(string nnv)
         {
             bool res = false;
-            var c = db.NhomNvs.FirstOrDefault(x => x.MaNhom == mn);
+            var c = db.NhomNvs.FirstOrDefault(x => x.MaNhom == nnv);
             try
             {
                 db.NhomNvs.Remove(c);
@@ -80,13 +82,13 @@ namespace QLQC.DAL
             var c = new NhomNv();
             c.TenNhom = nnv.TenNhom;
             c.MaNhom = nnv.MaNhom;
-            c.MaNt = nnv.MaNt;
+            c.MaNT = nnv.MaNT;
             try
             {
                 db.NhomNvs.Add(c);
                 db.SaveChanges();
                 res.MaNhom = c.MaNhom;
-                res.MaNt = c.MaNt;
+                res.MaNT = c.MaNT;
                 res.TenNhom = c.TenNhom;
             }
             catch (Exception e)
