@@ -441,15 +441,16 @@ function openKH(id) {
         var item = null;
         for (var i = 0; i < dataKH.length; i++) {
             item = dataKH[i];
-            if (item.MaKH == id) {
+            if (item.maKH == id) {
                 console.log(item);
                 break;
             }
         }
-        $("#txtMaKH").val(item.MaKH);
-        $("#txtTenKH").val(item.TenKH);
-        $("#txtGT").val(item.GT);
-        $("#txtEmailKH").val(item.Email);
+
+        $("#txtMaKH").val(item.maKH);
+        $("#txtTenKH").val(item.tenKH);
+        $("#txtGT").val(item.gt);
+        $("#txtEmailKH").val(item.email);
     }
     else {
         $('#divModal').modal('show');
@@ -546,6 +547,60 @@ function deleteKH(id) {
         },
         error: function (jqXHR, textStatus, errorThrow) {
             alert("Xóa thất bại!");
+        }
+    });
+}
+
+//phan trang KH
+
+function goPrevKH() {
+    if (curPageKH == 1) {
+        alert("Bạn đang ở trang đầu!")
+    }
+    else {
+
+        curPageKH = curPageKH - 1;
+        getDataPageKH(curPageKH);
+    }
+}
+function goNextKH() {
+    if (curPageKH == totalPageKH) {
+        alert("Bạn đang ở trang cuối!")
+    }
+    else {
+        curPageKH = curPageKH + 1;
+        getDataPageKH(curPageKH);
+    }
+}
+function getDataPageKH(page) {
+    var filter = {
+        Page: page,
+        Size: 5
+    };
+    var str = JSON.stringify(filter);
+    console.log(str);
+    $.ajax({
+        type: "POST",
+        url: "/DoiTac?handler=List",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { filter: str },
+        dataType: "json",
+        success: function (res) {
+            if (res.success === true || res.success == true) {
+                console.log(res.data);
+                var data = res.data;
+                dataKH = data.data;
+                totalPageKH = data.totalPage;
+                $('#tbodyKH').html("");
+                $('#khTemplate').tmpl(dataKH).appendTo("#tbodyKH");
+                $('#spanCurPageKH').text(curPageKH);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrow) {
+            alert("Không thể qua trang!");
         }
     });
 }

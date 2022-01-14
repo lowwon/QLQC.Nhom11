@@ -21,6 +21,10 @@ namespace QLQC.BLL
         {
             return dal.GetAll();
         }
+        public object GetKHbyPage(int page, int size)
+        {
+            return dal.GetKHbyPage(page, size);
+        }
 
         public bool Update(KhachHangDTO KH)
         {

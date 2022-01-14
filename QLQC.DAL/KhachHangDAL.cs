@@ -115,5 +115,49 @@ namespace QLQC.DAL
 
             return res;
         }
+        //phân trang
+        public object GetKHbyPage(int page, int size)
+        {
+            List<KhachHangDTO> data = new List<KhachHangDTO>();
+            var res = new
+            {
+                Data = data,
+                TotalRecord = 0,
+                TotalPage = 0,
+                Page = page,
+                Size = size
+            };
+
+            try
+            {
+                var ls = db.KhachHangs.ToList();
+                var offset = (page - 1) * size;
+                var totalRecord = ls.Count();
+                var totalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+                var lst = ls.Skip(offset).Take(size);
+                foreach (var c in lst)
+                {
+                    KhachHangDTO khDto = new KhachHangDTO();
+                    khDto.MaKH = c.MaKh;
+                    khDto.TenKH = c.TenKh;
+                    khDto.GT = c.Gt;
+                    khDto.Email = c.Email;
+                    data.Add(khDto);
+                }
+                res = new
+                {
+                    Data = data,
+                    TotalRecord = totalRecord,
+                    TotalPage = totalPage,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception e)
+            {
+                res = null;
+            }
+            return res;
+        }
     }
 }

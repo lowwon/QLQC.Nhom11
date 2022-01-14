@@ -13,8 +13,10 @@ namespace Nhom11.QLQC.Pages
         private KhachHangBLL bus;
         public string maKH { get; private set; }
         public string tenKH { get; private set; }
+        public string GT { get; private set; }
         public List<KhachHangDTO> lst;
-
+        public List<KhachHangDTO> lst1;
+        public int TotalPage;
 
         public DoiTacModel()
         {
@@ -22,15 +24,28 @@ namespace Nhom11.QLQC.Pages
         }
         public void OnGet()
         {
-            lst = bus.GetAll().ToList();
+            int size = 5;
+            lst = bus.GetAll().Take(size).ToList();
+            var totalRecord = bus.GetAll().Count();
+            TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+
         }
+
+        public IActionResult OnPostList(string filter)
+        {
+            var obj = JsonConvert.DeserializeObject<Filter>(filter);
+            var Data = bus.GetKHbyPage(obj.Page, obj.Size);
+            return new ObjectResult(new { success = true, data = Data }) { StatusCode = 200 };
+        }
+
         public void OnPost()
         {
             lst = bus.GetAll().ToList();
             maKH = Request.Form["maKH"];
             tenKH = Request.Form["tenKH"];
+            GT = Request.Form["GT"];
             var temp1 = new List<KhachHangDTO>();
-            var temp2 = new List<KhachHangDTO>();
+
             if (maKH != "")
             {
                 temp1 = (from s in lst
@@ -38,13 +53,30 @@ namespace Nhom11.QLQC.Pages
                          select s).ToList();
                 lst = temp1;
             }
-            if(tenKH != "")
+            else if (tenKH != "")
             {
-                temp2 = (from s in lst
+                temp1 = (from s in lst
                          where s.TenKH.Contains(tenKH.Trim())
                          select s).ToList();
-                lst = temp2;
+                lst = temp1;
             }
+
+            else if (GT != "")
+            {
+                temp1 = (from s in lst
+                         where s.GT.Trim() == GT.Trim()
+                         select s).ToList();
+                lst = temp1;
+            }
+            else
+            {
+                int size = 5;
+                lst = bus.GetAll().Take(size).ToList();
+                var totalRecord = bus.GetAll().Count();
+                TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+
+            }
+
 
         }
         public IActionResult OnPostUpdate(string KH)
