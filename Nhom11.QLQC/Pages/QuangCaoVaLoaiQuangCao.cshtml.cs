@@ -16,6 +16,7 @@ namespace Nhom11.QLQC.Pages
         public List<LoaiQcDTO> lst1;
         public List<QuangCaoDTO> lst2;
         public List<QC_LQCDTO> lstdata;
+        public List<QC_LQCDTOStatic> lststatic;
         public string mqc { get; private set; }
         public string mlqc { get; private set; }
         public string ht { get; private set; }
@@ -29,6 +30,7 @@ namespace Nhom11.QLQC.Pages
         public void OnGet()
         {
             int size = 5;
+            lststatic = bus.getQC_lqc();
             lst = bus.GetAll().Take(size).ToList();
             var totalRecord = bus.GetAll().Count();
             TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
@@ -38,6 +40,7 @@ namespace Nhom11.QLQC.Pages
         }
         public void OnPost()
         {
+            lststatic = bus.getQC_lqc();
             List<QC_LQCDTO> lstemp = bus.GetAll().ToList();
             lstdata = bus.GetAll().ToList();
             lst1 = bus1.GetAll().ToList();
@@ -72,10 +75,7 @@ namespace Nhom11.QLQC.Pages
                          select s).ToList();
                 lstemp = temp3;
             }
-            int size = lstemp.Count();
-            lst = lstemp.Take(size).ToList();
-            var totalRecord = lstemp.Count();
-            TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+            lst = lstemp;
         }
         public IActionResult OnPostList(string filter)
         {

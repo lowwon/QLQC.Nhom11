@@ -34,5 +34,9 @@ namespace QLQC.BLL
         {
             return dal.Add(hd);
         }
+        public List<HopDongStatic> getHopDong()
+        {
+            return dal.getHopDong();
+        }
     }
 }

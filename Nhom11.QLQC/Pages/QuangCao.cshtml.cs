@@ -15,6 +15,7 @@ namespace Nhom11.QLQC.Pages
         private QuangCaoBLL bus;
         public List<QuangCaoDTO> lst;
         public List<QuangCaoDTO> lst1;
+        public List<QuangCaoStatic> lststatic;
         public string mqc { get; set; }
         public string mkh { get; set; }
         public string mn { get; set; }
@@ -28,18 +29,10 @@ namespace Nhom11.QLQC.Pages
         public QuangCaoModel()
         {
             bus = new QuangCaoBLL();
-            //lst1 = bus.GetAll().ToList();
-            //mqc = "";
-            //nbd = "";
-            //nkt = "";
-            //st = "";
-            //mn = "";
-            //mkh = "";
-            //sx1 = "";
-            //sx2 = "";
         }
         public void OnGet()
         {
+            lststatic = bus.getQuangCao();
             int size = 5;
             lst1 = bus.GetAll().ToList();
             lst = bus.GetAll().Take(size).ToList();
@@ -48,6 +41,7 @@ namespace Nhom11.QLQC.Pages
         }
         public void OnPost()
         {
+            lststatic = bus.getQuangCao();
             lst1 = bus.GetAll().ToList();
             List<QuangCaoDTO> lst2 = bus.GetAll().ToList();
             mqc = Request.Form["mqc"];
@@ -160,10 +154,8 @@ namespace Nhom11.QLQC.Pages
                 }
                 lst2 = temp7;
             }
-            int size = lst2.Count();
-            lst = lst2.Take(size).ToList();
-            var totalRecord = lst2.Count();
-            TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+            lst = lst2.ToList();
+           
         }
         public IActionResult OnPostList(string filter)
         {

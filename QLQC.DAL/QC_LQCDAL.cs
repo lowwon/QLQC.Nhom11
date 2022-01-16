@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using QLQC.DTO;
 using QLQC.DAL.Models;
+using Microsoft.Data.SqlClient;
+using System.Data;
+
 namespace QLQC.DAL
 {
     public class QC_LQCDAL
@@ -136,6 +139,43 @@ namespace QLQC.DAL
                 db.SaveChanges();
                 res.MaLoai = c.MaLoai;
                 res.MaQc = c.MaQc;
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
+        public List<QC_LQCDTOStatic> getQC_lqc()
+        {
+            var res = new List<QC_LQCDTOStatic>();
+            string cnStr = "Server=localhost;Database=qlQcao;Trusted_Connection=True";
+            SqlConnection cnn = new SqlConnection(cnStr);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                cmd.CommandText = "sp_QuangCaoTrongLoaiQuangCao";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                var list = new List<QC_LQCDTOStatic>();
+                if (ds.Tables.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var sts = new QC_LQCDTOStatic
+                        {
+                            MaLoai = row["MaLoai"].ToString(),
+                            Number = int.Parse(row["Number Categories"].ToString())
+                        };
+                        list.Add(sts);
+                    }
+                }
+                res = list;
             }
             catch (Exception ex)
             {

@@ -36,5 +36,14 @@ namespace QLQC.BLL
         {
             return dal.GetNhanVienByPage(page, size);
         }
+        public List<NhanVienStatic1> getNhanVien1()
+        {
+            return dal.getNhanVien1();
+        }
+        public List<NhanVienStatic2> getNhanVien2()
+        {
+            return dal.getNhanVien2();
+
+        }
     }
 }

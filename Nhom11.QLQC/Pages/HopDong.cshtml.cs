@@ -15,7 +15,7 @@ namespace Nhom11.QLQC.Pages
     {
         private HopDongBLL bus;
         public List<HopDongDTO> lst;
-
+        public List<HopDongStatic> lststatic;
         public string mhd { get; private set; }
         public string mkh { get; private set; }
         public string mnv { get; private set; }
@@ -28,11 +28,13 @@ namespace Nhom11.QLQC.Pages
 
         public void OnGet()
         {
+            lststatic = bus.getHopDong();
             lst = bus.GetAll().ToList();
         }
 
         public void OnPost()
         {
+            lststatic = bus.getHopDong();
             lst = bus.GetAll().ToList();
             mhd = Request.Form["mhd"];
             mkh = Request.Form["mkh"];

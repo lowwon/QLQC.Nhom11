@@ -12,4 +12,9 @@ namespace QLQC.DTO
         public string TenNhom { get; set; }
         public string MaNT { get; set; }
     }
+    public class NhomNhanVienStatic
+    {
+        public string MaNhom { get; set; }
+        public int SoQuangCao { get; set; }
+    }
 }

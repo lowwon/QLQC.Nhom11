@@ -14,4 +14,9 @@ namespace QLQC.DTO
         public string GT { get; set; }
         public string Email { get; set; }
     }
+    public class KhachHangStatic
+    {
+        public string GT { get; set;}
+        public int SoKhachHang { get;set; }
+    }
 }

@@ -6,6 +6,7 @@
 @Html.AntiForgeryToken()
 <script type="text/javascript">
     var dataKH = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var dataStatic = @Html.Raw(JsonSerializer.Serialize(Model.lststatic));
     var curPageKH = 1;
     var totalPageKH = @Html.Raw(Model.TotalPage);
 </script>
@@ -131,7 +132,6 @@ else if (Request.Method.ToUpper() == "POST")
                     <td>@c.TenKH</td>
                     <td>@c.GT</td>
                     <td>@c.Email</td>
-
                     <td>
                         <button style="margin-bottom:5px" onclick="openKH('@c.MaKH')" type="button" class="btn btn-outline-primary">Sửa</button>
                         <button type="button" onclick="deleteKH('@c.MaKH')" class="btn btn-outline-danger">Xoá</button>
@@ -139,16 +139,36 @@ else if (Request.Method.ToUpper() == "POST")
                 </tr>
             }
         </tbody>
-
     </table>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goPrevKH()">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="javascript:void(0)"> <span id="spanCurPageKH">1</span></a></li>
-            <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goNextKH()">Next</a></li>
-        </ul>
-    </nav>
 }
+<div style="margin-left: 20%"><div id="piechart" style="width: 900px; height: 500px;"></div></div>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var dataC = [
+          ['Task', 'Hours per Day'],
+
+        ];
+        for(var i = 0; i < dataStatic.length;i++){
+            var arr = [dataStatic[i].GT,dataStatic[i].SoKhachHang];
+            dataC.push(arr);
+        }
+        var data = google.visualization.arrayToDataTable(dataC);
+        var options = {
+          title: 'Tỉ lệ giới tính của khách hàng'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 <div style="text-align:left" id="divModal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">

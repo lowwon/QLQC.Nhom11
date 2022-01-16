@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using QLQC.DTO;
 using QLQC.DAL.Models;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace QLQC.DAL
 {
@@ -106,6 +108,42 @@ namespace QLQC.DAL
             }
             return res;
         }
-
+        public List<HopDongStatic> getHopDong()
+        {
+            var res = new List<HopDongStatic>();
+            string cnStr = "Server=localhost;Database=qlQcao;Trusted_Connection=True";
+            SqlConnection cnn = new SqlConnection(cnStr);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                cmd.CommandText = "sp_HopDongTrongNam";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter();  
+                adapter.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                var list = new List<HopDongStatic>();
+                if(ds.Tables.Count > 0)
+                {
+                    foreach(DataRow row in ds.Tables[0].Rows)
+                    {
+                        var sts = new HopDongStatic
+                        {
+                            NgayKy = row["NgayKy"].ToString(),
+                            SoHopDong = int.Parse(row["SoHopDong"].ToString())
+                        };
+                        list.Add(sts);
+                    }
+                }
+                res = list;
+            }
+            catch(Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
     }
 }

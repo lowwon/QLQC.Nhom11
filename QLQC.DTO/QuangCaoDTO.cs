@@ -17,4 +17,10 @@ namespace QLQC.DTO
         public string YeuCau { get; set; }
         public decimal? SoTien { get; set; }
     }
+    public class QuangCaoStatic
+    {
+        public string Year { get; set; }
+        public int Number { get; set; }
+        public int SumPrice { get; set; }
+    }
 }

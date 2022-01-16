@@ -40,5 +40,9 @@ namespace QLQC.BLL
         {
             return dal.Add(kh);
         }
+        public List<KhachHangStatic> getKhachHang()
+        {
+            return dal.getKhachHang();
+        }
     }
 }

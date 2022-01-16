@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using QLQC.DTO;
 using QLQC.DAL.Models;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace QLQC.DAL
 {
@@ -159,6 +161,80 @@ namespace QLQC.DAL
 
             }
             catch (Exception e)
+            {
+                res = null;
+            }
+            return res;
+        }
+        public List<NhanVienStatic1> getNhanVien1()
+        {
+            var res = new List<NhanVienStatic1>();
+            string cnStr = "Server=localhost;Database=qlQcao;Trusted_Connection=True";
+            SqlConnection cnn = new SqlConnection(cnStr);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                cmd.CommandText = "sp_SoNhanVienVaoTheoNam";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                var list = new List<NhanVienStatic1>();
+                if (ds.Tables.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var sts = new NhanVienStatic1
+                        {
+                            Year = row["Year"].ToString(),
+                            NumberEmpl = int.Parse(row["NumberEmpl"].ToString())
+                        };
+                        list.Add(sts);
+                    }
+                }
+                res = list;
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
+        public List<NhanVienStatic2> getNhanVien2()
+        {
+            var res = new List<NhanVienStatic2>();
+            string cnStr = "Server=localhost;Database=qlQcao;Trusted_Connection=True";
+            SqlConnection cnn = new SqlConnection(cnStr);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                cmd.CommandText = "sp_SoNhanVienTheoNhom";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                var list = new List<NhanVienStatic2>();
+                if (ds.Tables.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var sts = new NhanVienStatic2
+                        {
+                            MaNhom = row["MaNhom"].ToString(),
+                            NumberEmpl = int.Parse(row["NumberEmpl"].ToString())
+                        };
+                        list.Add(sts);
+                    }
+                }
+                res = list;
+            }
+            catch (Exception ex)
             {
                 res = null;
             }

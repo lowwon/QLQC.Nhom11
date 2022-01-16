@@ -13,12 +13,14 @@ namespace Nhom11.QLQC.Pages
     {
         private NhomNhanVienBLL bus;
         public List<NhomNhanVienDTO> lst;
+        public List<NhomNhanVienStatic> lststatic;
         public NhomNhanVienModel()
         {
             bus = new NhomNhanVienBLL();
         }
         public void OnGet()
         {
+            lststatic = bus.getNhomNhanVien();
             lst = bus.GetAll().ToList();
         }
         public IActionResult OnGetTest()

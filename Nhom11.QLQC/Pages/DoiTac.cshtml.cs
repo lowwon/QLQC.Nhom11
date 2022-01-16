@@ -16,6 +16,7 @@ namespace Nhom11.QLQC.Pages
         public string GT { get; private set; }
         public List<KhachHangDTO> lst;
         public List<KhachHangDTO> lst1;
+        public List<KhachHangStatic> lststatic;
         public int TotalPage;
 
         public DoiTacModel()
@@ -28,7 +29,7 @@ namespace Nhom11.QLQC.Pages
             lst = bus.GetAll().Take(size).ToList();
             var totalRecord = bus.GetAll().Count();
             TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
-
+            lststatic = bus.getKhachHang();
         }
 
         public IActionResult OnPostList(string filter)
@@ -40,12 +41,12 @@ namespace Nhom11.QLQC.Pages
 
         public void OnPost()
         {
+            lststatic = bus.getKhachHang();
             lst = bus.GetAll().ToList();
             maKH = Request.Form["maKH"];
             tenKH = Request.Form["tenKH"];
             GT = Request.Form["GT"];
             var temp1 = new List<KhachHangDTO>();
-
             if (maKH != "")
             {
                 temp1 = (from s in lst
@@ -53,31 +54,20 @@ namespace Nhom11.QLQC.Pages
                          select s).ToList();
                 lst = temp1;
             }
-            else if (tenKH != "")
+            if (tenKH != "")
             {
                 temp1 = (from s in lst
                          where s.TenKH.Contains(tenKH.Trim())
                          select s).ToList();
                 lst = temp1;
             }
-
-            else if (GT != "")
+            if (GT != "")
             {
                 temp1 = (from s in lst
                          where s.GT.Trim() == GT.Trim()
                          select s).ToList();
                 lst = temp1;
             }
-            else
-            {
-                int size = 5;
-                lst = bus.GetAll().Take(size).ToList();
-                var totalRecord = bus.GetAll().Count();
-                TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
-
-            }
-
-
         }
         public IActionResult OnPostUpdate(string KH)
         {

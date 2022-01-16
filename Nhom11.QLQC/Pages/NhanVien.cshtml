@@ -14,6 +14,8 @@
     var dataNv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
     var curPageNv = 1;
     var totPageNv = @Html.Raw(Model.totalPageNv);
+    var lststatic1 = @Html.Raw(JsonSerializer.Serialize(Model.lststatic1));
+    var lststatic2 = @Html.Raw(JsonSerializer.Serialize(Model.lststatic2));
 
 </script>
 <form method="post">
@@ -129,7 +131,55 @@ else if (Request.Method.ToUpper() == "POST")
         }
     </table>
 }
+<div style="margin-left:-150px" class="rows">
+    <div class="col-6" style=" display: inline-block">
+        <div id="piechart1" style="width: 900px; height: 500px;"></div>
+    </div>
+    <div class="col-3" style="display: inline-block">
+        <div id="piechart2" style="width: 900px; height: 500px;"></div>
+    </div>
+</div>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart1);
+    google.charts.setOnLoadCallback(drawChart2);
+    function drawChart1() {
+        var dataC = [
+            ['Year', 'Hours per Day'],
+
+        ];
+        for(var i = 0; i < lststatic1.length;i++){
+            var arr = [lststatic1[i].Year,lststatic1[i].NumberEmpl];
+            dataC.push(arr);
+        }
+        var data = google.visualization.arrayToDataTable(dataC);
+        var options = {
+            title: 'Phần trăm nhân viên mới vào làm hăng năm'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart.draw(data, options);
+        }
+    function drawChart2() {
+    var dataC = [
+        ['Task', 'Hours per Day'],
+
+    ];
+    for(var i = 0; i < lststatic2.length;i++){
+        var arr = [lststatic2[i].MaNhom,lststatic2[i].NumberEmpl];
+        dataC.push(arr);
+    }
+    var data = google.visualization.arrayToDataTable(dataC);
+    var options = {
+        title: 'Tỉ lệ nhân viên ở mỗi nhóm'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+    chart.draw(data, options);
+    }
+</script>
 <script id="nvTemplate" type="text/x-jquery-tmpl">
     <tr id="trNv_${maNv}" style="text-align:center">
         <td>${maNv}</td>

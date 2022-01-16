@@ -5814,24 +5814,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ngoca\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\quoch\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ngoca\\OneDrive\\Desktop\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\MMT\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
       "projectName": "QLQC.DAL",
-      "projectPath": "C:\\Users\\ngoca\\OneDrive\\Desktop\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
-      "packagesPath": "C:\\Users\\ngoca\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ngoca\\OneDrive\\Desktop\\QLQC.Nhom11\\QLQC.DAL\\obj\\",
+      "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\MMT\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
+      "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\MMT\\QLQC.Nhom11\\QLQC.DAL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ngoca\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5845,8 +5840,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\ngoca\\OneDrive\\Desktop\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
-              "projectPath": "C:\\Users\\ngoca\\OneDrive\\Desktop\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+            "C:\\Users\\quoch\\OneDrive\\Máy tính\\MMT\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+              "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\MMT\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
             }
           }
         }
@@ -5897,7 +5892,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

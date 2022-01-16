@@ -12,4 +12,10 @@ namespace QLQC.DTO
         public string MaLoai { get; set; }
 
     }
+    public class QC_LQCDTOStatic
+    {
+        public string MaLoai { get; set; }
+        public int Number { get; set; }
+
+    }
 }

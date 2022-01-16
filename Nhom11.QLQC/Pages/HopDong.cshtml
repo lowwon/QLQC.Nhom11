@@ -6,6 +6,7 @@
 }
 <script>
     var dataHd = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var dataSta = @Html.Raw(JsonSerializer.Serialize(Model.lststatic));
 </script>
 <form method="post">
     <div class="row">
@@ -147,3 +148,56 @@ else if (Request.Method.ToUpper() == "POST")
         </div>
     </div>
 </div>
+<div style="margin-left: 20%">
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+</div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+    var dataC = [
+        ['Year', 'Hợp đồng'],
+
+    ];
+    for(var i = 0; i < dataSta.length;i++){
+        var arr = [dataSta[i].NgayKy,dataSta[i].SoHopDong];
+        dataC.push(arr);
+    }
+    var data = google.visualization.arrayToDataTable(dataC);
+    var options = {
+          chart: {
+            title: 'Số hợp đồng đã kí của các năm',
+          }
+        };
+
+    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+}
+//<script type="text/javascript" src="">
+////    //<script type="text/javascript">
+//      google.charts.load('current', {'packages':['corechart']});
+//      google.charts.setOnLoadCallback(drawChart);
+
+//      function drawChart() {
+
+//        var dataC = [
+//          ['Task', 'Hours per Day'],
+
+//        ];
+//        for(var i = 0; i < dataSta.length;i++){
+//            var arr = [dataSta[i].NgayKy,dataSta[i].SoHopDong];
+//            dataC.push(arr);
+//        }
+//        var data = google.visualization.arrayToDataTable(dataC);
+//        var options = {
+//          title: 'Phầm trăm hợp đồng đã kí của các năm'
+//        };
+
+//        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+//        chart.draw(data, options);
+//      }
+//    </script>

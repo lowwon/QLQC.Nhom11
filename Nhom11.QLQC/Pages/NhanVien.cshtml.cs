@@ -14,6 +14,8 @@ namespace Nhom11.QLQC.Pages
         private NhomNhanVienBLL bus1;
         public List<NhomNhanVienDTO> lst1;
         public List<NhanVienDTO> lst;
+        public List<NhanVienStatic1> lststatic1;
+        public List<NhanVienStatic2> lststatic2;
         public int totalPageNv;
         public NhanVienModel()
         {
@@ -22,6 +24,8 @@ namespace Nhom11.QLQC.Pages
         }
         public void OnGet()
         {
+            lststatic1 = bus.getNhanVien1();
+            lststatic2 = bus.getNhanVien2();
             int size = 10;
             lst = bus.GetAll().Take(10).ToList();
             lst1 = bus1.GetAll().ToList();
@@ -41,6 +45,8 @@ namespace Nhom11.QLQC.Pages
         public string nvl { get; private set; }
         public void OnPost()
         {
+            lststatic1 = bus.getNhanVien1();
+            lststatic2 = bus.getNhanVien2();
             lst = bus.GetAll().ToList();
             lst1 = bus1.GetAll().ToList();
             mnv = Request.Form["mnv"];

@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using QLQC.DTO;
 using QLQC.DAL.Models;
+using Microsoft.Data.SqlClient;
+using System.Data;
+
 namespace QLQC.DAL
 {
     public class QuangCaoDAL
@@ -179,6 +182,43 @@ namespace QLQC.DAL
             }
             return res;
         }
-
+        public List<QuangCaoStatic> getQuangCao()
+        {
+            var res = new List<QuangCaoStatic>();
+            string cnStr = "Server=localhost;Database=qlQcao;Trusted_Connection=True";
+            SqlConnection cnn = new SqlConnection(cnStr);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                cmd.CommandText = "sp_DemSoQuangCaoTrongNam";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                var list = new List<QuangCaoStatic>();
+                if (ds.Tables.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var sts = new QuangCaoStatic
+                        {
+                            Year = row["Year"].ToString(),
+                            Number = int.Parse(row["Number"].ToString()),
+                            SumPrice = int.Parse(row["SumPrice"].ToString()) / 1000000
+                        };
+                        list.Add(sts);
+                    }
+                }
+                res = list;
+            }
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
     }
 }

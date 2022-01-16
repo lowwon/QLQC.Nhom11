@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using QLQC.DTO;
 using QLQC.DAL.Models;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace QLQC.DAL
 {
@@ -92,6 +94,43 @@ namespace QLQC.DAL
                 res.TenNhom = c.TenNhom;
             }
             catch (Exception e)
+            {
+                res = null;
+            }
+            return res;
+        }
+        public List<NhomNhanVienStatic> getNhomNhanVien()
+        {
+            var res = new List<NhomNhanVienStatic>();
+            string cnStr = "Server=localhost;Database=qlQcao;Trusted_Connection=True";
+            SqlConnection cnn = new SqlConnection(cnStr);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                cmd.CommandText = "sp_QuangCaoOfNhomNhanVien";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                var list = new List<NhomNhanVienStatic>();
+                if (ds.Tables.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var sts = new NhomNhanVienStatic
+                        {
+                            MaNhom = row["MaNhom"].ToString(),
+                            SoQuangCao = int.Parse(row["SoQuangCao"].ToString())
+                        };
+                        list.Add(sts);
+                    }
+                }
+                res = list;
+            }
+            catch (Exception ex)
             {
                 res = null;
             }

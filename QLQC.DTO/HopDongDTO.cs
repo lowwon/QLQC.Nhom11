@@ -17,4 +17,10 @@ namespace QLQC.DTO
         public string MaKH { get; set; } = null!;
 
     }
+    public class HopDongStatic
+    {
+        public string NgayKy { get; set; }
+
+        public int SoHopDong { get; set; }
+    }
 }

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using QLQC.DTO;
 using QLQC.DAL.Models;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace QLQC.DAL
 {
@@ -154,6 +156,43 @@ namespace QLQC.DAL
                 };
             }
             catch (Exception e)
+            {
+                res = null;
+            }
+            return res;
+        }
+        public List<KhachHangStatic> getKhachHang()
+        {
+            var res = new List<KhachHangStatic>();
+            string cnStr = "Server=localhost;Database=qlQcao;Trusted_Connection=True";
+            SqlConnection cnn = new SqlConnection(cnStr);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                cmd.CommandText = "sp_GioiTinhKhachHang";
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                var list = new List<KhachHangStatic>();
+                if (ds.Tables.Count > 0)
+                {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        var sts = new KhachHangStatic
+                        {
+                            GT = row["GT"].ToString(),
+                            SoKhachHang = int.Parse(row["SoKhachHang"].ToString())
+                        };
+                        list.Add(sts);
+                    }
+                }
+                res = list;
+            }
+            catch (Exception ex)
             {
                 res = null;
             }

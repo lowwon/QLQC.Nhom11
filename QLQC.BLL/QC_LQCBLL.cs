@@ -34,5 +34,9 @@ namespace QLQC.BLL
         {
             return dal.GetQuangCaoByPage(page, size);
         }
+        public List<QC_LQCDTOStatic> getQC_lqc()
+        {
+            return dal.getQC_lqc();
+        }
     }
 }

@@ -31,5 +31,9 @@ namespace QLQC.BLL
         {
             return dal.Add(nnv);
         }
+        public List<NhomNhanVienStatic> getNhomNhanVien()
+        {
+            return dal.getNhomNhanVien();
+        }
     }
 }
