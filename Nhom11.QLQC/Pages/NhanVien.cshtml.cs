@@ -90,14 +90,14 @@ namespace Nhom11.QLQC.Pages
                 else if (nvl == "2018")
                 {
                     temp4 = (from s in lst
-                             where s.NgVaoLam.Value.Year >= 2018 && s.NgVaoLam.Value.Year < int.Parse(nvl)
+                             where s.NgVaoLam.Value.Year >= 2014 && s.NgVaoLam.Value.Year < int.Parse(nvl)
                              select s).ToList();
                     lst = temp4;
                 }
                 else if (nvl == "2021")
                 {
                     temp4 = (from s in lst
-                             where s.NgVaoLam.Value.Year >= 2019 && s.NgVaoLam.Value.Year < int.Parse(nvl)
+                             where s.NgVaoLam.Value.Year >= 2021  && s.NgVaoLam.Value.Year < int.Parse(nvl)
                              select s).ToList();
                     lst = temp4;
                 }
