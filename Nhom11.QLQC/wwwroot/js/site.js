@@ -929,6 +929,58 @@ function addHopDong() {
             }
         });
 }
+function goPrevHD() {
+    if (curPageHD == 1) {
+        alert("Bạn đang ở trang đầu!");
+    }
+    else {
+        curPageHD = curPageHD - 1;
+        getDataPageHD(curPageHD);
+    }
+}
+
+function goNextHD() {
+    if (curPageHD == totalPageHD) {
+        alert("Bạn đang ở trang cuối!")
+    }
+    else {
+        curPageHD = curPageHD + 1;
+        getDataPageHD(curPageHD);
+    }
+}
+function getDataPageHD(page) {
+    var filter =
+    {
+        Page: page,
+        Size: 5
+    };
+    var str = JSON.stringify(filter);
+    console.log(str);
+    $.ajax({
+        type: "POST",
+        url: "/HopDong?handler=List",
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { filter: str },
+        dataType: "json",
+        success: function (res) {
+            if (res.success === true || res.success == true) {
+                console.log(res.data);
+                var data = res.data;
+                dataHD = data.data;
+                totalPageHD = data.totalPage;
+                $('#tbodyHD').html("");
+                $('#hdTemplate').tmpl(dataHD).appendTo("#tbodyHD");
+                $('#spanCurPageHD').text(curPageHD);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrow) {
+            alert("Không thể qua trang!");
+        }
+    });
+}
 //nhom nhan vien
 function openModalNNV(id) {
     $('#divModalNNV').modal('show');

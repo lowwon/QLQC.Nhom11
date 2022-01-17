@@ -16,6 +16,8 @@ namespace Nhom11.QLQC.Pages
         private HopDongBLL bus;
         public List<HopDongDTO> lst;
         public List<HopDongStatic> lststatic;
+        public int TotalPage;
+
         public string mhd { get; private set; }
         public string mkh { get; private set; }
         public string mnv { get; private set; }
@@ -28,13 +30,22 @@ namespace Nhom11.QLQC.Pages
 
         public void OnGet()
         {
+            int size = 5;
+            lst = bus.GetAll().Take(size).ToList();
+            var totalRecord = bus.GetAll().Count();
+            TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
             lststatic = bus.getHopDong();
-            lst = bus.GetAll().ToList();
+        }
+
+        public IActionResult OnPostList(string filter)
+        {
+            var obj = JsonConvert.DeserializeObject<Filter>(filter);
+            var Data = bus.GetHDbyPage(obj.Page, obj.Size);
+            return new ObjectResult(new { success = true, data = Data }) { StatusCode = 200 };
         }
 
         public void OnPost()
         {
-            lststatic = bus.getHopDong();
             lst = bus.GetAll().ToList();
             mhd = Request.Form["mhd"];
             mkh = Request.Form["mkh"];

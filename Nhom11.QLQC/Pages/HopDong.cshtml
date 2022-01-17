@@ -2,12 +2,15 @@
 @using global::QLQC.DTO
 @using System.Text.Json
 @model Nhom11.QLQC.Pages.HopDongModel
-@{
-}
-<script>
-    var dataHd = @Html.Raw(JsonSerializer.Serialize(Model.lst));
-    var dataSta = @Html.Raw(JsonSerializer.Serialize(Model.lststatic));
+
+@Html.AntiForgeryToken()
+<script type="text/javascript">
+    var dataHD = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var dataStatic = @Html.Raw(JsonSerializer.Serialize(Model.lststatic));
+    var curPageHD = 1;
+    var totalPageHD = @Html.Raw(Model.TotalPage);
 </script>
+
 <form method="post">
     <div class="row">
         <div class="col-2 form-group">
@@ -75,20 +78,29 @@
             <th>Mã đối tác</th>
             <th>Tác vụ</th>
         </tr>
-        @foreach (HopDongDTO hd in Model.lst)
-        {
-            <tr id="trHd@hd.MaHd" style="text-align:center">
-                <th>@hd.MaHD</th>
-                <th>@hd.NgayKy</th>
-                <th>@hd.MaNV</th>
-                <th>@hd.MaKH</th>
-                <td>
-                    <button type="button" onclick="openHopDong('@hd.MaHD');" class="btn btn-outline-secondary btn-sm">Sửa</button>
-                    <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()';)" class="btn btn-outline-danger btn-sm">Xóa</button>
-                </td>
-            </tr>
-        }
+        <tbody id="tbodyHD">
+            @foreach (HopDongDTO hd in Model.lst)
+            {
+                <tr id="trHd@hd.MaHd" style="text-align:center">
+                    <th>@hd.MaHD</th>
+                    <th>@hd.NgayKy</th>
+                    <th>@hd.MaNV</th>
+                    <th>@hd.MaKH</th>
+                    <td>
+                        <button type="button" onclick="openHopDong('@hd.MaHD');" class="btn btn-outline-secondary btn-sm">Sửa</button>
+                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()';)" class="btn btn-outline-danger btn-sm">Xóa</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goPrevHD()">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0)"> <span id="spanCurPageHD">1</span></a></li>
+            <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goNextHD()">Next</a></li>
+        </ul>
+    </nav>
 }
 
 else if (Request.Method.ToUpper() == "POST")
@@ -101,19 +113,21 @@ else if (Request.Method.ToUpper() == "POST")
             <th>Mã đối tác</th>
             <th>Tác vụ</th>
         </tr>
-        @foreach (HopDongDTO hd in Model.lst)
-        {
-            <tr style="text-align:center">
-                <th>@hd.MaHD</th>
-                <th>@hd.NgayKy</th>
-                <th>@hd.MaNV</th>
-                <th>@hd.MaKH</th>
-                <td>
-                    <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-secondary btn-sm">Sửa</button>
-                    <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger btn-sm">Xóa</button>
-                </td>
-            </tr>
-        }
+        <tbody id="tbodyHD">
+            @foreach (HopDongDTO hd in Model.lst)
+            {
+                <tr style="text-align:center">
+                    <th>@hd.MaHD</th>
+                    <th>@hd.NgayKy</th>
+                    <th>@hd.MaNV</th>
+                    <th>@hd.MaKH</th>
+                    <td>
+                        <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-secondary btn-sm">Sửa</button>
+                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger btn-sm">Xóa</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 }
 <div style="text-align:left" id="divModal" class="modal" tabindex="-1" role="dialog">
@@ -153,30 +167,40 @@ else if (Request.Method.ToUpper() == "POST")
 </div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
-
-    var dataC = [
-        ['Year', 'Hợp đồng'],
-
-    ];
-    for(var i = 0; i < dataSta.length;i++){
-        var arr = [dataSta[i].NgayKy,dataSta[i].SoHopDong];
-        dataC.push(arr);
-    }
-    var data = google.visualization.arrayToDataTable(dataC);
-    var options = {
-          chart: {
-            title: 'Số hợp đồng đã kí của các năm',
-          }
+        var dataC = [
+            ['Year', 'Hợp đồng'],
+        ];
+        for (var i = 0; i < dataSta.length; i++) {
+            var arr = [dataSta[i].NgayKy, dataSta[i].SoHopDong];
+            dataC.push(arr);
+        }
+        var data = google.visualization.arrayToDataTable(dataC);
+        var options = {
+            chart: {
+                title: 'Số hợp đồng đã kí của các năm',
+            }
         };
-
-    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-    chart.draw(data, google.charts.Bar.convertOptions(options));
-}
-//<script type="text/javascript" src="">
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+</script>
+<script id="hdTemplate" type="text/x-jquery-tmpl">
+    <tr id="trHD_${maHD}" style="text-align:center">
+        <td>${maHD}</td>
+        <td>${ngayKy}</td>
+        <td>${maNV}</td>
+        <td>${maKH}</td>
+        <td>
+            <button style="margin-bottom:5px" type="button" onclick="openHopDong('${maHD}')" class="btn btn-outline-primary">Sửa</button>
+            <button type="button" onclick="deleteHopDong('${maHD}')" class="btn btn-outline-danger">Xoá</button>
+        </td>
+    </tr>
+</script>
+@*//
+<script type="text/javascript" src="">
 ////    //<script type="text/javascript">
 //      google.charts.load('current', {'packages':['corechart']});
 //      google.charts.setOnLoadCallback(drawChart);
@@ -200,4 +224,4 @@ else if (Request.Method.ToUpper() == "POST")
 
 //        chart.draw(data, options);
 //      }
-//    </script>
+//    </script>*@

@@ -44,22 +44,22 @@ namespace QLQC.DAL
         public bool Update(HopDongDTO hd)
         {
             bool res = false;
-            var c = db.HopDongs.FirstOrDefault(x => x.MaHd == hd.MaHD);
-            if (c.NgayKy != hd.NgayKy)
+            var s = db.HopDongs.FirstOrDefault(x => x.MaHd == hd.MaHD);
+            if (s.NgayKy != hd.NgayKy)
             {
-                c.NgayKy = hd.NgayKy;
+                s.NgayKy = hd.NgayKy;
             }
-            if (c.MaKh != hd.MaKH)
+            if (s.MaKh != hd.MaKH)
             {
-                c.MaKh = hd.MaKH;
+                s.MaKh = hd.MaKH;
             }
-            if (c.MaNv != hd.MaNV)
+            if (s.MaNv != hd.MaNV)
             {
-                c.MaNv = hd.MaNV;
+                s.MaNv = hd.MaNV;
             }
             try
             {
-                db.HopDongs.Update(c);
+                db.HopDongs.Update(s);
                 db.SaveChanges();
                 res = true;
             }
@@ -108,6 +108,49 @@ namespace QLQC.DAL
             }
             return res;
         }
+
+        public object GetHDbyPage(int page, int size)
+        {
+            List<HopDongDTO> data = new List<HopDongDTO>();
+            var res = new
+            {
+                Data = data,
+                TotalRecord = 0,
+                TotalPage = 0,
+                Page = page,
+                Size = size
+            };
+            try
+            {
+                var ls = db.HopDongs.ToList();
+                var offset = (page - 1) * size;
+                var totalRecord = ls.Count();
+                var totalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+                var lst = ls.Skip(offset).Take(size);
+                foreach (var c in lst)
+                {
+                    HopDongDTO hdDto = new HopDongDTO();
+                    hdDto.MaHD = c.MaHd;
+                    hdDto.MaKH = c.MaKh;
+                    hdDto.MaNV = c.MaNv;
+                    hdDto.NgayKy = c.NgayKy;
+                    data.Add(hdDto);
+                }
+                res = new
+                {
+                    Data = data,
+                    TotalRecord = totalRecord,
+                    TotalPage = totalPage,
+                    Page = page,
+                    Size = size
+                };
+            }
+            catch (Exception e)
+            {
+                res = null;
+            }
+            return res;
+        }
         public List<HopDongStatic> getHopDong()
         {
             var res = new List<HopDongStatic>();
@@ -120,14 +163,14 @@ namespace QLQC.DAL
                 cmd.Connection = cnn;
                 cmd.CommandText = "sp_HopDongTrongNam";
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter adapter = new SqlDataAdapter();  
+                SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = cmd;
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
                 var list = new List<HopDongStatic>();
-                if(ds.Tables.Count > 0)
+                if (ds.Tables.Count > 0)
                 {
-                    foreach(DataRow row in ds.Tables[0].Rows)
+                    foreach (DataRow row in ds.Tables[0].Rows)
                     {
                         var sts = new HopDongStatic
                         {
@@ -139,7 +182,7 @@ namespace QLQC.DAL
                 }
                 res = list;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 res = null;
             }

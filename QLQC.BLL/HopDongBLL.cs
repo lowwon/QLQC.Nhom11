@@ -22,6 +22,11 @@ namespace QLQC.BLL
             return dal.GetAll();
         }
 
+        public object GetHDbyPage(int page, int size)
+        {
+            return dal.GetHDbyPage(page, size);
+        }
+
         public bool Update(HopDongDTO hd)
         {
             return dal.Update(hd);
