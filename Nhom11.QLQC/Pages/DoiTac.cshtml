@@ -98,7 +98,7 @@
                     <td>@c.Email</td>
 
                     <td>
-                        <button style="margin-bottom:5px" onclick="openKH('@c.MaKH')" type="button" class="btn btn-outline-primary">Sửa</button>
+                        <button onclick="openKH('@c.MaKH')" type="button" class="btn btn-outline-primary">Sửa</button>
                         <button type="button" onclick="deleteKH('@c.MaKH')" class="btn btn-outline-danger">Xoá</button>
                     </td>
                 </tr>
@@ -133,7 +133,7 @@ else if (Request.Method.ToUpper() == "POST")
                     <td>@c.GT</td>
                     <td>@c.Email</td>
                     <td>
-                        <button style="margin-bottom:5px" onclick="openKH('@c.MaKH')" type="button" class="btn btn-outline-primary">Sửa</button>
+                        <button onclick="openKH('@c.MaKH')" type="button" class="btn btn-outline-primary">Sửa</button>
                         <button type="button" onclick="deleteKH('@c.MaKH')" class="btn btn-outline-danger">Xoá</button>
                     </td>
                 </tr>
@@ -208,7 +208,7 @@ else if (Request.Method.ToUpper() == "POST")
         <td>${gt}</td>
         <td>${email}</td>
         <td>
-            <button style="margin-bottom:5px" type="button" onclick="openKH('${maKH}')" type="button" class="btn btn-outline-primary">Sửa</button>
+            <button type="button" onclick="openKH('${maKH}')" type="button" class="btn btn-outline-primary">Sửa</button>
             <button type="button" onclick="deleteKH('${maKH}')" class="btn btn-outline-danger">Xoá</button>
         </td>
     </tr>

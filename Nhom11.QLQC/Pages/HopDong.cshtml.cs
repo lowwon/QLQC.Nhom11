@@ -30,6 +30,7 @@ namespace Nhom11.QLQC.Pages
 
         public void OnGet()
         {
+            lststatic = bus.getHopDong();
             int size = 5;
             lst = bus.GetAll().Take(size).ToList();
             var totalRecord = bus.GetAll().Count();
@@ -46,6 +47,7 @@ namespace Nhom11.QLQC.Pages
 
         public void OnPost()
         {
+            lststatic = bus.getHopDong();
             lst = bus.GetAll().ToList();
             mhd = Request.Form["mhd"];
             mkh = Request.Form["mkh"];

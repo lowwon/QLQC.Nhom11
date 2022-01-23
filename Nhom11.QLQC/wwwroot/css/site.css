@@ -11,6 +11,43 @@ a.navbar-brand {
 a {
   color: #0366d6;
 }
+.axx {
+    transition: 0.55s;
+    width: 350px;
+    height: 300px;
+    border-radius: 10px 10px 10px 10px;
+    color: black;
+    margin-top: 5px;
+}
+
+
+.axx:hover {
+    padding-bottom: 30px;
+    margin-left: -45px;
+    margin-right: -30px;
+    width: 430px;
+    height: 330px;
+    position: relative;
+}
+
+.bxx:hover {
+    padding-top: 30px;
+    margin-left: -45px;
+    margin-right: -30px;
+    margin-bottom: 30px;
+    width: 430px;
+    height: 330px;
+    position: relative;
+}
+
+.bxx {
+    margin-top: 5px;
+    transition: 0.55s;
+    width: 350px;
+    height: 300px;
+    border-radius: 10px 10px 10px 10px;
+    color: black;
+}
 
 .btn-primary {
   color: #fff;

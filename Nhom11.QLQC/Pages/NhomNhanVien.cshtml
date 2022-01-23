@@ -16,19 +16,19 @@
 </script>
 <form method="post">
     <div class="row">
-        <div class="col-2 form-group">
+        <div class="col-3 form-group">
             <label>      Mã nhóm :    </label>
             <input type="text" id="mn" name="mn" class="form-control" />
         </div>
-        <div class="col-2 form-group">
+        <div class="col-3 form-group">
             <label>Tên nhóm : </label>
             <input type="text" id="tn" name="tn" class="form-control" />
         </div>
-        <div class="col-2 form-group">
+        <div class="col-4 form-group">
             <label>Mã nhóm trưởng : </label>
             <input type="text" id="mnt" name="mnt" class="form-control" />
         </div>
-        <div class="col-2 form-group">
+        <div class="col-1 form-group">
             <br />
             <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
         </div>
@@ -36,17 +36,14 @@
 </form>
 <br />
 <div class="text-center">
-    <h2><b>Danh sách nhóm nhân viên</b></h2>
-</div>
-
-<div>
-    <button type="button" onclick="openModalNNV(null);" class="btn btn-outline-success"> Thêm mới</button>
+    <h2 style="display: inline-block" ><b>Danh sách nhóm nhân viên</b></h2>
+    <button button style="float: right" type="button" onclick="openModalNNV(null);" class="btn btn-outline-success"> Thêm mới</button>
 </div>
 
 @if (Request.Method.ToUpper() == "GET")
 {
     <table id="tbNNV" class="table table-success table-condensed">
-        <tr>
+        <tr  style="text-align:center">
             <th>Mã nhóm</th>
             <th>Tên nhóm</th>
             <th>Mã nhóm trưởng</th>
@@ -60,7 +57,7 @@
 
                 <td>
                     <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
-                    <button type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
+                    <button style="margin-bottom:5px" type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
                 </td>
             </tr>
         }
@@ -69,7 +66,7 @@
 else if (Request.Method.ToUpper() == "POST")
 {
     <table id="tbNNV" class="table table-success table-condensed">
-        <tr>
+        <tr  style="text-align:center">
             <th>Mã nhóm</th>
             <th>Tên nhóm</th>
             <th>Mã nhóm trưởng</th>
@@ -81,9 +78,8 @@ else if (Request.Method.ToUpper() == "POST")
                 <td>@nnv.TenNhom</td>
                 <td>@nnv.MaNT</td>
                 <td>
-
                     <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
-                    <button type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
+                    <button style="margin-bottom:5px" type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
                 </td>
             </tr>
         }
