@@ -40,12 +40,13 @@ namespace Nhom11.QLQC.Pages
             {
                 temp = (from qc in lst1
                         join nv in lst2 on qc.MaNhom equals nv.MaNhom
-                        where qc.MaQc.Contains(value.Trim())
+                        where qc.MaQc.Trim()==(value.Trim())
                         select nv
                         ).ToList();
 
-                lst2 = temp;
+                
             }
+            lst2 = temp;
         }
     }
 }
