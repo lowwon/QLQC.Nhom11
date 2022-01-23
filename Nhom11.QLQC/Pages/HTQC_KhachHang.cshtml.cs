@@ -59,11 +59,11 @@ namespace Nhom11.QLQC.Pages
                              join qc in lstqc on x.MaQc equals qc.MaQc into b
                              from y in b
                              join kh in lstkh on y.MaKh equals kh.MaKH
-                             where kh.TenKH.Trim().Contains(value.Trim())
+                             where kh.TenKH.Trim()==(value.Trim())
                              select lqc).ToList();
                     temp2 = (from kh in lstkh
                              join qc in lstqc on kh.MaKH equals qc.MaKh
-                             where kh.TenKH.Trim().Contains(value.Trim())
+                             where kh.TenKH.Trim()==(value.Trim())
                              select kh).ToList();
                 }
                 else
@@ -74,10 +74,10 @@ namespace Nhom11.QLQC.Pages
                              join qc in lstqc on x.MaQc equals qc.MaQc into b
                              from y in b
                              join kh in lstkh on y.MaKh equals kh.MaKH
-                             where kh.MaKH.Trim().Contains(value.Trim())
+                             where kh.MaKH.Trim() == value.Trim()
                              select lqc).ToList();
                     temp2 = (from kh in lstkh
-                             where kh.MaKH.Contains(value.Trim())
+                             where kh.MaKH.Trim() == value.Trim()
                              select kh).ToList();
                 }
                 lstlqc = temp1;
