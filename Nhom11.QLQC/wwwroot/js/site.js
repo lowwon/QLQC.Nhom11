@@ -618,13 +618,15 @@ function openModalNV(id) {
                 break;
             }
         }
-        $("#txtMaNv").val(item.MaNv);
-        $("#txtTenNv").val(item.TenNv);
-        $("#txtMaNhom").val(item.MaNhom);
-        $("#txtEmail").val(item.Email);
-        $("#txtNgSinh").val(item.NgSinh);
-        $("#txtNgVaoLam").val(item.NgVaoLam);
-        $("#txtGt").val(item.Gt);
+        var nv = dataNv[i];
+        console.log(nv);
+        $("#txtMaNv").val(nv.MaNv);
+        $("#txtTenNv").val(nv.TenNv);
+        $("#txtMaNhom").val(nv.MaNhom);
+        $("#txtEmail").val(nv.Email);
+        $("#txtNgSinh").val(nv.NgSinh);
+        $("#txtNgVaoLam").val(nv.NgVaoLam);
+        $("#txtGt").val(nv.Gt);
     }
     else {
         $('#spanIdNv').text("Thêm mới");
@@ -798,10 +800,10 @@ function getDataPageNv(page) {
             if (res.success === true || res.success == true) {
                 console.log(res.data);
                 var data = res.data;
-                dataNv = data.data;
+                dataNvx = data.data;
                 totPageNv = data.totalPageNv;
                 $("#tbodyNv").html("");
-                $("#nvTemplate").tmpl(dataNv).appendTo("#tbodyNv");
+                $("#nvTemplate").tmpl(dataNvx).appendTo("#tbodyNv");
                 $("#spanCurrentPageNv").text(curPageNv);
             }
         },

@@ -12,9 +12,9 @@
 }
 <h1 style="text-align:center; margin-bottom : 20px">Tìm Nhân viên theo nhóm Nhân viên</h1>
 <div style="margin-bottom: 30px">
-	<form method="post">
-		<div style="display:inline-block; margin-left : 30%">
-			<label> Mã nhóm :</label>
+    <form method="post">
+        <div style="display:inline-block; margin-left : 30%">
+            <label> Mã nhóm :</label>
             <select id="mnnnv" name="mnnnv" class="form-control">
                 <option value=""></option>
                 @foreach (var item in Model.lst1)
@@ -23,9 +23,9 @@
 
                 }
             </select>
-		</div>
-		<div style = "display: inline-block; margin-left : 100px">
-			<label>Tên nhóm : </label> 
+        </div>
+        <div style="display: inline-block; margin-left : 100px">
+            <label>Tên nhóm : </label>
             <select id="tn" name="tn" class="form-control">
                 <option value=""></option>
                 @foreach (var item in Model.lst1)
@@ -33,47 +33,64 @@
                     <option value="@item.TenNhom">@item.TenNhom</option>
                 }
             </select>
-		</div>
-		<div style = "display: inline-block; margin-left : -60px">
-			<input style = "margin-left :145px" type="submit" value="Tìm kiếm" class="btn btn-primary"/>
-		</div>
-	</form>
+        </div>
+        <div style="display: inline-block; margin-left : -60px">
+            <input style="margin-left :145px" type="submit" value="Tìm kiếm" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
 @if (Request.Method.ToUpper() == "GET")
 {
-<table  class="table table-success table-condensed">
-    <tr style="text-align:center;">
-        <th>Mã nhân viên</th>
-        <th>Tên nhân viên</th>
-        <th>Ngày sinh</th>
-        <th>Ngày vào làm</th>
-        <th>Email</th>
-        <th>Giới tính</th>
-    </tr>
-    
-</table>
+    <table class="table table-success table-condensed">
+        <tr style="text-align:center;">
+            <th>Mã nhân viên</th>
+            <th>Tên nhân viên</th>
+            <th>Ngày sinh</th>
+            <th>Ngày vào làm</th>
+            <th>Email</th>
+            <th>Giới tính</th>
+        </tr>
+
+    </table>
 }
 else if (Request.Method.ToUpper() == "POST")
 {
-<table  class="table table-success table-condensed">
-    <tr>
-        <th>Mã nhân viên</th>
-        <th>Tên nhân viên</th>
-        <th>Ngày sinh</th>
-        <th>Ngày vào làm</th>
-        <th>Email</th>
-        <th>Giới tính</th>
-    </tr>
-    @foreach (NhanVienDTO nv in Model.lst)
+    if (Model.lst != null)
     {
-        <tr >
-            <td>@nv.MaNv</td>
-            <td>@nv.TenNv</td>
-            <td>@nv.NgSinh</td>
-            <td>@nv.NgVaoLam</td>
-            <td>@nv.Email</td>
-            <td>@nv.Gt</td>
-        </tr>
+        <table class="table table-success table-condensed">
+            <tr>
+                <th>Mã nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Ngày sinh</th>
+                <th>Ngày vào làm</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+            </tr>
+            @foreach (NhanVienDTO nv in Model.lst)
+            {
+                <tr>
+                    <td>@nv.MaNv</td>
+                    <td>@nv.TenNv</td>
+                    <td>@nv.NgSinh</td>
+                    <td>@nv.NgVaoLam</td>
+                    <td>@nv.Email</td>
+                    <td>@nv.Gt</td>
+                </tr>
+            }
+        </table>
     }
-</table>
+    else
+    {
+        <table class="table table-success table-condensed">
+            <tr style="text-align:center;">
+                <th>Mã nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Ngày sinh</th>
+                <th>Ngày vào làm</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+            </tr>
+
+        </table>
+    }
 }

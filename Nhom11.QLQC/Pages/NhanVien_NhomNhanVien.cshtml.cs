@@ -46,13 +46,17 @@ namespace Nhom11.QLQC.Pages
                          select nv).ToList();
                 lst = temp1;
             }
-            if (tn != "")
+            else if (tn != "")
             {
                 temp2 = (from nv in lst
                          join nnv in lst1 on nv.MaNhom equals nnv.MaNhom
                          where nnv.TenNhom.ToLower().Contains(tn.ToLower())
                          select nv).ToList();
                 lst = temp2;
+            }
+            else
+            {
+                lst = null;
             }
         }
     }

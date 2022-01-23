@@ -112,3 +112,20 @@ C:\Users\quoch\OneDrive\Máy tính\MMT\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQ
 C:\Users\quoch\OneDrive\Máy tính\MMT\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
 C:\Users\quoch\OneDrive\Máy tính\MMT\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
 C:\Users\quoch\OneDrive\Máy tính\MMT\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb
+C:\QTM\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.deps.json
+C:\QTM\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.dll
+C:\QTM\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\ref\QLQC.BLL.dll
+C:\QTM\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.BLL.pdb
+C:\QTM\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.dll
+C:\QTM\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.dll
+C:\QTM\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DAL.pdb
+C:\QTM\QLQC.Nhom11\QLQC.BLL\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.AssemblyReference.cache
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfoInputs.cache
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.AssemblyInfo.cs
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CoreCompileInputs.cache
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.csproj.CopyComplete
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.dll
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\ref\QLQC.BLL.dll
+C:\QTM\QLQC.Nhom11\QLQC.BLL\obj\Debug\net5.0\QLQC.BLL.pdb

@@ -50,7 +50,7 @@ namespace Nhom11.QLQC.Pages
                          select n).ToList();
                 lst = temp1;
             }
-            if (tkhnv != "")
+            else if (tkhnv != "")
             {
                 temp2 = (from n in lst
                          join h in lst1 on n.MaNv equals h.MaNV
@@ -58,6 +58,10 @@ namespace Nhom11.QLQC.Pages
                          where k.TenKH.Contains(tkhnv.Trim())
                          select n).ToList();
                 lst = temp2;
+            }
+            else
+            {
+                lst = null;
             }
 
         }

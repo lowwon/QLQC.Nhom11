@@ -12,6 +12,7 @@
 }
 <script>
     var dataNv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var dataNvx = @Html.Raw(JsonSerializer.Serialize(Model.lst2));
     var curPageNv = 1;
     var totPageNv = @Html.Raw(Model.totalPageNv);
     var lststatic1 = @Html.Raw(JsonSerializer.Serialize(Model.lststatic1));
@@ -73,7 +74,7 @@
             <th>Giới tính</th>
         </tr>
         <tbody id="tbodyNv">
-            @foreach (NhanVienDTO nv in Model.lst)
+            @foreach (NhanVienDTO nv in Model.lst2)
             {
                 <tr id="trNv_@nv.MaNv" style="text-align:center">
                     <td>@nv.MaNv</td>
@@ -142,7 +143,7 @@ else if (Request.Method.ToUpper() == "POST")
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
+    google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChart1);
     google.charts.setOnLoadCallback(drawChart2);
     function drawChart1() {
@@ -150,8 +151,8 @@ else if (Request.Method.ToUpper() == "POST")
             ['Year', 'Hours per Day'],
 
         ];
-        for(var i = 0; i < lststatic1.length;i++){
-            var arr = [lststatic1[i].Year,lststatic1[i].NumberEmpl];
+        for (var i = 0; i < lststatic1.length; i++) {
+            var arr = [lststatic1[i].Year, lststatic1[i].NumberEmpl];
             dataC.push(arr);
         }
         var data = google.visualization.arrayToDataTable(dataC);
@@ -160,41 +161,25 @@ else if (Request.Method.ToUpper() == "POST")
         };
         var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
         chart.draw(data, options);
-        }
+    }
     function drawChart2() {
-    var dataC = [
-        ['Task', 'Hours per Day'],
+        var dataC = [
+            ['Task', 'Hours per Day'],
 
-    ];
-    for(var i = 0; i < lststatic2.length;i++){
-        var arr = [lststatic2[i].MaNhom,lststatic2[i].NumberEmpl];
-        dataC.push(arr);
+        ];
+        for (var i = 0; i < lststatic2.length; i++) {
+            var arr = [lststatic2[i].MaNhom, lststatic2[i].NumberEmpl];
+            dataC.push(arr);
+        }
+        var data = google.visualization.arrayToDataTable(dataC);
+        var options = {
+            title: 'Tỉ lệ nhân viên ở mỗi nhóm'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+        chart.draw(data, options);
     }
-    var data = google.visualization.arrayToDataTable(dataC);
-    var options = {
-        title: 'Tỉ lệ nhân viên ở mỗi nhóm'
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
-
-    chart.draw(data, options);
-    }
-</script>
-<script id="nvTemplate" type="text/x-jquery-tmpl">
-    <tr id="trNv_${maNv}" style="text-align:center">
-        <td>${maNv}</td>
-        <td>${tenNv}</td>
-        <td>${maNhom}</td>
-        <td>${ngSinh}</td>
-        <td>${ngVaoLam}</td>
-        <td>${email}</td>
-        <td>${gt}</td>
-
-        <td>
-            <button style="margin-bottom:5px" type="button" onclick="openModalNV('${maNv}');" class="btn btn-outline-primary">Sửa</button>
-            <button type="button" onclick="deleteNhanVien('${maNv}');" class="btn btn-outline-danger">Xoá</button>
-        </td>
-    </tr>
 </script>
 <div id="divModalNV" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
@@ -249,5 +234,22 @@ else if (Request.Method.ToUpper() == "POST")
         </div>
     </div>
 </div>
+
+<script id="nvTemplate" type="text/x-jquery-tmpl">
+    <tr id="trNv_${maNv}" style="text-align:center">
+        <td>${maNv}</td>
+        <td>${tenNv}</td>
+        <td>${maNhom}</td>
+        <td>${ngSinh}</td>
+        <td>${ngVaoLam}</td>
+        <td>${email}</td>
+        <td>${gt}</td>
+
+        <td>
+            <button style="margin-bottom:5px" type="button" onclick="openModalNV('${maNv}');" type="button" class="btn btn-outline-primary">Sửa</button>
+            <button type="button" onclick="deleteNhanVien('${maNv}');" class="btn btn-outline-danger">Xoá</button>
+        </td>
+    </tr>
+</script>
 
 

@@ -14,6 +14,7 @@ namespace Nhom11.QLQC.Pages
         private NhomNhanVienBLL bus1;
         public List<NhomNhanVienDTO> lst1;
         public List<NhanVienDTO> lst;
+        public List<NhanVienDTO> lst2;
         public List<NhanVienStatic1> lststatic1;
         public List<NhanVienStatic2> lststatic2;
         public int totalPageNv;
@@ -27,7 +28,8 @@ namespace Nhom11.QLQC.Pages
             lststatic1 = bus.getNhanVien1();
             lststatic2 = bus.getNhanVien2();
             int size = 10;
-            lst = bus.GetAll().Take(10).ToList();
+            lst = bus.GetAll().ToList();
+            lst2 = bus.GetAll().Take(size).ToList();
             lst1 = bus1.GetAll().ToList();
             var totalRecordNv = bus.GetAll().Count();
             totalPageNv = (totalRecordNv % size) == 0 ? (int)(totalRecordNv / size) : (int)((totalRecordNv / size) + 1);
@@ -35,7 +37,7 @@ namespace Nhom11.QLQC.Pages
         }
         public IActionResult OnPostList(string filter)
         {
-            var obj = JsonSerializer.Deserialize<Filter>(filter);
+            var obj = Newtonsoft.Json.JsonConvert.DeserializeObject<Filter>(filter);
             var Datanv = bus.GetNhanVienByPage(obj.Page, obj.Size);
             return new ObjectResult(new { success = true, data = Datanv }) { StatusCode = 200 };
         }
@@ -97,7 +99,7 @@ namespace Nhom11.QLQC.Pages
                 else if (nvl == "2021")
                 {
                     temp4 = (from s in lst
-                             where s.NgVaoLam.Value.Year >= 2021  && s.NgVaoLam.Value.Year < int.Parse(nvl)
+                             where s.NgVaoLam.Value.Year >= 2021 && s.NgVaoLam.Value.Year < int.Parse(nvl)
                              select s).ToList();
                     lst = temp4;
                 }
