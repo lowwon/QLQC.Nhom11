@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using QLQC.DAL;
 using QLQC.DTO;
-
 namespace QLQC.BLL
 {
     public class NhomNhanVienBLL
@@ -19,6 +18,7 @@ namespace QLQC.BLL
         {
             return dal.GetAll();
         }
+
         public bool Update(NhomNhanVienDTO nnv)
         {
             return dal.Update(nnv);
@@ -30,6 +30,11 @@ namespace QLQC.BLL
         public NhomNhanVienDTO Add(NhomNhanVienDTO nnv)
         {
             return dal.Add(nnv);
+
+        }
+        public object GetNhomNhanVienByPage(int page, int size)
+        {
+            return dal.GetNhomNhanVienByPage(page, size);
         }
         public List<NhomNhanVienStatic> getNhomNhanVien()
         {

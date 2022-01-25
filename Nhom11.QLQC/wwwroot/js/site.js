@@ -1148,3 +1148,54 @@ function deleteNhomNhanVien(id) {
     });
 
 }
+function goPrevNnv() {
+    if (curPageNnv == 1) {
+        alert("Bạn đang ở trang đầu!")
+    }
+    else {
+
+        curPageNnv = curPageNnv - 1;
+        getDataPageNnv(curPageNnv);
+    }
+}
+function goNextNnv() {
+    if (curPageNnv == totalPageNnv) {
+        alert("Bạn đang ở trang cuối!")
+    }
+    else {
+        curPageNnv = curPageNnv + 1;
+        getDataPageNnv(curPageNnv);
+    }
+} function getDataPageNnv(page) {
+    var filter = {
+        Page: page,
+        Size: 5
+    };
+    var str = JSON.stringify(filter);
+    $.ajax({
+        type: "POST",
+        url: "/NhomNhanVien?handler=Update",
+        //data: item
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { nnv: str },
+        dataType: "json",
+        success: function (res) {
+            console.log(res);
+            if (res.success === true || res.success == true) {
+                console.log(res.data);
+                var data = res.data;
+                dataNnv = data.data;
+                totPageNnv = data.totalPage;
+                $("#tbodyNnv").html("");
+                $("#NnvTemplate").tmpl(dataNnv).appendTo("#tbodyNnv");
+                $("#spanCurrentPageNnv").text(curPageNnv);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+        }
+    });
+}

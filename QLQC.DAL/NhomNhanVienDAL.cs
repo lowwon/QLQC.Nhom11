@@ -38,6 +38,48 @@ namespace QLQC.DAL
             }
             return lst;
         }
+        public object GetNhomNhanVienByPage(int page, int size)
+        {
+            List<NhomNhanVienDTO> data = new List<NhomNhanVienDTO>();
+            var res = new
+            {
+                Data = data,
+                TotalRecord = 0,
+                TotalPage = 0,
+                Page = page,
+                Size = size
+            };
+            try
+            {
+                var lst2 = db.NhomNvs.ToList();
+                var offset = (page - 1) * size;
+                var totalRecord = lst2.Count();
+                int totalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
+                var lst = lst2.Skip(offset).Take(size);
+                foreach (var d in lst)
+                {
+                    NhomNhanVienDTO a = new NhomNhanVienDTO();
+                    a.MaNT = d.MaNT;
+                    a.TenNhom = d.TenNhom;
+                    a.MaNhom = d.MaNhom;
+                    data.Add(a);
+                }
+                res = new
+                {
+                    Data = data,
+                    TotalRecord = 0,
+                    TotalPage = 0,
+                    Page = page,
+                    Size = size
+                };
+            }
+
+            catch (Exception ex)
+            {
+                res = null;
+            }
+            return res;
+        }
         public bool Update(NhomNhanVienDTO nnv)
         {
             bool res = false;
@@ -48,8 +90,6 @@ namespace QLQC.DAL
             }
             if (c.MaNT != nnv.MaNT)
                 c.MaNT = nnv.MaNT;
-            if (c.MaNhom != nnv.MaNhom)
-                c.MaNhom = nnv.MaNhom;
             try
             {
                 db.NhomNvs.Update(c);
@@ -62,10 +102,10 @@ namespace QLQC.DAL
             }
             return res;
         }
-        public bool Delete(string nnv)
+        public bool Delete(string mn)
         {
             bool res = false;
-            var c = db.NhomNvs.FirstOrDefault(x => x.MaNhom == nnv);
+            var c = db.NhomNvs.FirstOrDefault(x => x.MaNhom.Trim() == mn.Trim());
             try
             {
                 db.NhomNvs.Remove(c);
@@ -99,6 +139,7 @@ namespace QLQC.DAL
             }
             return res;
         }
+
         public List<NhomNhanVienStatic> getNhomNhanVien()
         {
             var res = new List<NhomNhanVienStatic>();

@@ -1,0 +1,70 @@
+﻿@page
+@using global::QLQC.DTO
+@model Nhom11.QLQC.Pages.HopDong_DoiTacModel
+@{
+}
+<h1 style="text-align:center; margin-bottom : 20px">Tìm Hợp đồng đối tác đã ký</h1>
+<div>
+    <form method="post">
+        <div style="display:inline-block; margin-left : 32%">
+            <label>Tìm theo tên đối tác</label>
+            <input type="radio" name="a" value="tkh" class="form-control" />
+        </div>
+        <div style="display: inline-block; margin-left : 50px">
+            <label>Tìm theo mã đối tác</label>
+            <input type="radio" name="a" value="mkh" class="form-control" />
+        </div>
+        <div style="margin-left : 30%;margin-right : 30%;margin-top : 20px">
+            <label style="display: inline-block">Nhập tên hoặc mã đối tác</label>
+            <input style="margin-left :145px" type="submit" value="Tìm kiếm" class="btn btn-primary" />
+            <input style="margin-top : 10px;margin-bottom : 20px" type="text" id="ass" name="ass" class="form-control" />
+        </div>
+    </form>
+</div>
+@if (Request.Method.ToUpper() == "GET")
+{
+    <table class="table table-success table-condensed">
+        <tr style="text-align:center">
+            <th>Mã hợp đồng</th>
+            <th>Ngày ký kết</th>
+            <th>Mã nhân viên thực hiện</th>
+            <th>Mã đối tác</th>
+        </tr>
+    </table>
+}
+else if (Request.Method.ToUpper() == "POST")
+{
+    @if (@Model.gt != "")
+    {
+        <table class="table table-success table-condensed">
+            <tr style="text-align:center">
+                <th>Mã hợp đồng</th>
+                <th>Ngày ký kết</th>
+                <th>Mã nhân viên thực hiện</th>
+                <th>Mã đối tác</th>
+            </tr>
+            @foreach (HopDongDTO hd in Model.lst)
+            {
+                <tr id="trHd@hd.MaHd" style="text-align:center">
+                    <td>@hd.MaHD</td>
+                    <td>@hd.NgayKy</td>
+                    <td>@hd.MaNV</td>
+                    <td>@hd.MaKH</td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <table class="table table-success table-condensed">
+            <tr style="text-align:center">
+                <th>Mã hợp đồng</th>
+                <th>Ngày ký kết</th>
+                <th>Mã nhân viên thực hiện</th>
+                <th>Mã đối tác</th>
+            </tr>
+        </table>
+    }
+}
+
+

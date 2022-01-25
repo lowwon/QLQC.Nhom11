@@ -94,3 +94,15 @@ C:\QTM\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.CoreCompileInputs.c
 C:\QTM\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
 C:\QTM\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
 C:\QTM\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.deps.json
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\ref\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\bin\Debug\net5.0\QLQC.DTO.pdb
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.AssemblyReference.cache
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfoInputs.cache
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.AssemblyInfo.cs
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.csproj.CoreCompileInputs.cache
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\ref\QLQC.DTO.dll
+C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\QLQC.DTO\obj\Debug\net5.0\QLQC.DTO.pdb

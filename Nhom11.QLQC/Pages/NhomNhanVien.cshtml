@@ -11,140 +11,170 @@
     var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
 }
 <script>
-    var dataNNv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+   @*var dataNnv = @Html.Raw(JsonSerializer.Serialize(Model.lst1));*@
+    var dataNnv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
     var lststatic = @Html.Raw(JsonSerializer.Serialize(Model.lststatic));
+    var curPageNnv = 1;
+    var totalPageNnv = @Html.Raw(Model.TotalPage);
 </script>
 <form method="post">
     <div class="row">
-        <div class="col-3 form-group">
+        <div class="col-2 form-group">
             <label>      Mã nhóm :    </label>
             <input type="text" id="mn" name="mn" class="form-control" />
         </div>
-        <div class="col-3 form-group">
+        <div class="col-2 form-group">
             <label>Tên nhóm : </label>
             <input type="text" id="tn" name="tn" class="form-control" />
         </div>
-        <div class="col-4 form-group">
+        <div class="col-2 form-group">
             <label>Mã nhóm trưởng : </label>
             <input type="text" id="mnt" name="mnt" class="form-control" />
         </div>
-        <div class="col-1 form-group">
+        <div class="col-3 form-group">
             <br />
-            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
+            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" id="tkx" value="Tìm kiếm" />
         </div>
     </div>
 </form>
 <br />
 <div class="text-center">
-    <h2 style="display: inline-block" ><b>Danh sách nhóm nhân viên</b></h2>
-    <button button style="float: right" type="button" onclick="openModalNNV(null);" class="btn btn-outline-success"> Thêm mới</button>
-</div>
+    <h2 style="display: inline-block"><b>Danh sách các nhóm nhân viên</b></h2>
+    <input style="float: right" onclick="openModalNhomNhanVienAdd()" type="button" class="btn btn-outline-success" value="Thêm mới" />
 
-@if (Request.Method.ToUpper() == "GET")
-{
-    <table id="tbNNV" class="table table-success table-condensed">
-        <tr  style="text-align:center">
-            <th>Mã nhóm</th>
-            <th>Tên nhóm</th>
-            <th>Mã nhóm trưởng</th>
-        </tr>
-        @foreach (NhomNhanVienDTO nnv in Model.lst)
-        {
-            <tr id="trNNv_@nnv.MaNhom" style="text-align:center">
-                <td>@nnv.MaNhom</td>
-                <td>@nnv.TenNhom</td>
-                <td>@nnv.MaNT</td>
 
-                <td>
-                    <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
-                    <button style="margin-bottom:5px" type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
-                </td>
+    @if (Request.Method.ToUpper() == "GET")
+    {
+        <table id="tbNNV" class="table table-success table-condensed">
+            <tr>
+                <th>Mã nhóm</th>
+                <th>Tên nhóm</th>
+                <th>Mã nhóm trưởng</th>
             </tr>
-        }
-    </table>
-}
-else if (Request.Method.ToUpper() == "POST")
-{
-    <table id="tbNNV" class="table table-success table-condensed">
-        <tr  style="text-align:center">
-            <th>Mã nhóm</th>
-            <th>Tên nhóm</th>
-            <th>Mã nhóm trưởng</th>
-        </tr>
-        @foreach (NhomNhanVienDTO nnv in Model.lst)
-        {
-            <tr id="trNNv_@nnv.MaNhom" style="text-align:center">
-                <td>@nnv.MaNhom</td>
-                <td>@nnv.TenNhom</td>
-                <td>@nnv.MaNT</td>
-                <td>
-                    <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
-                    <button style="margin-bottom:5px" type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
-                </td>
-            </tr>
-        }
-    </table>
-}
-<div style="margin-left: 20%">
-<div id="piechart" style="width: 900px; height: 500px;"></div>
-</div>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+            @foreach (NhomNhanVienDTO nnv in Model.lst)
+            {
+                <tr id="trNNv_@nnv.MaNhom" style="text-align:center">
+                    <td>@nnv.MaNhom</td>
+                    <td>@nnv.TenNhom</td>
+                    <td>@nnv.MaNT</td>
 
-    function drawChart() {
-
-    var dataC = [
-        ['Task', 'Hours per Day'],
-
-    ];
-    for(var i = 0; i < lststatic.length;i++){
-        var arr = [lststatic[i].MaNhom,lststatic[i].SoQuangCao];
-        dataC.push(arr);
+                    <td>
+                        <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
+                        <button type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
+                    </td>
+                </tr>
+            }
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goPrevNnv()">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0)"><span id="spanCurrentPageNnv">1</span></a></li>
+                <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="goNextNnv()">Next</a></li>
+            </ul>
+        </nav>
     }
-    var data = google.visualization.arrayToDataTable(dataC);
-    var options = {
-        title: 'Phần trăm các dự ác nhóm nhân viên đã làm'
-    };
+    else if (Request.Method.ToUpper() == "POST")
+    {
+        <table id="tbNNV" class="table table-success table-condensed">
+            <tr>
+                <th>Mã nhóm</th>
+                <th>Tên nhóm</th>
+                <th>Mã nhóm trưởng</th>
+            </tr>
+            <tbody id="tbodyNnv">
+                @foreach (NhomNhanVienDTO nnv in Model.lst)
+                {
+                    <tr id="trNNv_@nnv.MaNhom" style="text-align:center">
+                        <td>@nnv.MaNhom</td>
+                        <td>@nnv.TenNhom</td>
+                        <td>@nnv.MaNT</td>
+                        <td>
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                            <button style="margin-bottom:5px" type="button" onclick="openModalNNV('@nnv.MaNhom');" class="btn btn-outline-primary">Sửa</button>
+                            <button type="button" onclick="deleteNhomNhanVien('@nnv.MaNhom');" class="btn btn-outline-danger">Xoá</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
-    chart.draw(data, options);
-}
-</script>
-<div id="divModalNNV" class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"> Nhóm nhân viên - <span id="spanIdNNv"></span></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="txtMaNhom">Mã nhóm</label>
-                    <input type="text" class="form-control" id="txtMaNhom" aria-describedby="MaNhomHelp">
-                    <small id="MaNhomHelp" class="form-text text-muted">Mã nhóm không được trống !</small>
+    }
+
+    <div style="margin-left: 20%">
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+    </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var dataC = [
+                ['Task', 'Hours per Day'],
+
+            ];
+            for (var i = 0; i < lststatic.length; i++) {
+                var arr = [lststatic[i].MaNhom, lststatic[i].SoQuangCao];
+                dataC.push(arr);
+            }
+            var data = google.visualization.arrayToDataTable(dataC);
+            var options = {
+                title: 'Phần trăm các dự ác nhóm nhân viên đã làm'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+
+    <div id="piechart" style=" width:900px; height: 500px;"></div>
+
+    <div id="divModalNNV" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Nhóm nhân viên - <span id="spanIdNNv"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="form-group">
-                    <label for="txtTenNhom">Tên nhóm</label>
-                    <input type="text" class="form-control" id="txtTenNhom" aria-describedby="TenNhomHelp">
-                    <small id="TenNhomHelp" class="form-text text-muted">Tên nhóm nhân viên không được trống !</small>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="txtMaNhom">Mã nhóm</label>
+                        <input type="text" class="form-control" id="txtMaNhom" aria-describedby="MaNhomHelp">
+                        <small id="MaNhomHelp" class="form-text text-muted">Mã nhóm không được trống !</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtTenNhom">Tên nhóm</label>
+                        <input type="text" class="form-control" id="txtTenNhom" aria-describedby="TenNhomHelp">
+                        <small id="TenNhomHelp" class="form-text text-muted">Tên nhóm nhân viên không được trống !</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtMaNT">Mã nhóm trưởng</label>
+                        <input type="text" class="form-control" id="txtMaNT" aria-describedby="MaNTHelp">
+                        <small id="MaNTHelp" class="form-text text-muted">Mã nhóm trưởng không được trống !</small>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="txtMaNT">Mã nhóm trưởng</label>
-                    <input type="text" class="form-control" id="txtMaNT" aria-describedby="MaNTHelp">
-                    <small id="MaNTHelp" class="form-text text-muted">Mã nhóm trưởng không được trống !</small>
+                <div class="modal-footer">
+                    <button type="button" onclick="saveNhomNhanVien();" class="btn btn-primary">Lưu</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" onclick="saveNhomNhanVien();" class="btn btn-primary">Lưu</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
             </div>
         </div>
     </div>
-</div>
+    <script id="NnvTemplate" type="text/x-jquery-tmpl">
 
+        <tr id="trNnv_${maNhom}" style="text-align:center">
+            <td>${maNnv}</td>
+            <td>${tenNhom}</td>
+            <td>${maNT}</td>
+            <td>
+                <button style="margin-bottom:5px" type="button" onclick="openModalNNV('${maNnv}');" class="btn btn-outline-primary">Sửa</button>
+                <button type="button" onclick="deleteNhomNhanVien('${maNnv}');" class="btn btn-outline-danger">Xoá</button>
+            </td>
+        </tr>
+    </script>
 

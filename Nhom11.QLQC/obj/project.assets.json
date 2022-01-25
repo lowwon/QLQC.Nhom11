@@ -6197,19 +6197,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Thai Tuong\\.nuget\\packages\\": {}
+    "C:\\Users\\ngoca\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\QTM\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
+      "projectUniqueName": "C:\\Users\\ngoca\\OneDrive\\Desktop\\Github\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
       "projectName": "Nhom11.QLQC",
-      "projectPath": "C:\\QTM\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
-      "packagesPath": "C:\\Users\\Thai Tuong\\.nuget\\packages\\",
-      "outputPath": "C:\\QTM\\QLQC.Nhom11\\Nhom11.QLQC\\obj\\",
+      "projectPath": "C:\\Users\\ngoca\\OneDrive\\Desktop\\Github\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
+      "packagesPath": "C:\\Users\\ngoca\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ngoca\\OneDrive\\Desktop\\Github\\QLQC.Nhom11\\Nhom11.QLQC\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Thai Tuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ngoca\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6223,11 +6228,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\QTM\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
-              "projectPath": "C:\\QTM\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj"
+            "C:\\Users\\ngoca\\OneDrive\\Desktop\\Github\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
+              "projectPath": "C:\\Users\\ngoca\\OneDrive\\Desktop\\Github\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj"
             },
-            "C:\\QTM\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
-              "projectPath": "C:\\QTM\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+            "C:\\Users\\ngoca\\OneDrive\\Desktop\\Github\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+              "projectPath": "C:\\Users\\ngoca\\OneDrive\\Desktop\\Github\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
             }
           }
         }
@@ -6273,6 +6278,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.12, 5.0.12]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -6281,7 +6292,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
