@@ -44,22 +44,22 @@ namespace QLQC.DAL
         public bool Update(HopDongDTO hd)
         {
             bool res = false;
-            var s = db.HopDongs.FirstOrDefault(x => x.MaHd == hd.MaHD);
-            if (s.NgayKy != hd.NgayKy)
+            var c = db.HopDongs.FirstOrDefault(x => x.MaHd == hd.MaHD);
+            if (c.NgayKy != hd.NgayKy)
             {
-                s.NgayKy = hd.NgayKy;
+                c.NgayKy = hd.NgayKy;
             }
-            if (s.MaKh != hd.MaKH)
+            if (c.MaKh != hd.MaKH)
             {
-                s.MaKh = hd.MaKH;
+                c.MaKh = hd.MaKH;
             }
-            if (s.MaNv != hd.MaNV)
+            if (c.MaNv != hd.MaNV)
             {
-                s.MaNv = hd.MaNV;
+                c.MaNv = hd.MaNV;
             }
             try
             {
-                db.HopDongs.Update(s);
+                db.HopDongs.Update(c);
                 db.SaveChanges();
                 res = true;
             }
@@ -122,11 +122,11 @@ namespace QLQC.DAL
             };
             try
             {
-                var ls = db.HopDongs.ToList();
+                var lst2 = db.HopDongs.ToList();
                 var offset = (page - 1) * size;
-                var totalRecord = ls.Count();
+                var totalRecord = lst2.Count();
                 var totalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
-                var lst = ls.Skip(offset).Take(size);
+                var lst = lst2.Skip(offset).Take(size);
                 foreach (var c in lst)
                 {
                     HopDongDTO hdDto = new HopDongDTO();

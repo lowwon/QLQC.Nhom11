@@ -5,7 +5,8 @@
 
 @Html.AntiForgeryToken()
 <script type="text/javascript">
-    var dataHD = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var dataHD = @Html.Raw(JsonSerializer.Serialize(Model.lst1));
+    var dataHdx = @Html.Raw(JsonSerializer.Serialize(Model.lst));
     var dataStatic = @Html.Raw(JsonSerializer.Serialize(Model.lststatic));
     var curPageHD = 1;
     var totalPageHD = @Html.Raw(Model.TotalPage);
@@ -13,21 +14,21 @@
 
 <form method="post">
     <div class="row">
-        <div class="col-3 form-group" style="margin-left: 30px">
+        <div class="col-2 form-group">
             <label>Mã hợp đồng:</label>
             <input type="text" id="mhd" name="mhd" class="form-control" />
         </div>
-        <div class="col-3 form-group" style="margin-left: 30px">
+        <div class="col-3 form-group">
             <label>Mã nhân viên thực hiện: </label>
             <input type="text" id="mnv" name="mnv" class="form-control" />
         </div>
-        <div class="col-3 form-group" style="margin-left: 30px">
+        <div class="col-2 form-group">
             <label>Mã khách hàng: </label>
             <input type="text" id="mkh" name="mkh" class="form-control" />
         </div>
         <div class="col-1 form-group">
             <br />
-            <input style="margin-top: 5px;margin-left: 70px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
+            <input style="margin-top: 5px; margin-left: -25px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
         </div>
     </div>
 </form>
@@ -71,24 +72,24 @@
 @if (Request.Method.ToUpper() == "GET")
 {
     <table class="table table-success table-condensed">
-        <tr style="text-align:center">
+        <tr>
             <th>Mã hợp đồng</th>
             <th>Ngày ký kết</th>
             <th>Mã nhân viên thực hiện</th>
-            <th>Mã đối tác</th>
+            <th>Mã khách hàng</th>
             <th>Tác vụ</th>
         </tr>
         <tbody id="tbodyHD">
             @foreach (HopDongDTO hd in Model.lst)
             {
                 <tr id="trHd@hd.MaHd" style="text-align:center">
-                    <td>@hd.MaHD</td>
-                    <td>@hd.NgayKy</td>
-                    <td>@hd.MaNV</td>
-                    <td>@hd.MaKH</td>
+                    <th>@hd.MaHD</th>
+                    <th>@hd.NgayKy</th>
+                    <th>@hd.MaNV</th>
+                    <th>@hd.MaKH</th>
                     <td>
-                        <button type="button" onclick="openHopDong('@hd.MaHD');" class="btn btn-outline-primary">Sửa</button>
-                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()';)" class="btn btn-outline-danger">Xóa</button>
+                        <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-secondary btn-sm">Sửa</button>
+                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger btn-sm">Xóa</button>
                     </td>
                 </tr>
             }
@@ -106,7 +107,7 @@
 else if (Request.Method.ToUpper() == "POST")
 {
     <table class="table table-success table-condensed">
-        <tr  style="text-align:center">
+        <tr>
             <th>Mã hợp đồng</th>
             <th>Ngày ký kết</th>
             <th>Mã nhân viên thực hiện</th>
@@ -117,13 +118,13 @@ else if (Request.Method.ToUpper() == "POST")
             @foreach (HopDongDTO hd in Model.lst)
             {
                 <tr style="text-align:center">
-                    <td>@hd.MaHD</td>
-                    <td>@hd.NgayKy</td>
-                    <td>@hd.MaNV</td>
-                    <td>@hd.MaKH</td>
+                    <th>@hd.MaHD</th>
+                    <th>@hd.NgayKy</th>
+                    <th>@hd.MaNV</th>
+                    <th>@hd.MaKH</th>
                     <td>
-                        <button type="button" onclick="openHopDong('@hd.MaHD');" class="btn btn-outline-primary">Sửa</button>
-                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()';)" class="btn btn-outline-danger">Xóa</button>
+                        <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-secondary btn-sm">Sửa</button>
+                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger btn-sm">Xóa</button>
                     </td>
                 </tr>
             }
@@ -167,22 +168,23 @@ else if (Request.Method.ToUpper() == "POST")
 </div>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
         var dataC = [
-            ['Year', 'Hợp đồng'],
+            ['Ngày Ký', 'Hợp đồng'],
         ];
-        for(var i = 0; i < dataStatic.length;i++){
-            var arr = [dataStatic[i].NgayKy,dataStatic[i].SoHopDong];
+        for (var i = 0; i < dataStatic.length; i++) {
+            var arr = [dataStatic[i].NgayKy, dataStatic[i].SoHopDong];
+            console.log(arr);
             dataC.push(arr);
         }
         var data = google.visualization.arrayToDataTable(dataC);
         var options = {
-              chart: {
+            chart: {
                 title: 'Số hợp đồng đã kí của các năm',
-              }
-            };
+            }
+        };
         var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
         chart.draw(data, google.charts.Bar.convertOptions(options));
     }
@@ -194,34 +196,8 @@ else if (Request.Method.ToUpper() == "POST")
         <td>${maNV}</td>
         <td>${maKH}</td>
         <td>
-            <button type="button" onclick="openHopDong('${maHD}')" class="btn btn-outline-primary">Sửa</button>
+            <button style="margin-bottom:5px" type="button" onclick="openHopDong('${maHD}')" class="btn btn-outline-primary">Sửa</button>
             <button type="button" onclick="deleteHopDong('${maHD}')" class="btn btn-outline-danger">Xoá</button>
         </td>
     </tr>
 </script>
-@*//
-<script type="text/javascript" src="">
-////    //<script type="text/javascript">
-//      google.charts.load('current', {'packages':['corechart']});
-//      google.charts.setOnLoadCallback(drawChart);
-
-//      function drawChart() {
-
-//        var dataC = [
-//          ['Task', 'Hours per Day'],
-
-//        ];
-//        for(var i = 0; i < dataSta.length;i++){
-//            var arr = [dataSta[i].NgayKy,dataSta[i].SoHopDong];
-//            dataC.push(arr);
-//        }
-//        var data = google.visualization.arrayToDataTable(dataC);
-//        var options = {
-//          title: 'Phầm trăm hợp đồng đã kí của các năm'
-//        };
-
-//        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-//        chart.draw(data, options);
-//      }
-//    </script>*@

@@ -15,6 +15,7 @@ namespace Nhom11.QLQC.Pages
     {
         private HopDongBLL bus;
         public List<HopDongDTO> lst;
+        public List<HopDongDTO> lst1;
         public List<HopDongStatic> lststatic;
         public int TotalPage;
 
@@ -32,15 +33,15 @@ namespace Nhom11.QLQC.Pages
         {
             lststatic = bus.getHopDong();
             int size = 5;
+            lst1 = bus.GetAll().ToList();
             lst = bus.GetAll().Take(size).ToList();
             var totalRecord = bus.GetAll().Count();
             TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
-            lststatic = bus.getHopDong();
         }
 
         public IActionResult OnPostList(string filter)
         {
-            var obj = JsonConvert.DeserializeObject<Filter>(filter);
+            Filter obj = JsonConvert.DeserializeObject<Filter>(filter);
             var Data = bus.GetHDbyPage(obj.Page, obj.Size);
             return new ObjectResult(new { success = true, data = Data }) { StatusCode = 200 };
         }
@@ -48,7 +49,8 @@ namespace Nhom11.QLQC.Pages
         public void OnPost()
         {
             lststatic = bus.getHopDong();
-            lst = bus.GetAll().ToList();
+            lst1 = bus.GetAll().ToList();
+            List<HopDongDTO> lst2 = bus.GetAll().ToList();
             mhd = Request.Form["mhd"];
             mkh = Request.Form["mkh"];
             mnv = Request.Form["mnv"];
@@ -58,25 +60,26 @@ namespace Nhom11.QLQC.Pages
             var temp3 = new List<HopDongDTO>();
             if (mhd != "")
             {
-                temp1 = (from c in lst
+                temp1 = (from c in lst2
                          where c.MaHD.Trim() == mhd.Trim()
                          select c).ToList();
-                lst = temp1;
+                lst2 = temp1;
             }
             if (mkh != "")
             {
-                temp2 = (from c in lst
+                temp2 = (from c in lst2
                          where c.MaKH.Trim() == mkh.Trim()
                          select c).ToList();
-                lst = temp2;
+                lst2 = temp2;
             }
             if (mnv != "")
             {
-                temp3 = (from c in lst
+                temp3 = (from c in lst2
                          where c.MaNV.Trim() == mnv.Trim()
                          select c).ToList();
-                lst = temp3;
+                lst2 = temp3;
             }
+            lst = lst2.ToList();
         }
 
         public IActionResult OnPostUpdate(string hd)

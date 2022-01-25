@@ -813,30 +813,33 @@ function getDataPageNv(page) {
     });
 }
 
-
-
-
-
-function openHopDong(id) {
-    if (id != null) {
+//Hop dong
+function openHopDong(id)
+{
+    if (id != null)
+    {
         $('#divModal').modal('show');
         $('#spanid').text(id);
-        var item = null;
-        for (var i = 0; i < dataHd.length; i++) {
-            item = dataHd[i];
-            if (item.MaHD == id) {
-                console.log(item);
+        var i = 0;
+        for (i = 0; i < dataHD.length; i++)
+        {
+            if (dataHD[i].MaHD == id)
+            {
+                console.log(dataHD[i]);
                 break;
             }
         }
-        $('#txtmhd').val(item.MaHD);
-        $('#txtnk').val(item.NgayKy);
-        $('#txtmnv').val(item.MaNV);
-        $('#txtmkh').val(item.MaKH);
+        var hd = dataHD[i];
+        console.log(hd);
+        $('#txtmhd').val(hd.MaHD);
+        $('#txtnk').val(hd.NgayKy);
+        $('#txtmnv').val(hd.MaNV);
+        $('#txtmkh').val(hd.MaKH);
     }
-    else {
+    else
+    {
         $('#divModalAdd').modal('show');
-        $('#spanidA').text("Thêm mới");
+        $('#spanidA').text("[Thêm mới]");
         $('#txtmhdA').val();
         $('#txtnkA').val();
         $('#txtmnvA').val();
@@ -844,7 +847,8 @@ function openHopDong(id) {
     }
 }
 
-function saveHopDong() {
+function saveHopDong()
+{
     var item = {};
     item.MaHd = $("#spanid").text();
     item.NgayKy = $("#txtnk").val();
@@ -854,103 +858,122 @@ function saveHopDong() {
     var str = JSON.stringify(item);
     console.log(str);
     $.ajax
-        ({
-            type: "POST",
-            url: "/HopDong?handler=Update",
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("XSRF-TOKEN",
-                    $('input:hidden[name="__RequestVerificationToken"]').val());
-            },
-            data: { hd: str },
-            dataType: "json",
-            success: function (res) {
-                console.log(res);
-                if (res.success === true || res.success == true) {
-                    console.log("Cap nhat thanh cong");
-                    alert("Cập nhật thành công!");
-                    location.reload();
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrow) {
-                alert("Cập nhật thất bại!");
-
+    ({
+        type: "POST",
+        url: "/HopDong?handler=Update",
+        beforeSend: function (xhr)
+        {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { hd: str },
+        dataType: "json",
+        success: function (res)
+        {
+            console.log(res);
+            if (res.success === true || res.success == true)
+            {
+                console.log("Cap nhat thanh cong!");
+                alert("Cập nhật thành công!");
+                location.reload();
             }
-        });
+        },
+        error: function (jqXHR, textStatus, errorThrow)
+        {
+            alert("Cập nhật thất bại!");
+        }
+    });
 }
-function deleteHopDong(mhd) {
+function deleteHopDong(mhd)
+{
     $.ajax
-        ({
-            type: "POST",
-            url: "/HopDong?handler=Delete",
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("XSRF-TOKEN",
-                    $('input:hidden[name="__RequestVerificationToken"]').val());
-            },
-            data: { mhd: mhd },
-            dataType: "json",
-            success: function (res) {
-                console.log(res);
-                if (res.success === true || res.success == true) {
-                    alert("Xoá thành công!");
-                    location.reload();
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrow) {
-                alert("Xoá thất bại!");
+    ({
+        type: "POST",
+        url: "/HopDong?handler=Delete",
+        beforeSend: function (xhr)
+        {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { mhd: mhd },
+        dataType: "json",
+        success: function (res)
+        {
+            console.log(res);
+            if (res.success === true || res.success == true) {
+                alert("Xoá thành công!");
+                location.reload();
             }
-        });
+        },
+        error: function (jqXHR, textStatus, errorThrow)
+        {
+            alert("Xoá thất bại!");
+        }
+    });
 }
 
-function addHopDong() {
+function addHopDong()
+{
     var item = {};
-    item.MaHd = $('#txtmhdA').val();
-    item.MaKh = $('#txtmkhA').val();
-    item.MaNv = $('#txtmnvA').val();
+    item.MaHD = $('#txtmhdA').val();
+    item.MaKH = $('#txtmkhA').val();
+    item.MaNV = $('#txtmnvA').val();
     item.NgayKy = $('#txtnkA').val();
     var str = JSON.stringify(item);
     console.log(str);
     $.ajax
-        ({
-            type: "POST",
-            url: "/HopDong?handler=Add",
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val());
-            },
-            data: { Hd: str },
-            dataType: "json",
-            success: function (res) {
-                console.log(res);
-                if (res.success === true || res.success == true) {
-                    console.log("Thêm mới thành công");
-                    alert("Thêm mới thành công!");
-                    location.reload();
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrow) {
-                alert("Thêm mới thất bại!");
+    ({
+        type: "POST",
+        url: "/HopDong?handler=Add",
+        beforeSend: function (xhr)
+        {
+            xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { Hd: str },
+        dataType: "json",
+        success: function (res)
+        {
+            console.log(res);
+            if (res.success === true || res.success == true)
+            {
+                console.log("Them moi thanh cong!");
+                alert("Thêm mới thành công!");
+                location.reload();
             }
-        });
+        },
+        error: function (jqXHR, textStatus, errorThrow)
+        {
+            alert("Thêm mới thất bại!");
+        }
+    });
 }
-function goPrevHD() {
-    if (curPageHD == 1) {
+
+function goPrevHD()
+{
+    if (curPageHD == 1)
+    {
         alert("Bạn đang ở trang đầu!");
     }
-    else {
+    else
+    {
         curPageHD = curPageHD - 1;
         getDataPageHD(curPageHD);
     }
 }
 
-function goNextHD() {
+function goNextHD()
+{
     if (curPageHD == totalPageHD) {
         alert("Bạn đang ở trang cuối!")
     }
-    else {
+    else
+    {
         curPageHD = curPageHD + 1;
         getDataPageHD(curPageHD);
     }
 }
-function getDataPageHD(page) {
+function getDataPageHD(page)
+{
     var filter =
     {
         Page: page,
@@ -958,31 +981,37 @@ function getDataPageHD(page) {
     };
     var str = JSON.stringify(filter);
     console.log(str);
-    $.ajax({
+    $.ajax
+    ({
         type: "POST",
         url: "/HopDong?handler=List",
-        beforeSend: function (xhr) {
+        beforeSend: function (xhr)
+        {
             xhr.setRequestHeader("XSRF-TOKEN",
                 $('input:hidden[name="__RequestVerificationToken"]').val());
         },
         data: { filter: str },
         dataType: "json",
-        success: function (res) {
-            if (res.success === true || res.success == true) {
+        success: function (res)
+        {
+            if (res.success === true || res.success == true)
+            {
                 console.log(res.data);
                 var data = res.data;
-                dataHD = data.data;
+                dataHdx = data.data;
                 totalPageHD = data.totalPage;
                 $('#tbodyHD').html("");
-                $('#hdTemplate').tmpl(dataHD).appendTo("#tbodyHD");
+                $('#hdTemplate').tmpl(dataHdx).appendTo("#tbodyHD");
                 $('#spanCurPageHD').text(curPageHD);
             }
         },
-        error: function (jqXHR, textStatus, errorThrow) {
-            alert("Không thể qua trang!");
+        error: function (jqXHR, textStatus, errorThrow)
+        {
+            alert("Cập nhật thất bại!");
         }
     });
 }
+
 //nhom nhan vien
 function openModalNNV(id) {
     $('#divModalNNV').modal('show');
