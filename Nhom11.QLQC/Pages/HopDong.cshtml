@@ -14,7 +14,7 @@
 
 <form method="post">
     <div class="row">
-        <div class="col-2 form-group">
+        <div class="col-3 form-group">
             <label>Mã hợp đồng:</label>
             <input type="text" id="mhd" name="mhd" class="form-control" />
         </div>
@@ -22,13 +22,13 @@
             <label>Mã nhân viên thực hiện: </label>
             <input type="text" id="mnv" name="mnv" class="form-control" />
         </div>
-        <div class="col-2 form-group">
+        <div class="col-3 form-group">
             <label>Mã khách hàng: </label>
             <input type="text" id="mkh" name="mkh" class="form-control" />
         </div>
-        <div class="col-1 form-group">
+        <div class="col-3 form-group">
             <br />
-            <input style="margin-top: 5px; margin-left: -25px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
+            <input style="margin-top: 5px; margin-left: 170px" type="submit" class="btn btn-primary" value="Tìm kiếm" />
         </div>
     </div>
 </form>
@@ -72,7 +72,7 @@
 @if (Request.Method.ToUpper() == "GET")
 {
     <table class="table table-success table-condensed">
-        <tr>
+        <tr style="text-align:center">
             <th>Mã hợp đồng</th>
             <th>Ngày ký kết</th>
             <th>Mã nhân viên thực hiện</th>
@@ -83,13 +83,13 @@
             @foreach (HopDongDTO hd in Model.lst)
             {
                 <tr id="trHd@hd.MaHd" style="text-align:center">
-                    <th>@hd.MaHD</th>
-                    <th>@hd.NgayKy</th>
-                    <th>@hd.MaNV</th>
-                    <th>@hd.MaKH</th>
+                    <td>@hd.MaHD</td>
+                    <td>@hd.NgayKy</td>
+                    <td>@hd.MaNV</td>
+                    <td>@hd.MaKH</td>
                     <td>
-                        <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-secondary btn-sm">Sửa</button>
-                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger btn-sm">Xóa</button>
+                        <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-primary">Sửa</button>
+                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger">Xóa</button>
                     </td>
                 </tr>
             }
@@ -107,7 +107,7 @@
 else if (Request.Method.ToUpper() == "POST")
 {
     <table class="table table-success table-condensed">
-        <tr>
+        <tr style="text-align:center">
             <th>Mã hợp đồng</th>
             <th>Ngày ký kết</th>
             <th>Mã nhân viên thực hiện</th>
@@ -118,13 +118,13 @@ else if (Request.Method.ToUpper() == "POST")
             @foreach (HopDongDTO hd in Model.lst)
             {
                 <tr style="text-align:center">
-                    <th>@hd.MaHD</th>
-                    <th>@hd.NgayKy</th>
-                    <th>@hd.MaNV</th>
-                    <th>@hd.MaKH</th>
+                    <td>@hd.MaHD</td>
+                    <td>@hd.NgayKy</td>
+                    <td>@hd.MaNV</td>
+                    <td>@hd.MaKH</td>
                     <td>
-                        <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-secondary btn-sm">Sửa</button>
-                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger btn-sm">Xóa</button>
+                        <button type="button" onclick="openHopDong('@hd.MaHD')" class="btn btn-outline-primary">Sửa</button>
+                        <button type="button" onclick="deleteHopDong('@hd.MaHD.Trim()')" class="btn btn-outline-danger">Xóa</button>
                     </td>
                 </tr>
             }

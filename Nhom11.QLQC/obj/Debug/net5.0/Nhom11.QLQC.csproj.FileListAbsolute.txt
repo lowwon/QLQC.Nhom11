@@ -745,3 +745,9 @@ C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\
 C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\ref\Nhom11.QLQC.dll
 C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Nhom11.QLQC.pdb
 C:\Users\ngoca\OneDrive\Desktop\Github\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Nhom11.QLQC.genruntimeconfig.cache
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Razor\Pages\HopDong_DoiTac.cshtml.g.cs
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Razor\Pages\HopDong_NhanVien.cshtml.g.cs
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Razor\Pages\HTQC_KhachHang.cshtml.g.cs
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Razor\Pages\NhanVien_HopDong_DoiTac.cshtml.g.cs
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Razor\Pages\NhanVien_NhomNhanVien.cshtml.g.cs
+C:\Users\quoch\OneDrive\Máy tính\QLQC.Nhom11\Nhom11.QLQC\obj\Debug\net5.0\Razor\Pages\NhanVien_QuangCao.cshtml.g.cs

@@ -11,37 +11,36 @@
     var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
 }
 <script>
-   @*var dataNnv = @Html.Raw(JsonSerializer.Serialize(Model.lst1));*@
-    var dataNnv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
+    var dataNNv = @Html.Raw(JsonSerializer.Serialize(Model.lst));
     var lststatic = @Html.Raw(JsonSerializer.Serialize(Model.lststatic));
     var curPageNnv = 1;
     var totalPageNnv = @Html.Raw(Model.TotalPage);
 </script>
 <form method="post">
     <div class="row">
-        <div class="col-2 form-group">
+        <div class="col-3 form-group">
             <label>      Mã nhóm :    </label>
             <input type="text" id="mn" name="mn" class="form-control" />
         </div>
-        <div class="col-2 form-group">
+        <div class="col-3 form-group">
             <label>Tên nhóm : </label>
             <input type="text" id="tn" name="tn" class="form-control" />
         </div>
-        <div class="col-2 form-group">
+        <div class="col-3 form-group">
             <label>Mã nhóm trưởng : </label>
             <input type="text" id="mnt" name="mnt" class="form-control" />
         </div>
         <div class="col-3 form-group">
             <br />
-            <input style="margin-top: 5px; margin-left: 70px" type="submit" class="btn btn-primary" id="tkx" value="Tìm kiếm" />
+            <input style="margin-top: 5px; margin-left: 170px" type="submit" class="btn btn-primary" id="tkx" value="Tìm kiếm" />
         </div>
     </div>
 </form>
 <br />
 <div class="text-center">
     <h2 style="display: inline-block"><b>Danh sách các nhóm nhân viên</b></h2>
-    <input style="float: right" onclick="openModalNhomNhanVienAdd()" type="button" class="btn btn-outline-success" value="Thêm mới" />
-
+    <input style="float: right" onclick="openModalNNV()" type="button" class="btn btn-outline-success" value="Thêm mới" />
+</div>
 
     @if (Request.Method.ToUpper() == "GET")
     {
@@ -128,11 +127,7 @@
             chart.draw(data, options);
         }
     </script>
-
-
-    <div id="piechart" style=" width:900px; height: 500px;"></div>
-
-    <div id="divModalNNV" class="modal" tabindex="-1" role="dialog">
+    <div style="text-align: left" id="divModalNNV" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">

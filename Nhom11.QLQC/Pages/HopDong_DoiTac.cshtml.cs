@@ -43,7 +43,7 @@ namespace Nhom11.QLQC.Pages
                 lst = bus.GetAll().ToList();
                 value = Request.Form["ass"];
                 var temp1 = new List<HopDongDTO>();
-                if (gt == "tnv")
+                if (gt == "tkh")
                 {
                     temp1 = (from hd in lst
                              join kh in lst1 on hd.MaKH equals kh.MaKH

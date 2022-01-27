@@ -109,11 +109,26 @@ function addQuangCao() {
         data: { qc: str },
         dataType: "json",
         success: function (res) {
-            console.log(res);
             if (res.success === true || res.success == true) {
-                console.log("Thêm mới thanh cong");
+                console.log(res);
                 alert("Thêm mới thành công!");
-                location.reload();
+                var obj = res.qc;
+                console.log(obj);
+                item.MaQc = obj.MaQc;
+                dataQc.push(item);
+                var htmlStr = '<tr style="text-align:center" id="trNv' + obj.maQc + '">';
+                htmlStr = htmlStr + '<td>' + obj.maQc + '</td>';
+                htmlStr = htmlStr + '<td>' + obj.ngBd + '</td>';
+                htmlStr = htmlStr + '<td>' + obj.ngKt + '</td>';
+                htmlStr = htmlStr + '<td>' + obj.soTien + '</td>';
+                htmlStr = htmlStr + '<td>' + obj.maNhom + '</td>';
+                htmlStr = htmlStr + '<td>' + obj.maKh + '</td>';
+                htmlStr = htmlStr + '<td>' + obj.yeuCau + '</td>';
+                htmlStr = htmlStr + '<td> <button type="submit" class="btn btn-outline-primary" > <a href="/QuangCaoVaLoaiQuangCao">Chi tiết</a></button> </td>';
+                htmlStr = htmlStr + '<td> <button style="margin-bottom:5px" type="button" onclick="openModalQuangCao((' + "'" + obj.maQc + "'" + ');" class="btn btn-outline-primary">Sửa</button>';
+                htmlStr = htmlStr + '<button type="button"  onclick="deleteQuangCao(' + "'" + obj.maQc + "'" + ');" class="btn btn-outline-danger">Xoá</button> </td>';
+                htmlStr = htmlStr + '</tr>';
+                $("#tblQc").append(htmlStr);
             }
         },
         error: function (jqXHR, textStatus, errorThrow) {
@@ -462,7 +477,6 @@ function openKH(id) {
     }
 
 }
-
 function saveKH() {
     if (($("#spanMaKH").text()) == "[Thêm mới]") {
         var item = {};
@@ -550,9 +564,7 @@ function deleteKH(id) {
         }
     });
 }
-
 //phan trang KH
-
 function goPrevKH() {
     if (curPageKH == 1) {
         alert("Bạn đang ở trang đầu!")
@@ -604,7 +616,6 @@ function getDataPageKH(page) {
         }
     });
 }
-
 // Bảng nhân viên 
 function openModalNV(id) {
     $('#divModalNV').modal('show');
@@ -911,7 +922,6 @@ function deleteHopDong(mhd)
         }
     });
 }
-
 function addHopDong()
 {
     var item = {};
@@ -947,7 +957,6 @@ function addHopDong()
         }
     });
 }
-
 function goPrevHD()
 {
     if (curPageHD == 1)
@@ -960,7 +969,6 @@ function goPrevHD()
         getDataPageHD(curPageHD);
     }
 }
-
 function goNextHD()
 {
     if (curPageHD == totalPageHD) {
@@ -1011,7 +1019,6 @@ function getDataPageHD(page)
         }
     });
 }
-
 //nhom nhan vien
 function openModalNNV(id) {
     $('#divModalNNV').modal('show');
@@ -1036,7 +1043,6 @@ function openModalNNV(id) {
         $("#txtTenNhom").val("");
     }
 }
-
 function saveNhomNhanVien() {
     if ($('#spanIdNNv').text() == "Thêm mới") {
         // Create
@@ -1056,10 +1062,8 @@ function saveNhomNhanVien() {
             data: { nnv: str },
             dataType: "json",
             success: function (res) {
-                console.log(res);
                 if (res.success === true || res.success == true) {
                     console.log(res.nnv);
-
                     var obj = res.nnv;
                     item.MaNhom = obj.maNhom;
                     alert("Thêm mới thành công!");
