@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using QLQC.BLL;
 using QLQC.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,6 +27,7 @@ namespace Nhom11.QLQC.Pages
         public void OnGet()
         {
             int size = 5;
+            lst1 = bus.GetAll().ToList();
             lst = bus.GetAll().Take(size).ToList();
             var totalRecord = bus.GetAll().Count();
             TotalPage = (totalRecord % size) == 0 ? (int)(totalRecord / size) : (int)((totalRecord / size) + 1);
@@ -79,7 +81,7 @@ namespace Nhom11.QLQC.Pages
                 return new ObjectResult(new { success = false, }) { StatusCode = 500 };
         }
 
-        public IActionResult OnPostDelete(string KHid)
+        public IActionResult OnPostDelete(String KHid)
         {
             var res = bus.Delete(KHid);
             if (res)

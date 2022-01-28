@@ -53,12 +53,6 @@ namespace Nhom11.QLQC.Pages
             sx1 = Request.Form["sx1"];
             sx2 = Request.Form["sx2"];
             var temp1 = new List<QuangCaoDTO>();
-            var temp2 = new List<QuangCaoDTO>();
-            var temp3 = new List<QuangCaoDTO>();
-            var temp4 = new List<QuangCaoDTO>();
-            var temp5 = new List<QuangCaoDTO>();
-            var temp6 = new List<QuangCaoDTO>();
-            var temp7 = new List<QuangCaoDTO>();
             if (mqc != "")
             {
                 temp1 = (from s in lst2
@@ -70,89 +64,82 @@ namespace Nhom11.QLQC.Pages
             {
                 if (nbd == "2018")
                 {
-                    temp2 = (from s in lst2
+                    temp1 = (from s in lst2
                              where s.NgBd.Value.Year < int.Parse(nbd)
                              select s).ToList();
-                    lst2 = temp2;
+                    lst2 = temp1;
                 }
                 else if (nbd == "2019")
                 {
-                    temp2 = (from s in lst2
+                    temp1 = (from s in lst2
                              where s.NgBd.Value.Year >= 2018 && s.NgBd.Value.Year < int.Parse(nbd)
                              select s).ToList();
-                    lst2 = temp2;
+                    lst2 = temp1;
                 }
                 else if (nbd == "2020")
                 {
-                    temp2 = (from s in lst2
+                    temp1 = (from s in lst2
                              where s.NgBd.Value.Year >= 2019 && s.NgBd.Value.Year < int.Parse(nbd)
                              select s).ToList();
-                    lst2 = temp2;
+                    lst2 = temp1;
                 }
                 else
                 {
-                    temp2 = (from s in lst2
+                    temp1 = (from s in lst2
                              where s.NgBd.Value.Year >= int.Parse(nbd)
                              select s).ToList();
-                    lst2 = temp2;
+                    lst2 = temp1;
                 }
             }
             if (st != "")
             {
                 decimal a = decimal.Parse(st);
-                temp3 = (from s in lst2
+                temp1 = (from s in lst2
                          where s.SoTien <= a
                          select s).ToList();
-                lst2 = temp3;
+                lst2 = temp1;
             }
             if (mn != "")
             {
-                temp4 = (from s in lst2
+                temp1 = (from s in lst2
                          where s.MaNhom.Trim() == mn.Trim()
                          select s).ToList();
-                lst2 = temp4;
+                lst2 = temp1;
             }
             if (mkh != "")
             {
-                temp5 = (from s in lst2
+                temp1 = (from s in lst2
                          where s.MaKh.Trim() == mkh.Trim()
                          select s).ToList();
-                lst2 = temp5;
+                lst2 = temp1;
             }
             if (sx1 != "")
             {
                 if (sx1 == "tangdan")
                 {
-                    temp6 = lst2.OrderBy(x => x.NgBd).ToList();
-                    //temp6 = (from s in lst2
-                    //         orderby s.NgBd ascending
-                    //         select s).ToList();
+                    temp1 = lst2.OrderBy(x => x.NgBd).ToList();
                 }
                 else
                 {
-                    temp6 = lst2.OrderByDescending(x => x.NgBd).ToList();
-
-                    //temp6 = (from s in lst2
-                    //         orderby s.NgBd descending
-                    //         select s).ToList();
+                    temp1 = lst2.OrderByDescending(x => x.NgBd).ToList();
                 }
-                lst2 = temp6;
+                lst2 = temp1;
             }
             if (sx2 != "")
             {
                 if (sx2 == "tangdan")
                 {
-                    temp7 = (from s in lst2
+                    temp1 = (from s in lst2
                              orderby s.SoTien ascending
                              select s).ToList();
                 }
                 else
                 {
-                    temp7 = (from s in lst2
+                    temp1 = (from s in lst2
                              orderby s.SoTien descending
                              select s).ToList();
                 }
-                lst2 = temp7;
+                lst2 = temp1;
             }
             lst = lst2.ToList();
            

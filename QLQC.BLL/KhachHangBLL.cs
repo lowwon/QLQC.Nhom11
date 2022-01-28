@@ -31,7 +31,7 @@ namespace QLQC.BLL
             return dal.Update(KH);
         }
 
-        public bool Delete(string KHid)
+        public bool Delete(String KHid)
         {
             return dal.Delete(KHid);
         }

@@ -35,7 +35,6 @@ namespace Nhom11.QLQC.Pages
             mlqc = Request.Form["mlqc"];
             ht = Request.Form["ht"];
             var temp1 = new List<LoaiQcDTO>();
-            var temp2 = new List<LoaiQcDTO>();
             if(mlqc != "")
             {
                 temp1 = (from s in lst
@@ -45,10 +44,10 @@ namespace Nhom11.QLQC.Pages
             }
             if (ht != "")
             {
-                temp2 = (from s in lst
+                temp1 = (from s in lst
                          where s.HinhThuc.Trim() == ht.Trim()
                          select s).ToList();
-                lst = temp2;
+                lst = temp1;
             }
         }
         public IActionResult OnPostUpdate(String lqc)

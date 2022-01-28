@@ -49,8 +49,6 @@ namespace Nhom11.QLQC.Pages
             mlqc = Request.Form["mlqc"];
             ht = Request.Form["ht"];
             var temp1 = new List<QC_LQCDTO>();
-            var temp2 = new List<QC_LQCDTO>();
-            var temp3 = new List<QC_LQCDTO>();
             if (mqc != "")
             {
                 temp1 = (from s in lstemp
@@ -60,20 +58,20 @@ namespace Nhom11.QLQC.Pages
             }
             if (mlqc != "")
             {
-                temp2 = (from s in lstemp
+                temp1 = (from s in lstemp
                          where s.MaLoai.Trim() == mlqc.Trim()
                          select s).ToList();
-                lstemp = temp2;
+                lstemp = temp1;
             }
             if (ht != "")
             {
-                temp3 = (from s in lstemp
+                temp1 = (from s in lstemp
                          join c in lst1 on s.MaLoai equals c.MaLoai into fg
                          from fgi in (from f in fg
                                       where f.HinhThuc.Trim() == ht.Trim()
                                       select f)
                          select s).ToList();
-                lstemp = temp3;
+                lstemp = temp1;
             }
             lst = lstemp;
         }

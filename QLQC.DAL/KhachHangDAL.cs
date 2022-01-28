@@ -71,7 +71,7 @@ namespace QLQC.DAL
         }
 
         //Xóa
-        public bool Delete(string KHid)
+        public bool Delete(String KHid)
         {
             bool res = false;
             var c = db.KhachHangs.FirstOrDefault(x => x.MaKh.Trim() == KHid.Trim());

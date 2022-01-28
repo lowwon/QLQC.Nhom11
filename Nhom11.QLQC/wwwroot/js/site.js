@@ -454,23 +454,22 @@ function openKH(id) {
         $('#divModal').modal('show');
         $("#spanMaKH").text(id);
         var item = null;
+        console.log("text : " + id);
         for (var i = 0; i < dataKH.length; i++) {
-            item = dataKH[i];
-            if (item.maKH == id) {
-                console.log(item);
+            if (dataKH[i].MaKH == id) {
+                console.log(dataKH[i].MaKH);
                 break;
             }
         }
-
-        $("#txtMaKH").val(item.maKH);
-        $("#txtTenKH").val(item.tenKH);
-        $("#txtGT").val(item.gt);
-        $("#txtEmailKH").val(item.email);
+        $("#txtMaKH").val(dataKH[i].MaKH);
+        $("#txtTenKH").val(dataKH[i].TenKH);
+        $("#txtGT").val(dataKH[i].GT);
+        $("#txtEmailKH").val(dataKH[i].Email);
     }
     else {
         $('#divModal').modal('show');
         $("#spanMaKH").text("[Thêm mới]");
-        $("#txtmaKH").val("");
+        $("#txtMaKH").val("");
         $("#txtTenKH").val("");
         $("#txtGT").val("");
         $("#txtEmailKH").val("");
@@ -543,6 +542,7 @@ function saveKH() {
 
 }
 function deleteKH(id) {
+    console.log(id),
     $.ajax({
         type: "POST",
         url: "/DoiTac?handler=Delete",
@@ -604,10 +604,11 @@ function getDataPageKH(page) {
             if (res.success === true || res.success == true) {
                 console.log(res.data);
                 var data = res.data;
-                dataKH = data.data;
+                dataKH1 = data.data;
+                
                 totalPageKH = data.totalPage;
                 $('#tbodyKH').html("");
-                $('#khTemplate').tmpl(dataKH).appendTo("#tbodyKH");
+                $('#khTemplate').tmpl(dataKH1).appendTo("#tbodyKH");
                 $('#spanCurPageKH').text(curPageKH);
             }
         },
@@ -751,18 +752,8 @@ function deleteNhanVien(id) {
         success: function (res) {
             console.log(res);
             if (res.success === true || res.success == true) {
-                //console.log("Xóa thành công");
-                location.reload();
-                //$("#trNv_" + id).remove();
-                var i = 0;
-                for (var i = 0; i < dataNv.length; i++) {
-                    var nhanvien = dataNv[i];
-                    if (nhanvien.MaNv == item.MaNv) {
-                        break;
-                    }
-                }
-                dataNv.splice(i, 1);
                 alert("Xóa thành công!");
+                location.reload();
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -857,7 +848,6 @@ function openHopDong(id)
         $('#txtmkhA').val();
     }
 }
-
 function saveHopDong()
 {
     var item = {};
