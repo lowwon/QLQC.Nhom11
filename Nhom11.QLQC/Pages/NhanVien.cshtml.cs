@@ -56,9 +56,6 @@ namespace Nhom11.QLQC.Pages
             tnv = Request.Form["tnv"];
             nvl = Request.Form["nvl"];
             var temp1 = new List<NhanVienDTO>();
-            var temp2 = new List<NhanVienDTO>();
-            var temp3 = new List<NhanVienDTO>();
-            var temp4 = new List<NhanVienDTO>();
             if (mnv != "")
             {
                 temp1 = (from s in lst
@@ -68,40 +65,40 @@ namespace Nhom11.QLQC.Pages
             }
             if (tnv != "")
             {
-                temp2 = (from s in lst
+                temp1 = (from s in lst
                          where s.TenNv.ToLower().Contains(tnv.ToLower())
                          select s).ToList();
-                lst = temp2;
+                lst = temp1;
             }
             if (mn != "")
             {
-                temp3 = (from s in lst
+                temp1 = (from s in lst
                          where s.MaNhom.ToLower().Contains(mn.ToLower())
                          select s).ToList();
-                lst = temp3;
+                lst = temp1;
             }
             if (nvl != "")
             {
                 if (nvl == "2014")
                 {
-                    temp4 = (from s in lst
+                    temp1 = (from s in lst
                              where s.NgVaoLam.Value.Year < int.Parse(nvl)
                              select s).ToList();
-                    lst = temp4;
+                    lst = temp1;
                 }
                 else if (nvl == "2018")
                 {
-                    temp4 = (from s in lst
+                    temp1 = (from s in lst
                              where s.NgVaoLam.Value.Year >= 2014 && s.NgVaoLam.Value.Year < int.Parse(nvl)
                              select s).ToList();
-                    lst = temp4;
+                    lst = temp1;
                 }
                 else
                 {
-                    temp4 = (from s in lst
+                    temp1 = (from s in lst
                              where s.NgVaoLam.Value.Year >= 2018 && s.NgVaoLam.Value.Year < int.Parse(nvl)
                              select s).ToList();
-                    lst = temp4;
+                    lst = temp1;
                 }
             }
         }

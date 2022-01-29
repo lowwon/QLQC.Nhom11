@@ -56,8 +56,6 @@ namespace Nhom11.QLQC.Pages
             mnv = Request.Form["mnv"];
             nk = Request.Form["nk"];
             var temp1 = new List<HopDongDTO>();
-            var temp2 = new List<HopDongDTO>();
-            var temp3 = new List<HopDongDTO>();
             if (mhd != "")
             {
                 temp1 = (from c in lst2
@@ -67,17 +65,17 @@ namespace Nhom11.QLQC.Pages
             }
             if (mkh != "")
             {
-                temp2 = (from c in lst2
+                temp1 = (from c in lst2
                          where c.MaKH.Trim() == mkh.Trim()
                          select c).ToList();
-                lst2 = temp2;
+                lst2 = temp1;
             }
             if (mnv != "")
             {
-                temp3 = (from c in lst2
+                temp1 = (from c in lst2
                          where c.MaNV.Trim() == mnv.Trim()
                          select c).ToList();
-                lst2 = temp3;
+                lst2 = temp1;
             }
             lst = lst2.ToList();
         }

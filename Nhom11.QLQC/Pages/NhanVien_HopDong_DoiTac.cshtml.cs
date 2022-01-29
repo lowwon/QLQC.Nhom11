@@ -40,7 +40,6 @@ namespace Nhom11.QLQC.Pages
             mkhnv = Request.Form["mkhnv"];
             tkhnv = Request.Form["tkhnv"];
             var temp1 = new List<NhanVienDTO>();
-            var temp2 = new List<NhanVienDTO>();
             if (mkhnv != "")
             {
                 temp1 = (from n in lst
@@ -52,12 +51,12 @@ namespace Nhom11.QLQC.Pages
             }
             else if (tkhnv != "")
             {
-                temp2 = (from n in lst
+                temp1 = (from n in lst
                          join h in lst1 on n.MaNv equals h.MaNV
                          join k in lst2 on h.MaKH equals k.MaKH
                          where k.TenKH.Contains(tkhnv.Trim())
                          select n).ToList();
-                lst = temp2;
+                lst = temp1;
             }
             else
             {

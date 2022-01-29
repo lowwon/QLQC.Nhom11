@@ -37,7 +37,6 @@ namespace Nhom11.QLQC.Pages
             mnnnv = Request.Form["mnnnv"];
             tn = Request.Form["tn"];
             var temp1 = new List<NhanVienDTO>();
-            var temp2 = new List<NhanVienDTO>();
             if (mnnnv != "")
             {
                 temp1 = (from nv in lst
@@ -48,11 +47,11 @@ namespace Nhom11.QLQC.Pages
             }
             else if (tn != "")
             {
-                temp2 = (from nv in lst
+                temp1 = (from nv in lst
                          join nnv in lst1 on nv.MaNhom equals nnv.MaNhom
                          where nnv.TenNhom.ToLower().Contains(tn.ToLower())
                          select nv).ToList();
-                lst = temp2;
+                lst = temp1;
             }
             else
             {

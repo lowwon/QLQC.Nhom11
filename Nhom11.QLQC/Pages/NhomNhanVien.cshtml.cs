@@ -42,9 +42,6 @@ namespace Nhom11.QLQC.Pages
             tn = Request.Form["tn"];
             mnt = Request.Form["mnt"];
             var temp1 = new List<NhomNhanVienDTO>();
-            var temp2 = new List<NhomNhanVienDTO>();
-            var temp3 = new List<NhomNhanVienDTO>();
-
             if (mn != "")
             {
                 temp1 = (from s in lst2
@@ -54,17 +51,17 @@ namespace Nhom11.QLQC.Pages
             }
             if (tn != "")
             {
-                temp2 = (from s in lst2
+                temp1 = (from s in lst2
                          where s.TenNhom.Trim() == tn.Trim()
                          select s).ToList();
-                lst2 = temp2;
+                lst2 = temp1;
             }
             if (mnt != "")
             {
-                temp3 = (from s in lst2
+                temp1 = (from s in lst2
                          where s.MaNT.Trim() == mnt.Trim()
                          select s).ToList();
-                lst2 = temp3;
+                lst2 = temp1;
             }
             lst = lst2.ToList();
 
