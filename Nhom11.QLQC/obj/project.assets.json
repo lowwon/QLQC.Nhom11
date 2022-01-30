@@ -6202,11 +6202,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
+      "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
       "projectName": "Nhom11.QLQC",
-      "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
+      "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
       "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\Nhom11.QLQC\\obj\\",
+      "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\Nhom11.QLQC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6223,11 +6223,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
-              "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj"
+            "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
+              "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj"
             },
-            "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
-              "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+            "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+              "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
             }
           }
         }

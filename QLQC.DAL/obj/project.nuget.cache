@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5/T53Ip4sZFJuUIoJB9krO1Zt6Bt4pDXwYfanlah2uq7yxT7gZf0uqXgz3xgaNaGAA+FaGkL3EvjM+19vqQ3vw==",
+  "dgSpecHash": "QJ72EAHSo92bnRz6tqEawwG3ZdCLl4ZT7yHyovPx+ZgEb9Srxu7ChIeiaAFqB0uf4waJtk/ZZH3OI+f9ToL10w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
+  "projectFilePath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\quoch\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\quoch\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

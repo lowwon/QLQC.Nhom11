@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj": {}
+    "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj": {
+    "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
+        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
         "projectName": "Nhom11.QLQC",
-        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
+        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\Nhom11.QLQC\\Nhom11.QLQC.csproj",
         "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\Nhom11.QLQC\\obj\\",
+        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\Nhom11.QLQC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
-                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj"
+              "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
+                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj"
               },
-              "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
-                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+              "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
               }
             }
           }
@@ -90,14 +90,14 @@
         }
       }
     },
-    "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
+    "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj",
         "projectName": "QLQC.BLL",
-        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj",
+        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.BLL\\QLQC.BLL.csproj",
         "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.BLL\\obj\\",
+        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -114,11 +114,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj": {
-                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj"
+              "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj": {
+                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj"
               },
-              "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
-                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+              "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
               }
             }
           }
@@ -151,14 +151,14 @@
         }
       }
     },
-    "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj": {
+    "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
         "projectName": "QLQC.DAL",
-        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
+        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\QLQC.DAL.csproj",
         "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DAL\\obj\\",
+        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -175,8 +175,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
-                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
+              "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+                "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj"
               }
             }
           }
@@ -231,14 +231,14 @@
         }
       }
     },
-    "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
+    "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj",
+        "projectUniqueName": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj",
         "projectName": "QLQC.DTO",
-        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj",
+        "projectPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\QLQC.DTO.csproj",
         "packagesPath": "C:\\Users\\quoch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\QLQC.Nhom11\\QLQC.DTO\\obj\\",
+        "outputPath": "C:\\Users\\quoch\\OneDrive\\Máy tính\\New folder (2)\\QLQC.Nhom11\\QLQC.DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\quoch\\AppData\\Roaming\\NuGet\\NuGet.Config",
